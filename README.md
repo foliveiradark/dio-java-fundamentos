@@ -13,6 +13,9 @@ Este repositório contém exercícios práticos desenvolvidos durante meus estud
 ### ✔ Cálculo de idade
 Programa que recebe nome e ano de nascimento e calcula a idade.
 
+### ✔ Área do quadrado
+Programa que calcula a área de um quadrado a partir do valor do lado.
+
 ## 🛠 Tecnologias
 
 - Java
