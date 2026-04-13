@@ -21,6 +21,11 @@ Programa que calcula a área de um retângulo a partir da base e altura.
 
 Utiliza padrão internacional (Locale.US) para leitura de valores decimais.
 
+### ✔ Diferença de idade
+Programa que calcula a diferença de idade entre duas pessoas.
+
+Inclui tratamento de entrada para evitar problemas com leitura de dados (buffer do Scanner).
+
 ## 🛠 Tecnologias
 
 - Java
