@@ -1,6 +1,8 @@
+package fundamentos;
+
 import java.util.Scanner;
 
-public class Exercicio02_Quadrado {
+public class Exercicio02AreaQuadrado {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
 

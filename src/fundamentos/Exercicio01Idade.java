@@ -1,7 +1,9 @@
+package fundamentos;
+
 import java.time.OffsetDateTime;
 import java.util.Scanner;
 
-public class Exercicio01_Idade {
+public class Exercicio01Idade {
     public static void main(String[] args) {
         var baseYear = OffsetDateTime.now().getYear();
         var scanner = new Scanner(System.in);

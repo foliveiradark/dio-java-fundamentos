@@ -1,6 +1,8 @@
+package fundamentos;
+
 import java.util.Scanner;
 
-public class Exercicio04_DiferencaIdade {
+public class Exercicio04DiferencaIdade {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
 

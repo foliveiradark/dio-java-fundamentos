@@ -1,7 +1,9 @@
+package fundamentos;
+
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Exercicio03_Retangulo {
+public class Exercicio03AreaRetangulo {
     public  static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         scanner.useLocale(Locale.US);
