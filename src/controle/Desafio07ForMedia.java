@@ -9,7 +9,6 @@ public class Desafio07ForMedia {
         scanner.useLocale(Locale.US);
 
         double total = 0;
-        double media = 0;
 
         for (int i = 1; i <= 5; i++) {
             System.out.print("Digite o " + i + "° número: ");
@@ -17,7 +16,7 @@ public class Desafio07ForMedia {
 
             total += numero;
         }
-        media = total / 5;
+        var media = total / 5;
 
         System.out.println("\n===|Média Final|===");
         System.out.printf("Média: %.2f%n", media);
