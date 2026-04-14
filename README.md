@@ -10,7 +10,7 @@ Repositório com exercícios práticos desenvolvidos durante meus estudos de Jav
 - Formatação de saída (printf)
 - Tratamento de entrada com Locale.US
 - Manipulação de strings
-- Controle de fluxo básico
+- controle de fluxo básico
 
 ## 📌 Exercícios
 
