@@ -86,7 +86,8 @@ Exibe números pares ou ímpares dentro de um intervalo definido, em ordem decre
 
 Executa um loop contínuo até que uma condição matemática deixe de ser atendida.
 
----
+### ✔ Entrada segura de dados
+Implementação utilizando `try/catch` para validar entradas do usuário e evitar falhas com `InputMismatchException`.
 
 ## 🛠 Tecnologias
 
