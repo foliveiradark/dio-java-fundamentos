@@ -89,6 +89,9 @@ Executa um loop contínuo até que uma condição matemática deixe de ser atend
 ### ✔ Entrada segura de dados
 Implementação utilizando `try/catch` para validar entradas do usuário e evitar falhas com `InputMismatchException`.
 
+### ✔ Validação de entrada com regras de negócio
+Implementação que valida entrada do usuário garantindo valores positivos, utilizando tratamento de exceções e lançamento de exceções customizadas com `IllegalArgumentException`.
+
 ## 🛠 Tecnologias
 
 * Java
