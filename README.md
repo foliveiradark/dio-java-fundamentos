@@ -7,9 +7,24 @@
 
 ---
 
-Repositório com exercícios práticos desenvolvidos durante minha formação em Java pela plataforma Digital Innovation One (DIO).
+Repositório com exercícios práticos desenvolvidos durante minha formação em Java pela Digital Innovation One (DIO).
 
-Este projeto documenta minha evolução desde conceitos básicos até estruturas de controle e lógica aplicada.
+O objetivo deste projeto é demonstrar minha evolução em lógica de programação, estruturas de controle e tratamento de exceções, aplicando boas práticas desde os primeiros passos.
+
+---
+
+## 📂 Estrutura do projeto
+
+```
+src/
+ ├── fundamentos/
+ ├── controle/
+ └── excecoes/
+```
+
+* **fundamentos** → conceitos básicos e operações iniciais
+* **controle** → estruturas condicionais e loops
+* **excecoes** → tratamento de erros e validação de entrada
 
 ---
 
@@ -23,74 +38,40 @@ Este projeto documenta minha evolução desde conceitos básicos até estruturas
 * Operadores (`%`, `+=`, etc.)
 * Formatação de saída com `printf`
 * Tratamento de entrada com `Locale.US`
+* Tratamento de exceções (`try/catch`)
 * Validação de dados de entrada
-* Controle de fluxo e lógica de decisão
+* Separação de responsabilidades (métodos)
 
 ---
 
 ## 📌 Exercícios desenvolvidos
 
-### ✔ Cálculo de idade
+### ✔ Fundamentos
 
-Recebe nome e ano de nascimento e calcula a idade com base no ano atual.
+* Cálculo de idade
+* Área do quadrado
+* Área do retângulo
+* Diferença de idade
 
-### ✔ Área do quadrado
+### ✔ Estruturas de controle
 
-Calcula a área a partir do valor do lado.
-
-### ✔ Área do retângulo
-
-Calcula a área com base e altura.
-Inclui uso de `Locale.US` para leitura correta de números decimais.
-
-### ✔ Diferença de idade
-
-Calcula a diferença de idade entre duas pessoas.
-Inclui tratamento do buffer do `Scanner`.
-
-### ✔ Estruturas condicionais
-
-Classificação de números (positivo, negativo, zero, par e ímpar).
-
-### ✔ Classificação por idade
-
-Classifica entre criança, adolescente, adulto e idoso.
-
-### ✔ Menu interativo
-
-Simula um sistema com operações matemáticas utilizando `switch` e `loop`.
-
-### ✔ Estruturas de repetição (for)
-
-* Contagem crescente e decrescente
-* Números pares e ímpares
+* Classificação de números (positivo, negativo, zero, par e ímpar)
+* Classificação por faixa etária
+* Menu interativo com operações
+* Estruturas de repetição (for)
 * Tabuada
+* Soma acumulada
+* Média de valores
 
-### ✔ Soma acumulada
+### ✔ Tratamento de exceções
 
-Recebe múltiplos valores e calcula o total utilizando variável acumuladora.
+* Entrada segura com `try/catch`
+* Tratamento de `InputMismatchException`
+* Validação de regras de negócio
+* Uso de `IllegalArgumentException`
+* Implementação de exception personalizada
 
-### ✔ Média de valores
-
-Calcula a média de números informados pelo usuário.
-
-### ✔ Cálculo de IMC
-
-Calcula o Índice de Massa Corporal e classifica conforme faixas padrão.
-
-### ✔ Intervalo de números
-
-Exibe números pares ou ímpares dentro de um intervalo definido, em ordem decrescente.
-
-### ✔ Loop com validação por divisibilidade
-
-Executa um loop contínuo até que uma condição matemática deixe de ser atendida.
-
-### ✔ Entrada segura de dados
-Implementação utilizando `try/catch` para validar entradas do usuário e evitar falhas com `InputMismatchException`.
-
-### ✔ Validação de entrada com regras de negócio
-Implementação que valida entrada do usuário garantindo valores positivos, utilizando tratamento de exceções e lançamento de exceções customizadas com `IllegalArgumentException`.
+---
 
 ## 🛠 Tecnologias
 
@@ -102,11 +83,11 @@ Implementação que valida entrada do usuário garantindo valores positivos, uti
 
 ## 📈 Evolução
 
-Este repositório será atualizado conforme avanço nos estudos, incluindo:
+Este repositório será atualizado conforme avanço nos estudos:
 
 * Arrays e coleções
 * Programação Orientada a Objetos (POO)
-* Projetos mais complexos
+* Desenvolvimento de APIs com Spring Boot
 
 ---
 
@@ -114,3 +95,4 @@ Este repositório será atualizado conforme avanço nos estudos, incluindo:
 
 Flávio Oliveira
 🔗 https://github.com/foliveiradark
+
