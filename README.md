@@ -7,9 +7,11 @@
 
 ---
 
-Repositório com exercícios práticos desenvolvidos durante minha formação em Java pela Digital Innovation One (DIO).
+## 📖 Sobre o projeto
 
-O objetivo deste projeto é demonstrar minha evolução em lógica de programação, estruturas de controle e tratamento de exceções, aplicando boas práticas desde os primeiros passos.
+Repositório com exercícios práticos desenvolvidos durante minha formação em Java pela plataforma Digital Innovation One (DIO).
+
+Este projeto documenta minha evolução desde os fundamentos da linguagem até a construção de uma aplicação estruturada com **validação, tratamento de exceções e organização em camadas**, aproximando-se de cenários reais de backend.
 
 ---
 
@@ -20,11 +22,39 @@ src/
  ├── fundamentos/
  ├── controle/
  └── excecoes/
+      ├── v1/
+      └── v2/
 ```
 
 * **fundamentos** → conceitos básicos e operações iniciais
 * **controle** → estruturas condicionais e loops
-* **excecoes** → tratamento de erros e validação de entrada
+* **excecoes** → simulação de um sistema com tratamento de erros
+
+---
+
+## 🔄 Evolução do projeto
+
+### 📦 v1 — Implementação base (DIO)
+
+Versão desenvolvida acompanhando as aulas, com foco em:
+
+* Estrutura inicial de CRUD
+* Introdução ao uso de exceções
+* Organização básica do código
+
+---
+
+### 🚀 v2 — Versão refatorada (recomendada)
+
+Refatoração completa aplicando boas práticas de desenvolvimento:
+
+* Separação de responsabilidades (**DAO, Validator, Model, Exception**)
+* Correção de bugs (entrada de dados, update, fluxo)
+* Padronização de exceções (**checked vs unchecked**)
+* Validação centralizada
+* Código mais limpo e próximo de aplicações reais
+
+👉 **Esta é a versão recomendada para análise.**
 
 ---
 
@@ -32,19 +62,17 @@ src/
 
 * Entrada de dados com `Scanner`
 * Tipos primitivos (`int`, `double`)
-* Operações matemáticas
-* Estruturas condicionais (`if`, `else if`, `switch`)
+* Estruturas condicionais (`if`, `switch`)
 * Estruturas de repetição (`for`, `while`, `do while`)
 * Operadores (`%`, `+=`, etc.)
-* Formatação de saída com `printf`
-* Tratamento de entrada com `Locale.US`
+* Formatação com `printf`
 * Tratamento de exceções (`try/catch`)
-* Validação de dados de entrada
-* Separação de responsabilidades (métodos)
+* Validação de regras de negócio
+* Separação de responsabilidades (arquitetura em camadas)
 
 ---
 
-## 📌 Exercícios desenvolvidos
+## 📌 Funcionalidades desenvolvidas
 
 ### ✔ Fundamentos
 
@@ -55,21 +83,19 @@ src/
 
 ### ✔ Estruturas de controle
 
-* Classificação de números (positivo, negativo, zero, par e ímpar)
+* Classificação de números
 * Classificação por faixa etária
-* Menu interativo com operações
-* Estruturas de repetição (for)
+* Menu interativo
 * Tabuada
 * Soma acumulada
 * Média de valores
 
-### ✔ Tratamento de exceções
+### ✔ Tratamento de exceções (destaque)
 
-* Entrada segura com `try/catch`
-* Tratamento de `InputMismatchException`
-* Validação de regras de negócio
-* Uso de `IllegalArgumentException`
-* Implementação de exception personalizada
+* Entrada segura de dados
+* Validação com regras de negócio
+* Exceptions customizadas
+* Simulação de CRUD com tratamento de erros
 
 ---
 
@@ -81,13 +107,12 @@ src/
 
 ---
 
-## 📈 Evolução
-
-Este repositório será atualizado conforme avanço nos estudos:
+## 📈 Próximos passos
 
 * Arrays e coleções
 * Programação Orientada a Objetos (POO)
 * Desenvolvimento de APIs com Spring Boot
+* Integração com banco de dados
 
 ---
 
@@ -95,4 +120,5 @@ Este repositório será atualizado conforme avanço nos estudos:
 
 Flávio Oliveira
 🔗 https://github.com/foliveiradark
+
 
