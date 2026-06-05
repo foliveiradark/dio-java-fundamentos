@@ -4,6 +4,7 @@
 ![IDE](https://img.shields.io/badge/IDE-IntelliJ%20IDEA-black?style=for-the-badge\&logo=intellijidea)
 ![Status](https://img.shields.io/badge/status-em%20aprendizado-blue?style=for-the-badge)
 ![Curso](https://img.shields.io/badge/DIO-Java%20Developer-purple?style=for-the-badge)
+![Build Tool](https://img.shields.io/badge/Maven-3.9+-C71A36?style=for-the-badge\&logo=apachemaven\&logoColor=white)
 
 ---
 
@@ -11,24 +12,32 @@
 
 Repositório com exercícios práticos desenvolvidos durante minha formação em Java pela plataforma Digital Innovation One (DIO).
 
-Este projeto documenta minha evolução desde os fundamentos da linguagem até a construção de uma aplicação estruturada com **validação, tratamento de exceções e organização em camadas**, aproximando-se de cenários reais de backend.
+Este projeto documenta minha evolução desde os fundamentos da linguagem até conceitos mais avançados como tratamento de exceções, organização em camadas e gerenciamento de dependências com Maven.
+
+O objetivo é registrar minha jornada de aprendizado e a evolução das boas práticas aplicadas ao desenvolvimento Java.
 
 ---
 
 ## 📂 Estrutura do projeto
 
-```
+```text
 src/
  ├── fundamentos/
  ├── controle/
  └── excecoes/
       ├── v1/
       └── v2/
+
+maven/
+ └── maven-project/
 ```
 
+### Módulos
+
 * **fundamentos** → conceitos básicos e operações iniciais
-* **controle** → estruturas condicionais e loops
-* **excecoes** → simulação de um sistema com tratamento de erros
+* **controle** → estruturas condicionais e estruturas de repetição
+* **excecoes** → tratamento de erros, validações e CRUD de usuários
+* **maven** → primeiros estudos sobre gerenciamento de dependências e build de projetos Java
 
 ---
 
@@ -36,10 +45,10 @@ src/
 
 ### 📦 v1 — Implementação base (DIO)
 
-Versão desenvolvida acompanhando as aulas, com foco em:
+Versão desenvolvida acompanhando as aulas da DIO, com foco em:
 
 * Estrutura inicial de CRUD
-* Introdução ao uso de exceções
+* Introdução ao tratamento de exceções
 * Organização básica do código
 
 ---
@@ -48,27 +57,49 @@ Versão desenvolvida acompanhando as aulas, com foco em:
 
 Refatoração completa aplicando boas práticas de desenvolvimento:
 
-* Separação de responsabilidades (**DAO, Validator, Model, Exception**)
-* Correção de bugs (entrada de dados, update, fluxo)
-* Padronização de exceções (**checked vs unchecked**)
+* Separação de responsabilidades (DAO, Validator, Model e Exceptions)
+* Correção de bugs encontrados durante os estudos
+* Padronização de exceções (checked e unchecked)
 * Validação centralizada
-* Código mais limpo e próximo de aplicações reais
+* Código mais limpo e legível
+* Estrutura mais próxima de aplicações reais
 
-👉 **Esta é a versão recomendada para análise.**
+👉 Esta é a versão recomendada para análise.
 
 ---
 
 ## 🧠 Conceitos aplicados
 
-* Entrada de dados com `Scanner`
-* Tipos primitivos (`int`, `double`)
-* Estruturas condicionais (`if`, `switch`)
+### Fundamentos Java
+
+* Entrada de dados com Scanner
+* Tipos primitivos (`int`, `double`, `boolean`)
+* Operações matemáticas
+* Formatação de saída com `printf`
+
+### Estruturas de Controle
+
+* Condicionais (`if`, `else if`, `switch`)
+* Operador ternário
 * Estruturas de repetição (`for`, `while`, `do while`)
-* Operadores (`%`, `+=`, etc.)
-* Formatação com `printf`
-* Tratamento de exceções (`try/catch`)
+* Controle de fluxo
+
+### Tratamento de Exceções
+
+* `try`, `catch` e `finally`
+* Checked Exceptions
+* Unchecked Exceptions
+* Exceptions customizadas
 * Validação de regras de negócio
-* Separação de responsabilidades (arquitetura em camadas)
+
+### Maven
+
+* Instalação e configuração do Maven
+* Estrutura padrão de projetos Maven
+* Gerenciamento de dependências
+* Configuração do `pom.xml`
+* Ciclo de vida de build
+* Integração de bibliotecas externas
 
 ---
 
@@ -81,7 +112,7 @@ Refatoração completa aplicando boas práticas de desenvolvimento:
 * Área do retângulo
 * Diferença de idade
 
-### ✔ Estruturas de controle
+### ✔ Estruturas de Controle
 
 * Classificação de números
 * Classificação por faixa etária
@@ -89,36 +120,52 @@ Refatoração completa aplicando boas práticas de desenvolvimento:
 * Tabuada
 * Soma acumulada
 * Média de valores
+* Loops com validações
 
-### ✔ Tratamento de exceções (destaque)
+### ✔ Tratamento de Exceções
 
 * Entrada segura de dados
-* Validação com regras de negócio
+* Validação de regras de negócio
 * Exceptions customizadas
 * Simulação de CRUD com tratamento de erros
+
+### ✔ Maven
+
+* Criação de projeto Maven
+* Configuração de dependências
+* Build automatizado
+* Organização padrão de projetos Java
 
 ---
 
 ## 🛠 Tecnologias
 
 * Java
+* Maven
 * IntelliJ IDEA
-* Git e GitHub
+* Git
+* GitHub
 
 ---
 
 ## 📈 Próximos passos
 
-* Arrays e coleções
+* Arrays e Collections
 * Programação Orientada a Objetos (POO)
-* Desenvolvimento de APIs com Spring Boot
-* Integração com banco de dados
+* Streams API
+* Spring Boot
+* APIs REST
+* Banco de Dados
+* JPA/Hibernate
 
 ---
 
 ## 🚀 Autor
 
 Flávio Oliveira
-🔗 https://github.com/foliveiradark
+
+GitHub:
+https://github.com/foliveiradark
+
 
 
