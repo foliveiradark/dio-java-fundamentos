@@ -1,11 +1,12 @@
 # 📚 Fundamentos Java - DIO
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge\&logo=openjdk\&logoColor=white)
-![IDE](https://img.shields.io/badge/IDE-IntelliJ%20IDEA-black?style=for-the-badge\&logo=intellijidea)
-![Status](https://img.shields.io/badge/status-em%20aprendizado-blue?style=for-the-badge)
-![Curso](https://img.shields.io/badge/DIO-Java%20Developer-purple?style=for-the-badge)
-![Build Tool](https://img.shields.io/badge/Maven-3.9+-C71A36?style=for-the-badge\&logo=apachemaven\&logoColor=white)
+![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-black?style=for-the-badge&logo=intellijidea)
+![Maven](https://img.shields.io/badge/Maven-3.9+-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
+![Gradle](https://img.shields.io/badge/Gradle-8.x-02303A?style=for-the-badge&logo=gradle&logoColor=white)
 
+![Curso](https://img.shields.io/badge/DIO-Java%20Developer-purple?style=for-the-badge)
+![Status](https://img.shields.io/badge/status-em%20aprendizado-blue?style=for-the-badge)
 ---
 
 ## 📖 Sobre o projeto
@@ -21,15 +22,17 @@ O objetivo é registrar minha jornada de aprendizado e a evolução das boas pr�
 ## 📂 Estrutura do projeto
 
 ```text
-src/
- ├── fundamentos/
- ├── controle/
- └── excecoes/
-      ├── v1/
-      └── v2/
+gradle/
+  └── gradle-project
 
 maven/
- └── maven-project/
+  └── maven-project
+
+src/
+    ├── controle
+    ├── desafios
+    ├── excecoes
+    └── fundamentos
 ```
 
 ### Módulos
@@ -37,7 +40,9 @@ maven/
 * **fundamentos** → conceitos básicos e operações iniciais
 * **controle** → estruturas condicionais e estruturas de repetição
 * **excecoes** → tratamento de erros, validações e CRUD de usuários
+* **desafios** → Validação de cadastro, Contagem de códigos, Processamento de comandos
 * **maven** → primeiros estudos sobre gerenciamento de dependências e build de projetos Java
+* **Gradle** → primeiros estudos sobre gerenciamento de dependências e build de projetos Java
 
 ---
 
@@ -101,6 +106,14 @@ Refatoração completa aplicando boas práticas de desenvolvimento:
 * Ciclo de vida de build
 * Integração de bibliotecas externas
 
+### Gradle
+
+* Instalação e configuração do Gradle
+* Estrutura padrão de projetos Gradle
+* Gerenciamento de dependências
+* Configuração do arquivo `build.gradle` e`build.gradle.kts`
+* Ciclo de vida de build e tasks
+* Integração de bibliotecas externas
 ---
 
 ## 📌 Funcionalidades desenvolvidas
@@ -136,12 +149,29 @@ Refatoração completa aplicando boas práticas de desenvolvimento:
 * Build automatizado
 * Organização padrão de projetos Java
 
+### ✔ Gradle
+
+* Criação de projetos Gradle
+* Configuração de dependências
+* Build automatizado com tasks personalizadas
+* Estrutura flexível de projetos Java
+* Uso de DSL (Groovy/Kotlin) para configuração do build
+
+### 🔄 Migração entre Maven e Gradle
+
+* Conversão de dependências entre pom.xml e build.gradle
+* Adaptação de plugins e configurações de build
+* Entendimento da equivalência entre scopes do Maven e configurations do Gradle
+* Reestruturação da configuração do projeto durante a migração
+* Comparação de ciclo de vida de build entre Maven e Gradle
+* Identificação de diferenças de sintaxe e paradigma (XML vs DSL)
 ---
 
 ## 🛠 Tecnologias
 
 * Java
 * Maven
+* Gradle
 * IntelliJ IDEA
 * Git
 * GitHub
@@ -166,6 +196,3 @@ Flávio Oliveira
 
 GitHub:
 https://github.com/foliveiradark
-
-
-
