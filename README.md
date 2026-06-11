@@ -207,7 +207,7 @@ Profissional com experiência em Tecnologia da Informação, Gestão de Projetos
 ### 🔗 Contatos
 
 * GitHub: https://github.com/foliveiradark
-* LinkedIn: *adicione aqui seu perfil*
+* LinkedIn: https://www.linkedin.com/in/flaviocoliveira/
 
 ---
 
