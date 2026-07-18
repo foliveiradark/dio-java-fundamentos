@@ -1,0 +1,12 @@
+public class Vestuario extends Produto {
+
+    public Vestuario(String nome, double preco) {
+        super(nome, preco);
+    }
+
+    @Override
+    public double calcularTributo() {
+
+        return getPreco() * 0.025;
+    }
+}
