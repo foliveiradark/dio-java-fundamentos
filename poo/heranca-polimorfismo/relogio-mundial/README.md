@@ -30,6 +30,12 @@ Criar uma estrutura orientada a objetos onde diferentes tipos de relógios compa
 
 ---
 
+## 💡 Decisões de Projeto
+
+Foi criado o método `getHora24()` para centralizar a conversão entre os formatos de relógio brasileiro (24h) e americano (12h com AM/PM), desacoplando a lógica de conversão das subclasses.
+
+---
+
 # 🏗️ Estrutura do projeto
 
 ```text
