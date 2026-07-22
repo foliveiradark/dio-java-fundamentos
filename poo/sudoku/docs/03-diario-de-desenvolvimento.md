@@ -58,21 +58,23 @@ Também foi realizado o primeiro teste de integração do projeto, comprovando q
 
 ---
 
-## Situação atual do projeto
+### 📅 21/07/2026
 
-Sprint atual:
+## 🔄 Encerramento da Sprint 2
 
-✅ Sprint 1 concluída
+Foi concluída a implementação do carregamento automático do tabuleiro inicial.
 
-User Stories concluídas:
+O sistema passou a criar um tabuleiro completo utilizando uma matriz de dados e preencher automaticamente cada objeto `Casa`.
 
-- US-001 — Visualizar o tabuleiro
+Também foi validada a integração entre as camadas `util`, `model` e `ui`, permitindo a exibição correta do Sudoku no terminal.
 
-Próxima Sprint:
+### Aprendizados:
 
-Sprint 2
+* separar a origem dos dados do domínio da aplicação;
+* utilizar métodos de acesso para preservar o encapsulamento;
+* construir funcionalidades de forma incremental facilita a identificação de erros;
+* interpretar o stack trace do Java acelera a depuração.
 
-Objetivo:
+---
 
-Implementar a primeira versão jogável do Sudoku.
 

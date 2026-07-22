@@ -1,5 +1,7 @@
 package model;
 
+import util.Tabuleiros;
+
 public class Tabuleiro {
 
     private static final int TAMANHO = 9;
@@ -12,11 +14,12 @@ public class Tabuleiro {
 
         casas = new Casa[TAMANHO][TAMANHO];
 
-        for (int linha = 0; linha < TAMANHO; linha++) {
-            for (int coluna = 0; coluna < TAMANHO; coluna++) {
+        for (int linha = LIMITE_MINIMO; linha < TAMANHO; linha++) {
+            for (int coluna = LIMITE_MINIMO; coluna < TAMANHO; coluna++) {
                 casas[linha][coluna] = criarCasaVazia(linha, coluna);
             }
         }
+        carregarTabuleiroInicial();
     }
 
     private Casa criarCasaVazia(int linha, int coluna) {
@@ -46,4 +49,25 @@ public class Tabuleiro {
         }
 
     };
+
+    private void carregarTabuleiroInicial() {
+
+        Integer[][] dados = Tabuleiros.obterTabuleiroInicial();
+
+        for (int linha = LIMITE_MINIMO; linha < TAMANHO; linha++) {
+            for (int coluna = LIMITE_MINIMO; coluna < TAMANHO; coluna++) {
+
+                Integer valor = dados[linha][coluna];
+
+                if (valor != null) {
+
+                    Casa casa = getCasa(linha, coluna);
+
+                    casa.preencher(valor);
+
+                }
+            }
+        }
+
+    }
 }

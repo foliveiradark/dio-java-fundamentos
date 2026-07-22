@@ -3,7 +3,7 @@
 ---
 ## Informações Gerais
 >**ID:** US-001  
->**Sprint:** Sprint 2  
+>**Sprint:** Sprint 1  
 >**Prioridade:** Alta 🔴  
 >**Status:** Concluído ✅
 

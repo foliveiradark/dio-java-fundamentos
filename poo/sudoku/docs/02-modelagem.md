@@ -1,5 +1,6 @@
 # Modelagem do Sistema
 
+---
 ## Visão Geral
 
 O sistema será dividido em duas camadas principais:
@@ -7,15 +8,21 @@ O sistema será dividido em duas camadas principais:
 - Domínio: responsável pelas regras do Sudoku.
 - Interface: responsável pela interação com o usuário.
 
+---
+
 ## Classes do Domínio
 
 - JogoSudoku
 - Tabuleiro
 - Casa
 
+---
+
 ## Classes da Interface
 
 - Menu
+
+---
 
 ## Relacionamentos
 
