@@ -54,4 +54,9 @@ public class ConsolePrinter {
         }
         return String.valueOf(casa.getNumero());
     }
+
+    public void imprimirEncerramento() {
+
+        System.out.println("Saindo do jogo...");
+    }
 }

@@ -22,43 +22,25 @@ Este projeto tem como objetivo praticar Programação Orientada a Objetos em Jav
 ---
 # 🔄 Fluxo de Desenvolvimento
 
-```
+```text
 Sprint Planning
-
 ↓
-
 Documentação inicial
-
 ↓
-
 Implementação incremental
-
 ↓
-
 Build
-
 ↓
-
-Code Review
-
-↓
-
 Testes
-
 ↓
-
+Code Review
+↓
 Atualização da documentação
-
 ↓
-
 Definition of Done
-
 ↓
-
 Commit
-
 ↓
-
 Push
 ```
 ---
@@ -95,12 +77,45 @@ Sempre que possível:
 # 📚 Documentação
 
 Toda documentação será mantida atualizada durante o projeto.
+ 
+## 📂 Documentação do Projeto
+
+Cada documento possui uma responsabilidade específica.
+
+| Documento | Objetivo |
+|-----------|----------|
+| Guia | Processo de desenvolvimento |
+| Roadmap | Evolução macro do produto |
+| Backlog | Lista priorizada das funcionalidades |
+| Sprint | Planejamento da Sprint |
+| User Story | Especificação da funcionalidade |
+| ADR | Registro de decisões arquiteturais |
+| Diário | Evolução do desenvolvimento |
+| Changelog | Histórico das entregas |
+
+# 📁 Fluxo dos Documentos
+```text
+Roadmap
+↓
+Backlog
+↓
+Sprint
+↓
+User Story
+↓
+Implementação
+↓
+Diário
+↓
+Changelog
+```
 
 ## Antes da implementação
 
-- Sprint
-- User Story
-- ADR (quando necessário)
+- Consultar o Backlog
+- Planejar a Sprint
+- Criar User Story
+- Criar ADR (quando necessário)
 
 ## Após a implementação
 
@@ -110,8 +125,9 @@ Toda documentação será mantida atualizada durante o projeto.
 
 ## Encerramento da Sprint
 
-- Sprint
-- Backlog
+- Atualizar Sprint
+- Atualizar Backlog (quando houver mudança de status)
+- Revisar Roadmap (quando aplicável)
 
 ---
 
@@ -185,7 +201,7 @@ O objetivo do DoD é garantir qualidade, rastreabilidade e consistência durante
 
 # 🌳 Organização do Projeto
 
-```
+```text
 src/
 ├── model
 ├── ui
@@ -258,7 +274,8 @@ Sempre que possível, o projeto utilizará como referência:
 - documentação oficial das bibliotecas utilizadas.
 
 Fontes externas deverão ser identificadas e registradas na documentação do projeto.  
-Quando uma fonte externa for utilizada, sua origem deverá ser registrada na documentação correspondente (ADR, User Story ou Diário de Desenvolvimento).
+Quando uma fonte externa for utilizada, sua origem deverá ser registrada na documentação 
+correspondente (ADR, User Story ou Diário de Desenvolvimento).
 ---
 
 # 🚀 Objetivo Final

@@ -1,19 +1,12 @@
-import model.Casa;
-import model.Tabuleiro;
-import ui.ConsolePrinter;
+import service.JogoSudoku;
 
 public class Main {
 
-    private static final String SEPARADOR =
-            "=================================";
-
     public static void main(String[] args) {
 
-        Tabuleiro tabuleiro = new Tabuleiro();
+        JogoSudoku jogo = new JogoSudoku();
 
-        ConsolePrinter printer = new ConsolePrinter();
-
-        printer.imprimir(tabuleiro);
+        jogo.iniciar();
 
     }
 

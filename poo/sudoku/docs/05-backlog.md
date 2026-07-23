@@ -1,11 +1,13 @@
 # Product Backlog
 
-## Visão do Produto
+---
+# 🎯 Objetivo
 
-Desenvolver um jogo de Sudoku para execução inicialmente em terminal, permitindo ao jogador iniciar partidas, inserir e remover números, validar jogadas e concluir corretamente o quebra-cabeça.
+O Product Backlog representa a lista priorizada de funcionalidades do projeto.
+
+As User Stories serão selecionadas para as Sprints conforme a evolução do desenvolvimento.
 
 ---
-
 # MVP (Produto Mínimo Viável)
 
 ## US-001 — Visualizar o tabuleiro
@@ -18,11 +20,11 @@ Para acompanhar o estado atual do jogo.
 
 Prioridade: 🔴 Alta
 
-Status: ⏳
+Status: ✅ Concluído
 
 ---
 
-## US-002 — Carregar um jogo
+## US-002 — Carregar o Tabuleiro Inicial
 
 **Como jogador**
 
@@ -32,11 +34,24 @@ Para começar um novo Sudoku.
 
 Prioridade: 🔴 Alta
 
-Status: ⏳
+Status: ✅ Concluído
 
 ---
 
-## US-003 — Inserir um número
+## US-003 — Menu Principal
+
+**Como jogador**
+
+Quero visualizar o menu principal
+
+Para iniciar uma nova partida ou acessar as opções do jogo.
+
+Prioridade: 🔴 Alta
+
+Status: ✅ Concluído
+---
+
+## US-004 — Inserir um número
 
 **Como jogador**
 
@@ -50,7 +65,7 @@ Status: ⏳
 
 ---
 
-## US-004 — Remover um número
+## US-005 — Remover um número
 
 **Como jogador**
 
@@ -64,7 +79,7 @@ Status: ⏳
 
 ---
 
-## US-005 — Verificar o status do jogo
+## US-006 — Verificar o status do jogo
 
 **Como jogador**
 
@@ -78,7 +93,7 @@ Status: ⏳
 
 ---
 
-## US-006 — Limpar o tabuleiro
+## US-007 — Limpar o tabuleiro
 
 **Como jogador**
 
@@ -92,7 +107,7 @@ Status: ⏳
 
 ---
 
-## US-007 — Finalizar partida
+## US-008 — Finalizar partida
 
 **Como jogador**
 
@@ -100,7 +115,7 @@ Quero concluir o jogo
 
 Quando o Sudoku estiver corretamente resolvido.
 
-Prioridade: 🔴 Alta
+Prioridade: 🟠 Média
 
 Status: ⏳
 
@@ -108,18 +123,18 @@ Status: ⏳
 
 # Melhorias Futuras
 
-## US-008 — Interface gráfica (Swing)
+## US-009 — Interface gráfica (Swing)
 
 Prioridade: 🟢 Baixa
 
 ---
 
-## US-009 — Sistema de rascunhos
+## US-010 — Sistema de rascunhos
 
 Prioridade: 🟢 Baixa
 
 ---
 
-## US-010 — Estatísticas da partida
+## US-011 — Estatísticas da partida
 
 Prioridade: 🟢 Baixa

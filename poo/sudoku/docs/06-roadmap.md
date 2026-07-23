@@ -1,107 +1,69 @@
 # 🗺️ Roadmap do Projeto
 
-> Planejamento macro do desenvolvimento do projeto Sudoku.
+> Planejamento estratégico da evolução do projeto Sudoku.
 
 ---
 
 # 🎯 Objetivo
 
-Construir um jogo de Sudoku utilizando Java e Programação Orientada a Objetos, aplicando práticas profissionais de arquitetura, documentação, versionamento e desenvolvimento incremental.
+Desenvolver um jogo de Sudoku em Java aplicando Programação Orientada a Objetos 
+e boas práticas de Engenharia de Software.
 
 ---
 
-# 📌 Fase 1 — Fundação do Projeto
+# 📍 Fase 1 — Fundação
 
-## Status
+Status: ✅ Concluída
 
-✅ Concluída
+Objetivo:
 
-### Entregas
-
-- Planejamento inicial
-- Requisitos
-- Modelagem
-- Arquitetura
-- Backlog
-- Guia de Desenvolvimento
-- Estrutura do projeto
-- Classe `Casa`
-- Classe `Tabuleiro`
-- Primeira visualização do tabuleiro
+Construir a base arquitetural do projeto.
 
 ---
 
-# 📌 Fase 2 — Inicialização da Partida
+# 📍 Fase 2 — Interação com o Jogador
 
-## Status
+Status: 🟡 Em andamento
 
-🟡 Em andamento
+Objetivo:
 
-### Entregas previstas
-
-- Carregar tabuleiro inicial
-- Criar `util.Tabuleiros`
-- Implementar `JogoSudoku`
-- Iniciar partida
-- Exibir tabuleiro carregado
+Permitir que o jogador interaja com o sistema.
 
 ---
 
-# 📌 Fase 3 — Jogabilidade
+# 📍 Fase 3 — Regras do Sudoku
 
-## Status
+Status: ⬜ Planejada
 
-⬜ Planejada
+Objetivo:
 
-### Entregas previstas
-
-- Inserção de números
-- Remoção de números
-- Validação das jogadas
-- Verificação de erros
-- Atualização do estado do jogo
+Implementar todas as regras de validação do jogo.
 
 ---
 
-# 📌 Fase 4 — Finalização da Partida
+# 📍 Fase 4 — Finalização
 
-## Status
+Status: ⬜ Planejada
 
-⬜ Planejada
+Objetivo:
 
-### Entregas previstas
-
-- Verificação de vitória
-- Reinício da partida
-- Encerramento do jogo
-- Melhorias na interface
+Permitir concluir partidas e reiniciar jogos.
 
 ---
 
-# 📌 Fase 5 — Organização Final
+# 📍 Fase 5 — Release 1.0
 
-## Status
+Status: ⬜ Planejada
 
-⬜ Planejada
+Objetivo:
 
-### Entregas previstas
-
-- Revisão geral da arquitetura
-- Refatoração
-- Revisão da documentação
-- Índice da documentação (`docs/README.md`)
-- Revisão dos ADRs
-- Revisão das User Stories
-- Revisão das Sprints
-- Revisão do Changelog
-- README definitivo
-- Release 1.0
+Revisar arquitetura, documentação e disponibilizar a primeira versão estável.
 
 ---
 
-# 🚀 Visão do Produto
+# 🚀 Resultado Esperado
 
-Ao final do projeto o repositório deverá demonstrar conhecimentos em:
+Ao final do projeto, o repositório deverá demonstrar conhecimentos em:
 
 - Java
 - Programação Orientada a Objetos
@@ -110,4 +72,4 @@ Ao final do projeto o repositório deverá demonstrar conhecimentos em:
 - Git
 - Documentação Técnica
 - Organização de Projetos
-- Boas práticas de desenvolvimento
+- Desenvolvimento Incremental

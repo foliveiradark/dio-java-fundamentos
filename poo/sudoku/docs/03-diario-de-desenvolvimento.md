@@ -77,4 +77,22 @@ Também foi validada a integração entre as camadas `util`, `model` e `ui`, per
 
 ---
 
+---
 
+### 📅 22/07/2026
+
+## 🔄 Encerramento da Sprint 3
+
+Foi implementado o primeiro fluxo de execução da aplicação.
+
+A partir desta Sprint o jogador consegue iniciar o sistema, visualizar o menu principal, informar uma opção e permanecer na aplicação até solicitar seu encerramento.
+
+Também foi criada a estrutura inicial responsável pela interação com o usuário através das classes `Menu`, `ConsoleInput` e `ConsolePrinter`.
+
+### Aprendizados
+
+* coordenação do fluxo da aplicação;
+* utilização de laços de repetição;
+* separação entre entrada, saída e lógica do sistema;
+* evolução da arquitetura sem criar abstrações prematuras;
+* importância da responsabilidade única para cada classe.

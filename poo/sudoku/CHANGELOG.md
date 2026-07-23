@@ -25,6 +25,12 @@ O formato segue o padrão Keep a Changelog.
 - Carregamento automático do tabuleiro.
 - Integração entre `Tabuleiro` e `Tabuleiros`.
 - Exibição dos números fixos.
+- Classe `JogoSudoku`.
+- Classe `ConsoleInput`.
+- Fluxo principal da aplicação.
+- Exibição do menu principal.
+- Leitura das opções do usuário.
+- Encerramento da aplicação pelo menu.
 
 ### Corrigido
 
