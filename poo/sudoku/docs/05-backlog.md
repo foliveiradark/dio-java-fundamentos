@@ -61,11 +61,39 @@ Para resolver o Sudoku.
 
 Prioridade: 🔴 Alta
 
+Status: ✅ Concluído
+
+---
+
+## US-005 — Tratar jogadas inválidas
+
+**Critérios:**
+
+* Não encerrar a aplicação após erro;
+* Exibir mensagem amigável;
+* Permitir nova tentativa.
+
+Prioridade: 🔴 Alta
+
 Status: ⏳
 
 ---
 
-## US-005 — Remover um número
+## US-006 — Melhorar a identificação das coordenadas do tabuleiro
+
+**Critérios:**
+
+* Exibir índices de linhas; 
+* Exibir índices de colunas; 
+* Facilitar a interação do jogador.
+
+Prioridade: 🔴 Alta
+
+Status: ⏳
+
+---
+
+## US-007 — Remover um número
 
 **Como jogador**
 
@@ -79,7 +107,7 @@ Status: ⏳
 
 ---
 
-## US-006 — Verificar o status do jogo
+## US-008 — Verificar o status do jogo
 
 **Como jogador**
 
@@ -93,7 +121,7 @@ Status: ⏳
 
 ---
 
-## US-007 — Limpar o tabuleiro
+## US-009 — Limpar o tabuleiro
 
 **Como jogador**
 
@@ -107,7 +135,7 @@ Status: ⏳
 
 ---
 
-## US-008 — Finalizar partida
+## US-010 — Finalizar partida
 
 **Como jogador**
 
@@ -123,18 +151,21 @@ Status: ⏳
 
 # Melhorias Futuras
 
-## US-009 — Interface gráfica (Swing)
+## US-011 — Interface gráfica (Swing)
 
 Prioridade: 🟢 Baixa
 
 ---
 
-## US-010 — Sistema de rascunhos
+## US-012 — Sistema de rascunhos
 
 Prioridade: 🟢 Baixa
 
 ---
 
-## US-011 — Estatísticas da partida
+## US-013 — Estatísticas da partida
 
 Prioridade: 🟢 Baixa
+
+---
+

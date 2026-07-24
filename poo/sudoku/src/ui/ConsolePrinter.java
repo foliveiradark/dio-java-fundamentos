@@ -59,4 +59,19 @@ public class ConsolePrinter {
 
         System.out.println("Saindo do jogo...");
     }
+
+    public void imprimirSolicitacaoLinha() {
+
+        System.out.print("Informe a linha: ");
+    }
+
+    public void imprimirSolicitacaoColuna() {
+
+        System.out.print("Informe a coluna: ");
+    }
+
+    public void imprimirSolicitacaoNumero() {
+
+        System.out.print("Informe o número: ");
+    }
 }

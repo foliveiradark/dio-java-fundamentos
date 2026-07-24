@@ -110,22 +110,23 @@ Diário
 Changelog
 ```
 
-## Antes da implementação
+## Antes da implementação (Sprint Planning)
 
 - Consultar o Backlog
 - Planejar a Sprint
 - Criar User Story
 - Criar ADR (quando necessário)
 
-## Após a implementação
+## Durante a implementação
 
-- Diário de Desenvolvimento
-- Changelog
-- Atualizar a User Story (alterando o status, quando aplicável)
+- Atualizar a User Story (alterando o status, quando aplicável)q
 
 ## Encerramento da Sprint
 
+- Atualizar a User Story
 - Atualizar Sprint
+- Atualizar o Diário de Desenvolvimento
+- Atualizar o Changelog
 - Atualizar Backlog (quando houver mudança de status)
 - Revisar Roadmap (quando aplicável)
 

@@ -77,8 +77,6 @@ Também foi validada a integração entre as camadas `util`, `model` e `ui`, per
 
 ---
 
----
-
 ### 📅 22/07/2026
 
 ## 🔄 Encerramento da Sprint 3
@@ -96,3 +94,38 @@ Também foi criada a estrutura inicial responsável pela interação com o usuá
 * separação entre entrada, saída e lógica do sistema;
 * evolução da arquitetura sem criar abstrações prematuras;
 * importância da responsabilidade única para cada classe.
+
+---
+## 📅 23/07/2026
+
+## Encerramento da Sprint 04
+
+### Testes da US-004
+
+Durante os testes manuais da funcionalidade de inserção de números foi identificado um ponto de melhoria na experiência do usuário.
+
+### Aprendizados
+
+- Diferença entre regra de domínio e experiência do usuário.
+- Importância de validar funcionalidades por meio de testes.
+- Refatoração pode eliminar bugs sem adicionar código de tratamento.
+- Objetos devem nascer em um estado consistente.
+- Cada método deve possuir uma única responsabilidade.
+
+### Observação
+
+O tabuleiro é exibido sem identificação visual das linhas e colunas, tornando mais difícil localizar a posição desejada para inserir um número.
+
+### Decisão
+
+A melhoria não será implementada nesta Sprint para manter o foco no escopo da US-004.
+
+Será avaliada futuramente para inclusão no Product Backlog.
+
+### Desafios encontrados
+
+- Identificação de inconsistência na criação das casas fixas.
+- Refatoração da inicialização do tabuleiro para preservar a imutabilidade do domínio.
+
+---
+

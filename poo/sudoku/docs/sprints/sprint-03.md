@@ -8,7 +8,8 @@ Criar a estrutura inicial de interação entre o jogador e a aplicação.
 
 ## 📦 Escopo
 
-Nesta Sprint será implementado o primeiro fluxo de execução do sistema, permitindo que o usuário visualize um menu principal e escolha uma ação.
+Nesta Sprint será implementado o primeiro fluxo de execução do sistema, 
+permitindo que o usuário visualize um menu principal e escolha uma ação.
 
 ---
 

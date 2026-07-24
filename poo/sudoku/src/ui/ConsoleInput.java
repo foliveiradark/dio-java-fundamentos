@@ -10,9 +10,10 @@ public class ConsoleInput {
         this.scanner = new Scanner(System.in);
     }
 
-    public int lerOpcao() {
+    public int lerInteiro() {
 
         return scanner.nextInt();
 
     }
+
 }

@@ -22,8 +22,17 @@ public class Tabuleiro {
         carregarTabuleiroInicial();
     }
 
-    private Casa criarCasaVazia(int linha, int coluna) {
+    private Casa criarCasaVazia(int linha,
+                                int coluna) {
+
         return new Casa(linha, coluna, null, false);
+    }
+
+    private  Casa criarCasaFixa(int linha,
+                                int coluna,
+                                Integer numero) {
+
+        return new Casa(linha, coluna, numero, true);
     }
     
     public Casa getCasa(int linha, int coluna) {
@@ -59,11 +68,13 @@ public class Tabuleiro {
 
                 Integer valor = dados[linha][coluna];
 
-                if (valor != null) {
+                if (valor == null) {
 
-                    Casa casa = getCasa(linha, coluna);
+                    casas[linha][coluna] = criarCasaVazia(linha, coluna);
 
-                    casa.preencher(valor);
+                } else {
+
+                    casas[linha][coluna] = criarCasaFixa(linha,coluna,valor);
 
                 }
             }

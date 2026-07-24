@@ -1,5 +1,6 @@
 package service;
 
+import model.Casa;
 import model.Tabuleiro;
 import ui.ConsoleInput;
 import ui.Menu;
@@ -19,11 +20,13 @@ public class JogoSudoku {
         this.consolePrinter = new ConsolePrinter();
     }
 
+    // Fluxo principal
     public void iniciar() {
         executarMenuPrincipal();
 
     }
 
+    // Menu principal
     private void executarMenuPrincipal() {
 
         boolean executando = true;
@@ -32,13 +35,55 @@ public class JogoSudoku {
 
             menu.exibir();
 
-            int opcao = consoleInput.lerOpcao();
+            int opcao = consoleInput.lerInteiro();
 
             if (opcao == 0) {
                 executando = false;
                 consolePrinter.imprimirEncerramento();
+            } else if (opcao == 1) {
+                iniciarNovaPartida();
             }
         }
+
+    }
+
+    // Fluxo da partida
+    private void iniciarNovaPartida() {
+        consolePrinter.imprimir(tabuleiro);
+
+        executarPartida();
+
+    }
+
+    private void executarPartida() {
+
+        boolean partidaEmAndamento = true;
+
+        while (partidaEmAndamento) {
+            consolePrinter.imprimirSolicitacaoLinha();
+            int linha = consoleInput.lerInteiro();
+
+            consolePrinter.imprimirSolicitacaoColuna();
+            int coluna = consoleInput.lerInteiro();
+
+            consolePrinter.imprimirSolicitacaoNumero();
+            int numero = consoleInput.lerInteiro();
+
+            executarJogada(linha,coluna,numero);
+        }
+
+    }
+
+    private void executarJogada (int linha,
+                                 int coluna,
+                                 int numero) {
+
+
+        Casa casa = tabuleiro.getCasa(linha,coluna);
+
+        casa.preencher(numero);
+
+        consolePrinter.imprimir(tabuleiro);
 
     }
 
