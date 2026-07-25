@@ -129,3 +129,14 @@ Será avaliada futuramente para inclusão no Product Backlog.
 
 ---
 
+📅 24/07/2026
+
+🔄 Encerramento da Sprint 5
+
+### Aprendizados
+
+- Tratamento de exceções melhora a experiência do usuário sem alterar as regras de negócio.
+- Exceções devem ser tratadas na camada capaz de decidir como reagir ao erro.
+- Separar domínio, serviço e interface torna o código mais flexível e fácil de evoluir.
+- Uma boa arquitetura reduz a necessidade de alterações em diferentes partes do sistema.
+- Testes manuais ajudam a identificar oportunidades de melhoria além do escopo inicial.

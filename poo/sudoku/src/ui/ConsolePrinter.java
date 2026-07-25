@@ -74,4 +74,9 @@ public class ConsolePrinter {
 
         System.out.print("Informe o número: ");
     }
+
+    public void imprimirErro(String mensagem) {
+
+        System.out.println(mensagem);
+    }
 }

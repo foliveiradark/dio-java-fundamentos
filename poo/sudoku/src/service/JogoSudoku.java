@@ -78,12 +78,18 @@ public class JogoSudoku {
                                  int coluna,
                                  int numero) {
 
+        try {
 
-        Casa casa = tabuleiro.getCasa(linha,coluna);
+            Casa casa = tabuleiro.getCasa(linha, coluna);
 
-        casa.preencher(numero);
+            casa.preencher(numero);
 
-        consolePrinter.imprimir(tabuleiro);
+            consolePrinter.imprimir(tabuleiro);
+
+        } catch (IllegalArgumentException e) {
+
+            consolePrinter.imprimirErro(e.getMessage());
+        }
 
     }
 

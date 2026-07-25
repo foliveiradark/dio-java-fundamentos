@@ -75,7 +75,7 @@ Status: ✅ Concluído
 
 Prioridade: 🔴 Alta
 
-Status: ⏳
+Status: ✅ Concluído
 
 ---
 
