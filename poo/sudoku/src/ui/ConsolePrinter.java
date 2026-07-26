@@ -7,18 +7,24 @@ public class ConsolePrinter {
 
     public void imprimir(Tabuleiro tabuleiro) {
 
-        for (int linha = 0; linha < 9; linha++) {
+        imprimirCabecalho();
 
-            imprimirLinha(tabuleiro, linha);
+        imprimirSeparadorHorizontal();
 
-            if (linha == 2 || linha == 5) {
-                imprimirSeparadorHorizontal();
-            }
-        }
+        imprimirTabuleiro(tabuleiro);
 
     }
 
+    private void imprimirCabecalho() {
+
+        System.out.println("  | 1 2 3 | 4 5 6 | 7 8 9");
+    }
+
     private void imprimirLinha(Tabuleiro tabuleiro, int linha) {
+
+        System.out.print(obterIdentificadorLinha(linha) + " ");
+
+        imprimirSeparadorVertical();
 
         for (int coluna = 0; coluna < 9; coluna++) {
 
@@ -35,6 +41,11 @@ public class ConsolePrinter {
         System.out.println();
     }
 
+    private char obterIdentificadorLinha(int linha){
+
+        return (char) ('A' + linha);
+    }
+
     private void imprimirSeparadorVertical() {
 
         System.out.print("| ");
@@ -43,8 +54,22 @@ public class ConsolePrinter {
 
     private void imprimirSeparadorHorizontal() {
 
-        System.out.println("------+-------+------");
+        System.out.println("--+-------+-------+------");
 
+    }
+
+    private void imprimirTabuleiro(Tabuleiro tabuleiro) {
+
+        for (int linha = 0; linha < 9; linha++) {
+
+            imprimirLinha(tabuleiro, linha);
+
+            if (linha == 2 || linha == 5) {
+                imprimirSeparadorHorizontal();
+            }
+        }
+
+        imprimirSeparadorHorizontal();
     }
 
     private String formatarValor(Casa casa) {

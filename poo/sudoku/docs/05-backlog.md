@@ -89,7 +89,7 @@ Status: ✅ Concluído
 
 Prioridade: 🔴 Alta
 
-Status: ⏳
+Status: ✅ Concluído
 
 ---
 
@@ -151,21 +151,44 @@ Status: ⏳
 
 # Melhorias Futuras
 
-## US-011 — Interface gráfica (Swing)
+## US-011 — Refinar a interface visual do tabuleiro
 
 Prioridade: 🟢 Baixa
 
 ---
 
-## US-012 — Sistema de rascunhos
+## US-012 — Permitir entrada de coordenadas em formato A1–I9
 
 Prioridade: 🟢 Baixa
 
 ---
 
-## US-013 — Estatísticas da partida
+## US-013 — Interface gráfica (Swing)
 
 Prioridade: 🟢 Baixa
 
 ---
 
+## US-014 — Sistema de rascunhos
+
+Prioridade: 🟢 Baixa
+
+---
+
+## US-015 — Estatísticas da partida
+
+Prioridade: 🟢 Baixa
+
+---
+
+# Pós-MVP
+
+* Persistência da partida
+* Níveis de dificuldade 
+* Gerador automático de Sudoku 
+* Resolver Sudoku automaticamente 
+* Testes automatizados 
+* Exportar partidas 
+* Histórico de partidas
+
+---

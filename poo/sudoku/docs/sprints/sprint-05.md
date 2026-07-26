@@ -34,8 +34,10 @@ Permitir que a aplicação trate erros durante a partida sem encerrar o jogo.
 
 ### Débitos técnicos identificados
 
-* Melhorar o fluxo de entrada para evitar que o jogador precise informar novamente linha e coluna após um erro no número.
-* Exibir a identificação visual das linhas e colunas do tabuleiro para facilitar a navegação do jogador.
+* Melhorar o fluxo de entrada para evitar que o jogador precise informar novamente linha e coluna 
+após um erro no número.
+* Exibir a identificação visual das linhas e colunas do tabuleiro para facilitar a navegação do 
+jogador.
 * Implementar validações específicas das regras do Sudoku após cada jogada.
 
 ---
