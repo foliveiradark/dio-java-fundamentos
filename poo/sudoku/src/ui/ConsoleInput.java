@@ -12,7 +12,15 @@ public class ConsoleInput {
 
     public int lerInteiro() {
 
-        return scanner.nextInt();
+        return Integer.parseInt(scanner.nextLine());
+
+    }
+
+    public boolean lerConfirmacao() {
+
+        String resposta = scanner.nextLine();
+
+        return resposta.trim().equalsIgnoreCase("S");
 
     }
 

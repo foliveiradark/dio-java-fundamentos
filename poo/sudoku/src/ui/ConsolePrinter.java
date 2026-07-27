@@ -104,4 +104,9 @@ public class ConsolePrinter {
 
         System.out.println(mensagem);
     }
+
+    public void imprimirSolicitacaoRemocao() {
+
+        System.out.print("Deseja remover o número? (S/N): ");
+    }
 }

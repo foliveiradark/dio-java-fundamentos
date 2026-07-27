@@ -103,7 +103,7 @@ Para corrigir um erro.
 
 Prioridade: 🔴 Alta
 
-Status: ⏳
+Status: ✅ Concluído
 
 ---
 

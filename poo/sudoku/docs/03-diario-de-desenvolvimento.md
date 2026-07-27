@@ -193,5 +193,32 @@ I ║ ∙ ∙ ∙ ║ ∙ 8 ∙ ║ ∙ 7 9 ║
 > Permitir que o jogador informe as coordenadas utilizando letras (A–I) para as linhas e
 > números (1–9) para as colunas, convertendo automaticamente esses valores para os índices internos
 > utilizados pelo domínio.
+```
+---
+
+📅 26/07/2026
+
+🔄 Encerramento da Sprint 7
+
+### Aprendizados
+
+Durante a implementação da funcionalidade de remoção de jogadas foi possível
+reforçar conceitos importantes relacionados à separação de responsabilidades
+entre as classes da aplicação.
+
+O fluxo da partida passou a decidir entre inserir ou remover um número,
+enquanto os métodos `executarJogada()` e `removerJogada()` permaneceram
+responsáveis apenas por suas respectivas operações.
+
+Também foi identificado um comportamento do `Scanner` ao combinar
+`nextInt()` com `nextLine()`. A solução adotada consistiu em padronizar a
+leitura das entradas utilizando `nextLine()` juntamente com
+`Integer.parseInt()`, tornando a classe `ConsoleInput` mais consistente e
+facilitando futuras evoluções.
+
+### Observação
+
+A implementação foi concluída sem a necessidade de alterações adicionais no
+Product Backlog.
 
 ---

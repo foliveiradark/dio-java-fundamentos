@@ -66,10 +66,23 @@ public class JogoSudoku {
             consolePrinter.imprimirSolicitacaoColuna();
             int coluna = consoleInput.lerInteiro();
 
-            consolePrinter.imprimirSolicitacaoNumero();
-            int numero = consoleInput.lerInteiro();
+            consolePrinter.imprimirSolicitacaoRemocao();
+            boolean remover = consoleInput.lerConfirmacao();
 
-            executarJogada(linha,coluna,numero);
+
+            if (remover) {
+
+                removerJogada(linha, coluna);
+
+            } else {
+
+                consolePrinter.imprimirSolicitacaoNumero();
+                int numero = consoleInput.lerInteiro();
+
+                executarJogada(linha,coluna,numero);
+
+            }
+
         }
 
     }
@@ -89,6 +102,25 @@ public class JogoSudoku {
         } catch (IllegalArgumentException e) {
 
             consolePrinter.imprimirErro(e.getMessage());
+        }
+
+    }
+
+    private void removerJogada(int linha,
+                               int coluna) {
+
+        try {
+
+            Casa casa = tabuleiro.getCasa(linha, coluna);
+
+            casa.removerNumero();
+
+            consolePrinter.imprimir(tabuleiro);
+
+        } catch (IllegalArgumentException e) {
+
+            consolePrinter.imprimirErro(e.getMessage());
+
         }
 
     }
