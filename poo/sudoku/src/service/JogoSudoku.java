@@ -1,5 +1,6 @@
 package service;
 
+import enums.StatusPartida;
 import model.Casa;
 import model.Tabuleiro;
 import ui.ConsoleInput;
@@ -69,7 +70,6 @@ public class JogoSudoku {
             consolePrinter.imprimirSolicitacaoRemocao();
             boolean remover = consoleInput.lerConfirmacao();
 
-
             if (remover) {
 
                 removerJogada(linha, coluna);
@@ -80,6 +80,15 @@ public class JogoSudoku {
                 int numero = consoleInput.lerInteiro();
 
                 executarJogada(linha,coluna,numero);
+
+                consolePrinter.imprimirSolicitacaoStatusPartida();
+                boolean confirmarConsulta = consoleInput.lerConfirmacao();
+
+                if (confirmarConsulta) {
+
+                    consolePrinter.imprimirStatusPartida(verificarStatusPartida());
+
+                }
 
             }
 
@@ -122,6 +131,26 @@ public class JogoSudoku {
             consolePrinter.imprimirErro(e.getMessage());
 
         }
+
+    }
+
+    private StatusPartida verificarStatusPartida() {
+        
+        if (tabuleiro.possuiCasasVazias()) {
+
+            return StatusPartida.INCOMPLETA;
+
+        }
+
+        if (tabuleiro.possuiErrosNasLinhas()
+                || tabuleiro.possuiErrosNasColunas()
+                || tabuleiro.possuiErrosNosBlocos()) {
+
+            return StatusPartida.COMPLETA_INVALIDA;
+
+        }
+
+        return StatusPartida.COMPLETA_VALIDA;
 
     }
 

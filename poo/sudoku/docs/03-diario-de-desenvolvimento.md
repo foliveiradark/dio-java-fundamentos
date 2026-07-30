@@ -222,3 +222,26 @@ A implementação foi concluída sem a necessidade de alterações adicionais no
 Product Backlog.
 
 ---
+
+---
+
+### 📅 30/07/2026
+
+## 🔄 Encerramento da Sprint 8
+
+Foi implementado o mecanismo de verificação do estado da partida.
+
+A aplicação passou a identificar automaticamente quando o Sudoku permanece incompleto, quando foi concluído corretamente e quando apresenta inconsistências nas regras do jogo.
+
+A solução reutilizou os mecanismos de validação já existentes para linhas, colunas e blocos, evitando duplicação de lógica e preservando a arquitetura construída nas Sprints anteriores.
+
+### Aprendizados
+
+- reutilizar funcionalidades existentes reduz complexidade;
+- um enum facilita a representação de estados do domínio;
+- separar a determinação do estado da sua apresentação melhora a organização da aplicação;
+- testes controlados podem utilizar massas de dados temporárias sem necessidade de alterar a arquitetura do sistema.
+
+### Observação
+
+Para validar os estados `COMPLETA_VALIDA` e `COMPLETA_INVALIDA` foi utilizada temporariamente uma solução do tabuleiro obtida por meio do resolvedor Playoku. Após a conclusão dos testes, o tabuleiro original foi restaurado.

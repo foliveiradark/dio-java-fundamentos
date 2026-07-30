@@ -33,6 +33,30 @@ Tabuleiro
 Casa
 ```
 ---
+Responsabilidades:
+```text
+JogoSudoku
+
+↓
+
+Descobre o status
+
+↓
+
+Entrega o StatusPartida
+
+↓
+
+ConsolePrinter
+
+↓
+
+Mostra ao jogador
+
+```
+
+---
+
 ```text
 Ler linha
 ↓
@@ -49,6 +73,59 @@ Perguntar confirmação
              Ler número
              ↓
              executarJogada(linha,coluna,numero)
+```
+
+---
+
+```text
+Possui casas vazias?
+│
+├── Sim
+│      ↓
+│  INCOMPLETA
+│
+└── Não
+       │
+       ├── Possui erro nas linhas?
+       │
+       ├── Possui erro nas colunas?
+       │
+       ├── Possui erro nos blocos?
+       │
+       ├── Sim
+       │      ↓
+       │ COMPLETA_INVALIDA
+       │
+       └── Não
+              ↓
+        COMPLETA_VALIDA
+```
+
+---
+
+```text
+Tabuleiro
+│
+├── possuiCasasVazias()
+├── possuiErrosNasLinhas()
+├── possuiErrosNasColunas()
+└── possuiErrosNosBlocos()
+
+           │
+           ▼
+
+JogoSudoku
+│
+└── verificarStatusPartida()
+
+           │
+           ▼
+
+StatusPartida
+│
+├── INCOMPLETA
+├── COMPLETA_VALIDA
+└── COMPLETA_INVALIDA
 ```
 
 ---

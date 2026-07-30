@@ -1,9 +1,14 @@
 package ui;
 
+import enums.StatusPartida;
 import model.Casa;
 import model.Tabuleiro;
 
 public class ConsolePrinter {
+
+    private static final int TAMANHO = 9;
+
+    private static final int LIMITE_MINIMO = 0;
 
     public void imprimir(Tabuleiro tabuleiro) {
 
@@ -26,7 +31,7 @@ public class ConsolePrinter {
 
         imprimirSeparadorVertical();
 
-        for (int coluna = 0; coluna < 9; coluna++) {
+        for (int coluna = LIMITE_MINIMO; coluna < TAMANHO; coluna++) {
 
             Casa casa = tabuleiro.getCasa(linha, coluna);
 
@@ -60,7 +65,7 @@ public class ConsolePrinter {
 
     private void imprimirTabuleiro(Tabuleiro tabuleiro) {
 
-        for (int linha = 0; linha < 9; linha++) {
+        for (int linha = LIMITE_MINIMO; linha < TAMANHO; linha++) {
 
             imprimirLinha(tabuleiro, linha);
 
@@ -109,4 +114,28 @@ public class ConsolePrinter {
 
         System.out.print("Deseja remover o número? (S/N): ");
     }
+
+    public void imprimirSolicitacaoStatusPartida() {
+
+        System.out.print("Deseja consultar o status da partida? (S/N): ");
+    }
+
+    public void imprimirStatusPartida(StatusPartida status) {
+
+        switch (status) {
+
+            case INCOMPLETA:
+                System.out.println("A partida ainda está incompleta.");
+                break;
+
+            case COMPLETA_INVALIDA:
+                System.out.println("O Sudoku possui erros.");
+                break;
+
+            case COMPLETA_VALIDA:
+                System.out.println("Parabéns! Sudoku concluído.");
+                break;
+        }
+    }
+
 }

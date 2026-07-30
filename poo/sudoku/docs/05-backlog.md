@@ -117,7 +117,7 @@ Para acompanhar meu progresso.
 
 Prioridade: 🟠 Média
 
-Status: ⏳
+Status: ✅ Concluído
 
 ---
 
