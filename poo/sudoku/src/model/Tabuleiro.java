@@ -229,4 +229,21 @@ public class Tabuleiro {
         return false;
     }
 
+    public void limparJogadas() {
+
+        for (int linha = LIMITE_MINIMO; linha < TAMANHO; linha++) {
+            for (int coluna = LIMITE_MINIMO; coluna < TAMANHO; coluna++) {
+
+                Casa casa = getCasa(linha, coluna);
+
+                if (!casa.isFixa() && !casa.estaVazia()) {
+
+                    casa.removerNumero();
+                }
+
+            }
+        }
+
+    }
+
 }

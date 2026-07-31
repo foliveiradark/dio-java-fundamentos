@@ -223,8 +223,6 @@ Product Backlog.
 
 ---
 
----
-
 ### 📅 30/07/2026
 
 ## 🔄 Encerramento da Sprint 8
@@ -245,3 +243,44 @@ A solução reutilizou os mecanismos de validação já existentes para linhas, 
 ### Observação
 
 Para validar os estados `COMPLETA_VALIDA` e `COMPLETA_INVALIDA` foi utilizada temporariamente uma solução do tabuleiro obtida por meio do resolvedor Playoku. Após a conclusão dos testes, o tabuleiro original foi restaurado.
+
+---
+
+### 📅 30/07/2026
+
+## 🔄 Encerramento da Sprint 9
+
+Foi implementada a funcionalidade de limpeza do tabuleiro.
+
+A aplicação passou a permitir que o jogador remova todas as jogadas realizadas durante a partida, preservando automaticamente todas as casas fixas do tabuleiro inicial.
+
+A operação foi concentrada na classe `Tabuleiro`, mantendo a responsabilidade de manipulação do estado do jogo no domínio da aplicação. A camada de serviço (`JogoSudoku`) permaneceu responsável apenas por coordenar o fluxo da interação com o usuário.
+
+Também foi adicionada uma confirmação antes da limpeza para evitar a remoção acidental das jogadas realizadas.
+
+### Aprendizados
+
+- responsabilidades do domínio devem permanecer concentradas na classe que representa o estado da aplicação;
+- reutilizar o método `removerNumero()` evitou duplicação de lógica e preservou o encapsulamento da classe `Casa`;
+- confirmações para operações destrutivas melhoram a experiência do usuário sem aumentar a complexidade da arquitetura;
+- manter a coordenação da operação em `JogoSudoku` e a execução em `Tabuleiro` reduz o acoplamento entre as camadas.
+
+### Observação
+
+A funcionalidade foi validada através de testes manuais contemplando diferentes cenários, incluindo:
+
+- limpeza após múltiplas jogadas;
+- cancelamento da confirmação de limpeza;
+- preservação das casas fixas;
+- restauração apenas das casas editáveis;
+- atualização imediata da interface após a limpeza.
+
+Foi adicionada uma confirmação antes da limpeza completa do tabuleiro para evitar que o jogador perca acidentalmente todas as jogadas realizadas.
+
+#### Decisão de UX
+
+Antes de executar a limpeza, o sistema solicita uma confirmação ao jogador.
+
+Essa decisão não altera as regras de negócio do Sudoku, mas melhora a experiência de uso da aplicação ao evitar operações destrutivas executadas por engano.
+
+---

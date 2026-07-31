@@ -115,6 +115,21 @@ public class ConsolePrinter {
         System.out.print("Deseja remover o número? (S/N): ");
     }
 
+    public void imprimirSolicitacaoLimparJogadas() {
+
+        System.out.print("Deseja limpar todas as jogadas? (S/N): ");
+    }
+
+    public void imprimirConfirmacaoLimparJogadas() {
+
+        System.out.print("Tem certeza que deseja limpar todas as jogadas? (S/N): ");
+    }
+
+    public void imprimirJogadasRemovidas() {
+
+        System.out.println("Todas as Jogadas foram removidas.");
+    }
+
     public void imprimirSolicitacaoStatusPartida() {
 
         System.out.print("Deseja consultar o status da partida? (S/N): ");

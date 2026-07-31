@@ -81,6 +81,20 @@ public class JogoSudoku {
 
                 executarJogada(linha,coluna,numero);
 
+                consolePrinter.imprimirSolicitacaoLimparJogadas();
+                boolean desejaLimparJogadas = consoleInput.lerConfirmacao();
+
+                if (desejaLimparJogadas) {
+
+                    consolePrinter.imprimirConfirmacaoLimparJogadas();
+                    boolean confirmarLimpeza = consoleInput.lerConfirmacao();
+
+                    if (confirmarLimpeza) {
+
+                        limparJogadas();
+                    }
+                }
+
                 consolePrinter.imprimirSolicitacaoStatusPartida();
                 boolean confirmarConsulta = consoleInput.lerConfirmacao();
 
@@ -131,6 +145,16 @@ public class JogoSudoku {
             consolePrinter.imprimirErro(e.getMessage());
 
         }
+
+    }
+
+    private void limparJogadas() {
+
+        tabuleiro.limparJogadas();
+
+        consolePrinter.imprimirJogadasRemovidas();
+
+        consolePrinter.imprimir(tabuleiro);
 
     }
 

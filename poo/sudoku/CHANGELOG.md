@@ -1,6 +1,6 @@
 ## [Não publicado]
 
-Última atualização: 30/07/2026
+Última atualização: 31/07/2026
 
 ### Adicionado
 
@@ -49,6 +49,16 @@
 - Verificação de erros nos blocos 3×3.
 - Consulta do status da partida.
 - Exibição do status ao jogador.
+
+#### Limpeza das jogadas
+
+- Limpeza de todas as jogadas realizadas pelo jogador.
+- Preservação das casas fixas durante a limpeza.
+- Reutilização do método `Casa.removerNumero()`.
+- Solicitação para limpar todas as jogadas.
+- Confirmação antes da limpeza.
+- Reimpressão automática do tabuleiro após a limpeza.
+- Mensagem de confirmação após a remoção das jogadas.
 
 ### Corrigido
 
