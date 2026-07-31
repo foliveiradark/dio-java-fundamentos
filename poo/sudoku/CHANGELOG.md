@@ -60,6 +60,14 @@
 - Reimpressão automática do tabuleiro após a limpeza.
 - Mensagem de confirmação após a remoção das jogadas.
 
+#### Finalização da partida
+
+- Encerramento automático da partida quando o Sudoku é concluído corretamente.
+- Exibição de mensagem de conclusão ao jogador.
+- Retorno automático ao Menu Principal após o encerramento.
+- Bloqueio de novas jogadas após o término da partida.
+- Reutilização da verificação de `StatusPartida` para determinar o encerramento.
+
 ### Corrigido
 
 - Correção do método `obterTabuleiroInicial()`, que retornava `null`.

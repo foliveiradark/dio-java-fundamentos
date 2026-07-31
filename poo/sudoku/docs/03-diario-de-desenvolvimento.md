@@ -97,7 +97,7 @@ Também foi criada a estrutura inicial responsável pela interação com o usuá
 * importância da responsabilidade única para cada classe.
 
 ---
-## 📅 23/07/2026
+### 📅 23/07/2026
 
 ## Encerramento da Sprint 04
 
@@ -130,7 +130,7 @@ Será avaliada futuramente para inclusão no Product Backlog.
 
 ---
 
-📅 24/07/2026
+### 📅 24/07/2026
 
 🔄 Encerramento da Sprint 5
 
@@ -196,7 +196,7 @@ I ║ ∙ ∙ ∙ ║ ∙ 8 ∙ ║ ∙ 7 9 ║
 ```
 ---
 
-📅 26/07/2026
+### 📅 26/07/2026
 
 🔄 Encerramento da Sprint 7
 
@@ -284,3 +284,27 @@ Antes de executar a limpeza, o sistema solicita uma confirmação ao jogador.
 Essa decisão não altera as regras de negócio do Sudoku, mas melhora a experiência de uso da aplicação ao evitar operações destrutivas executadas por engano.
 
 ---
+
+### 📅 31/07/2026
+
+## 🔄 Encerramento da Sprint 10
+
+Foi implementado o encerramento automático da partida.
+
+A aplicação passou a identificar quando o Sudoku é concluído corretamente e, nesse momento, exibe uma mensagem de conclusão, encerra o fluxo da partida e retorna automaticamente ao Menu Principal.
+
+A decisão reutilizou o mecanismo de verificação de status implementado na Sprint anterior, evitando duplicação de regras de negócio.
+
+### Aprendizados
+
+- reutilizar o resultado de `verificarStatusPartida()` simplifica o fluxo da aplicação;
+- o encerramento da partida deve ocorrer apenas quando o domínio indicar um estado válido;
+- o laço principal pode ser finalizado de forma simples utilizando a variável de controle da partida;
+- separar a lógica de domínio da navegação da aplicação facilita futuras evoluções.
+
+### Observação
+
+Durante os testes foi identificada uma oportunidade de melhoria relacionada ao tratamento de entradas vazias e inválidas informadas pelo usuário.
+
+Essa funcionalidade não fazia parte do escopo da Sprint e foi registrada no Product Backlog como melhoria futura.
+

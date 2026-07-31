@@ -81,6 +81,18 @@ public class JogoSudoku {
 
                 executarJogada(linha,coluna,numero);
 
+                StatusPartida status = verificarStatusPartida();
+
+                if (status == StatusPartida.COMPLETA_VALIDA) {
+
+                    consolePrinter.imprimirStatusPartida(status);
+
+                    partidaEmAndamento = false;
+
+                    continue;
+
+                }
+
                 consolePrinter.imprimirSolicitacaoLimparJogadas();
                 boolean desejaLimparJogadas = consoleInput.lerConfirmacao();
 

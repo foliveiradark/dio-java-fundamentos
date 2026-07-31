@@ -67,6 +67,12 @@ Status: ✅ Concluído
 
 ## US-005 — Tratar jogadas inválidas
 
+**Como jogador**
+
+Quero receber mensagens claras quando realizar uma jogada inválida
+
+Para continuar a partida sem que a aplicação seja encerrada.
+
 **Critérios:**
 
 * Não encerrar a aplicação após erro;
@@ -80,6 +86,12 @@ Status: ✅ Concluído
 ---
 
 ## US-006 — Melhorar a identificação das coordenadas do tabuleiro
+
+**Como jogador**
+
+Quero visualizar linhas e colunas identificadas
+
+Para localizar facilmente as posições do tabuleiro.
 
 **Critérios:**
 
@@ -127,11 +139,11 @@ Status: ✅ Concluído
 
 Quero remover todas as jogadas realizadas
 
-Mantendo apenas os números fixos.
+Para manter apenas os números fixos.
 
 Prioridade: 🟠 Média
 
-Status: ⏳
+Status: ✅ Concluído
 
 ---
 
@@ -139,49 +151,106 @@ Status: ⏳
 
 **Como jogador**
 
-Quero concluir o jogo
+Quero concluir a partida
 
-Quando o Sudoku estiver corretamente resolvido.
+Para finalizar o Sudoku quando ele estiver corretamente resolvido.
 
 Prioridade: 🟠 Média
 
-Status: ⏳
+Status: ✅ Concluído
 
 ---
 
 # Melhorias Futuras
 
-## US-011 — Refinar a interface visual do tabuleiro
+## US-011 — Validar entradas vazias e inválidas do usuário
+
+**Como jogador**
+
+Quero que o sistema trate entradas vazias ou inválidas
+
+Para evitar o encerramento inesperado da aplicação e receber mensagens de erro amigáveis.
 
 Prioridade: 🟢 Baixa
+
+Status: ⏳ Não iniciada
 
 ---
 
 ## US-012 — Permitir entrada de coordenadas em formato A1–I9
 
-Prioridade: 🟢 Baixa
+**Como jogador**
+
+Quero informar as coordenadas utilizando letras e números
+
+Para localizar as casas do tabuleiro de forma mais intuitiva.
+
+Prioridade: 🟠 Média
+
+Status: ⏳ Não iniciada
 
 ---
 
-## US-013 — Interface gráfica (Swing)
+## US-013 — Refinar a interface visual do tabuleiro
+
+**Como jogador**
+
+Quero visualizar um tabuleiro com melhor organização visual
+
+Para facilitar a leitura durante a partida.
 
 Prioridade: 🟢 Baixa
+
+Status: ⏳ Não iniciada
 
 ---
 
-## US-014 — Sistema de rascunhos
+## US-014 — Interface gráfica (Swing)
+
+**Como jogador**
+
+Quero
+
+Para
 
 Prioridade: 🟢 Baixa
+
+Status: ⏳
 
 ---
 
-## US-015 — Estatísticas da partida
+## US-015 — Sistema de rascunhos
+
+**Como jogador**
+
+Quero
+
+Para
 
 Prioridade: 🟢 Baixa
+
+Status: ⏳
+
+---
+
+## US-016 — Estatísticas da partida
+
+**Como jogador**
+
+Quero
+
+Para
+
+Prioridade: 🟢 Baixa
+
+Status: ⏳
 
 ---
 
 # Pós-MVP
+
+Funcionalidades previstas para evolução futura do projeto após a conclusão do 
+Produto Mínimo Viável.
 
 * Persistência da partida
 * Níveis de dificuldade 

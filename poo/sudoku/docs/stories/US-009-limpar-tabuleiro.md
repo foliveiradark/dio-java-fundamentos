@@ -7,7 +7,7 @@
 > **ID:** US-009  
 > **Sprint:** Sprint 9  
 > **Prioridade:** 🟠 Média  
-> **Status:** Não Iniciada
+> **Status:** ✅ Concluída
 
 ---
 

@@ -1,6 +1,10 @@
-## 1. Visão geral do sistema
+## 1. Visão Geral
 
-O Sudoku foi desenvolvido utilizando uma arquitetura em camadas simples, separando domínio, regras de negócio e interface de usuário. O objetivo é manter baixo acoplamento entre as classes e facilitar futuras evoluções, como persistência e interface gráfica.
+O projeto Sudoku foi desenvolvido utilizando uma arquitetura em camadas simples, baseada na separação de responsabilidades entre domínio, serviços e interface de usuário.
+
+A aplicação possui como objetivo principal servir como projeto de aprendizado em Java, Programação Orientada a Objetos e Engenharia de Software, priorizando código limpo, baixo acoplamento e evolução incremental.
+
+A arquitetura foi planejada para permitir futuras evoluções, como persistência de partidas, interface gráfica e testes automatizados, sem exigir alterações significativas no domínio da aplicação.
 
 ---
 
@@ -18,45 +22,90 @@ src
 ```
 ---
 
-## 3. Fluxo da aplicação
+## 3. Arquitetura da aplicação
 
+```text
+                 Main
+                  │
+                  ▼
+            JogoSudoku
+          (coordena o fluxo)
+                  │
+      ┌───────────┴───────────┐
+      ▼                       ▼
+ConsoleInput           ConsolePrinter
+      │
+      ▼
+            Tabuleiro
+      (estado da partida)
+                  │
+                  ▼
+                Casa
+```
+---
+
+## 4. Responsabilidades das Camadas
 ```text
 Main
- │
- ▼
-JogoSudoku (ainda vazio)
- │
- ▼
-Tabuleiro
- │
- ▼
-Casa
-```
----
-Responsabilidades:
-```text
+│
+└── Inicializa a aplicação.
+
 JogoSudoku
+│
+└── Coordena todo o fluxo da partida.
 
-↓
+Tabuleiro
+│
+└── Representa o estado do Sudoku.
 
-Descobre o status
+Casa
+│
+└── Representa uma posição do tabuleiro.
 
-↓
-
-Entrega o StatusPartida
-
-↓
+ConsoleInput
+│
+└── Responsável exclusivamente pela entrada de dados.
 
 ConsolePrinter
-
-↓
-
-Mostra ao jogador
-
+│
+└── Responsável exclusivamente pela saída de informações.
 ```
-
 ---
 
+## 5. Fluxos de Negócio
+
+### 5.1 Fluxo de uma Jogada
+```text
+Ler linha
+↓
+Ler coluna
+↓
+Perguntar remoção
+      │
+      ├── Sim
+      │      ↓
+      │ removerJogada(linha,coluna)
+      │
+      └── Não
+             ↓
+         Ler número
+             ↓
+executarJogada(linha,coluna,numero)
+             ↓
+verificarStatusPartida()
+             │
+             ├── COMPLETA_VALIDA
+             │        ↓
+             │ Encerrar partida
+             │
+             ├── INCOMPLETA
+             │
+             └── COMPLETA_INVALIDA
+                      ↓
+             Continua partida
+
+```
+### 5.2 Remoção
 ```text
 Ler linha
 ↓
@@ -64,19 +113,40 @@ Ler coluna
 ↓
 Perguntar confirmação
       │
-      ├── true
+      ├── Sim
       │      ↓
       │ removerJogada(linha,coluna)
+      │      ↓
+      │ Reimprimir tabuleiro
       │
-      └── false
+      └── Não
              ↓
-             Ler número
-             ↓
-             executarJogada(linha,coluna,numero)
+        Continua fluxo normal
+```
+
+### 5.3 Limpeza
+```text
+Jogador solicita limpeza
+        │
+        ▼
+Solicitar confirmação
+        │
+        ├── Não
+        │       ▼
+        │ Continua a partida
+        │
+        └── Sim
+                │
+                ▼
+        Tabuleiro.limparJogadas()
+                │
+                ▼
+        Reimprimir tabuleiro
 ```
 
 ---
 
+### 5.4 Verificação do Status
 ```text
 Possui casas vazias?
 │
@@ -103,71 +173,55 @@ Possui casas vazias?
 
 ---
 
+### 5.5 Finalização
 ```text
-Tabuleiro
-│
-├── possuiCasasVazias()
-├── possuiErrosNasLinhas()
-├── possuiErrosNasColunas()
-└── possuiErrosNosBlocos()
+Jogador realiza uma jogada
+        │
+        ▼
+Sistema verifica StatusPartida
+        │
+        ├── INCOMPLETA
+        │       continua
+        │
+        ├── COMPLETA_INVALIDA
+        │       continua
+        │
+        └── COMPLETA_VALIDA
+                │
+                ▼
+        encerrar partida
 
-           │
-           ▼
-
-JogoSudoku
-│
-└── verificarStatusPartida()
-
-           │
-           ▼
-
-StatusPartida
-│
-├── INCOMPLETA
-├── COMPLETA_VALIDA
-└── COMPLETA_INVALIDA
 ```
 
 ---
 
-## 4. Responsabilidades das camadas
+## 6. Princípios Arquiteturais
 
-```text
-Main
-│
-├── Inicializa a aplicação
-│
-JogoSudoku
-│
-├── Coordena o fluxo da partida
-│
-Tabuleiro
-│
-├── Representa o estado do jogo
-│
-Casa
-│
-├── Representa cada posição do tabuleiro
-│
-ConsolePrinter
-│
-├── Responsável apenas pela saída
-│
-ConsoleInput
-│
-└── Responsável apenas pela entrada
-```
+Durante o desenvolvimento foram adotados os seguintes princípios:
+
+- Separação de responsabilidades;
+- Encapsulamento do domínio;
+- Baixo acoplamento entre as camadas;
+- Alta coesão das classes;
+- Reutilização de código sempre que possível;
+- Desenvolvimento incremental;
+- Evolução contínua da arquitetura;
+- Interface desacoplada da lógica de negócio;
+- Coordenação do fluxo centralizada na camada de serviço (`JogoSudoku`).
+
 ---
 
-## 5. Referência para ADRs
+## 7. Referência para ADRs
 
 ### Decisões Arquiteturais
 
-As principais decisões arquiteturais do projeto estão documentadas nas ADRs:
+As decisões arquiteturais que influenciaram a construção desta arquitetura encontram-se documentadas nas ADRs do projeto.
 
 - ADR-001 — Separação domínio/interface
 - ADR-002 — Responsabilidades do jogo
 - ADR-003 — Construção do tabuleiro
 - ADR-004 — Localização dos tabuleiros
 - ADR-005 — Organização da interface de console
+- ADR-006 — Responsabilidade de limpeza das jogadas
+
 ---

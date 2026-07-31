@@ -46,7 +46,7 @@ public class ConsolePrinter {
         System.out.println();
     }
 
-    private char obterIdentificadorLinha(int linha){
+    private char obterIdentificadorLinha(int linha) {
 
         return (char) ('A' + linha);
     }
@@ -152,5 +152,4 @@ public class ConsolePrinter {
                 break;
         }
     }
-
 }
