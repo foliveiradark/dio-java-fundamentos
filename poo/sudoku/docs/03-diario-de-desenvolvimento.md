@@ -308,3 +308,36 @@ Durante os testes foi identificada uma oportunidade de melhoria relacionada ao t
 
 Essa funcionalidade não fazia parte do escopo da Sprint e foi registrada no Product Backlog como melhoria futura.
 
+---
+
+### 📅 31/07/2026
+
+## 🔄 Encerramento da Sprint 11
+
+Foi implementado o tratamento de entradas vazias e inválidas realizadas pelo usuário.
+
+A aplicação passou a validar todas as entradas numéricas diretamente na classe ConsoleInput, impedindo que valores vazios ou não numéricos provoquem o encerramento inesperado da aplicação.
+
+Sempre que uma entrada inválida é informada, o sistema exibe uma mensagem amigável e solicita novamente o valor, preservando o fluxo da partida sem alterar as regras de negócio.
+
+### Aprendizados
+
+- concentrar a validação das entradas em um único ponto reduz duplicação de código;
+- laços de repetição são uma solução simples e eficiente para garantir entradas válidas;
+- separar a validação da entrada da lógica de negócio mantém a arquitetura mais organizada;
+- tratar exceções na camada de interface evita que erros de interação afetem o domínio da aplicação.
+
+### Observação
+
+Durante o Sprint Planning foi decidido que toda a validação das entradas permaneceria 
+concentrada na classe `ConsoleInput`, preservando a separação de responsabilidades da arquitetura.
+
+Os testes manuais contemplaram os seguintes cenários:
+
+- entrada vazia;
+- entrada contendo apenas espaços;
+- entrada não numérica;
+- entrada decimal;
+- entrada numérica válida.
+
+A funcionalidade foi validada sem necessidade de alterações nas regras de negócio existentes.

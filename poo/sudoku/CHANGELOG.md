@@ -1,6 +1,6 @@
 ## [Não publicado]
 
-Última atualização: 31/07/2026
+Última atualização: 01/08/2026
 
 ### Adicionado
 
@@ -67,6 +67,15 @@
 - Retorno automático ao Menu Principal após o encerramento.
 - Bloqueio de novas jogadas após o término da partida.
 - Reutilização da verificação de `StatusPartida` para determinar o encerramento.
+
+#### Validação de entradas
+
+- Tratamento de entradas vazias.
+- Tratamento de entradas não numéricas.
+- Validação centralizada na classe `ConsoleInput`.
+- Solicitação automática de nova entrada até que um valor válido seja informado.
+- Mensagens amigáveis para entradas inválidas.
+
 
 ### Corrigido
 

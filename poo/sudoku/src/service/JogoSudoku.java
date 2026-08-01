@@ -11,14 +11,14 @@ public class JogoSudoku {
 
     private final Tabuleiro tabuleiro;
     private final Menu menu;
-    private final ConsoleInput consoleInput;
-    private final ConsolePrinter consolePrinter;
+    private final ConsolePrinter consolePrinter = new ConsolePrinter();
+    private final ConsoleInput consoleInput = new ConsoleInput(consolePrinter);
 
     public JogoSudoku() {
+
         this.tabuleiro = new Tabuleiro();
         this.menu = new Menu();
-        this.consoleInput = new ConsoleInput();
-        this.consolePrinter = new ConsolePrinter();
+
     }
 
     // Fluxo principal

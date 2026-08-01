@@ -161,8 +161,6 @@ Status: ✅ Concluído
 
 ---
 
-# Melhorias Futuras
-
 ## US-011 — Validar entradas vazias e inválidas do usuário
 
 **Como jogador**
@@ -173,7 +171,7 @@ Para evitar o encerramento inesperado da aplicação e receber mensagens de erro
 
 Prioridade: 🟢 Baixa
 
-Status: ⏳ Não iniciada
+Status: ✅ Concluído
 
 ---
 
@@ -204,6 +202,8 @@ Prioridade: 🟢 Baixa
 Status: ⏳ Não iniciada
 
 ---
+
+# Melhorias Futuras
 
 ## US-014 — Interface gráfica (Swing)
 
@@ -240,6 +240,20 @@ Status: ⏳
 Quero
 
 Para
+
+Prioridade: 🟢 Baixa
+
+Status: ⏳
+
+---
+
+## US-017 — Continuar partida
+
+**Como jogador**
+
+Quero continuar uma partida iniciada,
+
+Para não perder meu progresso.
 
 Prioridade: 🟢 Baixa
 

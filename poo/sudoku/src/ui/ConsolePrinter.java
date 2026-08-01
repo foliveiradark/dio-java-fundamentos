@@ -152,4 +152,14 @@ public class ConsolePrinter {
                 break;
         }
     }
+
+    public void imprimirCampoVazio() {
+
+        System.out.print("O campo está vazio. Digite um número: ");
+    }
+
+    public void imprimirEntradaInvalida() {
+
+        System.out.print("Entrada inválida. Digite um número inteiro: ");
+    }
 }

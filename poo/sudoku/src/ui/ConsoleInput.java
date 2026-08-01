@@ -6,13 +6,36 @@ public class ConsoleInput {
 
     private final Scanner scanner;
 
-    public ConsoleInput() {
+    private final ConsolePrinter consolePrinter;
+
+    public ConsoleInput(ConsolePrinter consolePrinter) {
+
         this.scanner = new Scanner(System.in);
+        this.consolePrinter = consolePrinter;
+
     }
 
     public int lerInteiro() {
 
-        return Integer.parseInt(scanner.nextLine());
+        while (true) {
+
+            String entrada = scanner.nextLine();
+
+            if (entrada.isBlank()) {
+
+                consolePrinter.imprimirCampoVazio();
+                continue;
+            }
+            try {
+
+                return Integer.parseInt(entrada);
+
+            } catch (NumberFormatException e) {
+
+                consolePrinter.imprimirEntradaInvalida();
+            }
+
+        }
 
     }
 
