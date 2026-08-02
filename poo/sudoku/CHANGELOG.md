@@ -76,6 +76,15 @@
 - Solicitação automática de nova entrada até que um valor válido seja informado.
 - Mensagens amigáveis para entradas inválidas.
 
+#### Entrada de coordenadas
+
+- Leitura de coordenadas no formato A1–I9.
+- Conversão automática das coordenadas para índices internos do domínio.
+- Aceitação de letras maiúsculas e minúsculas.
+- Normalização automática das entradas (`trim()` e `toUpperCase()`).
+- Validação do formato das coordenadas.
+- Solicitação automática de nova coordenada quando a entrada for inválida.
+- Refatoração do fluxo da partida para utilizar uma única entrada de coordenada.
 
 ### Corrigido
 

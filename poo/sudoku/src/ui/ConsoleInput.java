@@ -39,6 +39,39 @@ public class ConsoleInput {
 
     }
 
+    public String lerCoordenada() {
+
+        while (true) {
+
+            String coordenada = scanner.nextLine().trim().toUpperCase();
+
+            if (coordenada.isBlank()) {
+
+                consolePrinter.imprimirCampoVazio();
+                continue;
+            }
+
+            if (coordenada.length() != 2) {
+
+                consolePrinter.imprimirEntradaInvalida();
+                continue;
+            }
+
+            char letra = coordenada.charAt(0);
+            char numero = coordenada.charAt(1);
+
+            if ((letra < 'A' || letra > 'I') ||
+                    (numero < '1' || numero > '9')) {
+
+                consolePrinter.imprimirEntradaInvalida();
+                continue;
+            }
+
+            return coordenada;
+
+        }
+    }
+
     public boolean lerConfirmacao() {
 
         String resposta = scanner.nextLine();
@@ -46,5 +79,6 @@ public class ConsoleInput {
         return resposta.trim().equalsIgnoreCase("S");
 
     }
+
 
 }

@@ -341,3 +341,42 @@ Os testes manuais contemplaram os seguintes cenários:
 - entrada numérica válida.
 
 A funcionalidade foi validada sem necessidade de alterações nas regras de negócio existentes.
+
+---
+
+### 📅 01/08/2026
+
+## 🔄 Encerramento da Sprint 12
+
+Foi implementada a entrada de coordenadas utilizando o formato **A1–I9**.
+
+A aplicação passou a permitir que o jogador informe diretamente a posição desejada utilizando letras para identificar as linhas (**A–I**) e números para identificar as colunas (**1–9**), tornando a interação mais intuitiva e alinhada à forma como jogadores de Sudoku normalmente identificam as posições do tabuleiro.
+
+Internamente, as coordenadas continuam sendo convertidas para índices numéricos antes da execução das regras de negócio, preservando a arquitetura construída desde as primeiras Sprints.
+
+### Aprendizados
+
+* adaptar a interface ao modelo mental do usuário melhora significativamente a experiência de uso;
+* manter o domínio independente da forma como os dados são informados facilita futuras evoluções;
+* centralizar a validação das coordenadas na classe `ConsoleInput` mantém a separação de responsabilidades da aplicação;
+* pequenas refatorações no fluxo podem simplificar a interação sem alterar as regras de negócio.
+
+### Observação
+
+Durante a implementação foi identificado que o método `converterCoordenada()` retorna um vetor (`int[]`) contendo os índices de linha e coluna.
+
+Para o contexto atual do projeto, essa abordagem foi considerada suficiente por manter a implementação simples e compatível com o objetivo de aprendizado. Como evolução arquitetural futura, poderá ser criada uma classe de valor (`Coordenada`) para representar explicitamente uma posição do tabuleiro, tornando a API do domínio mais expressiva.
+
+Também foi identificado, durante os testes manuais, que o método `lerConfirmacao()` ainda aceita qualquer entrada diferente de `S` como resposta negativa. Essa melhoria foi registrada para evolução futura, visando padronizar o comportamento de validação de todas as entradas da aplicação.
+
+Os testes manuais contemplaram os seguintes cenários:
+
+* coordenadas válidas utilizando letras maiúsculas;
+* coordenadas válidas utilizando letras minúsculas;
+* entradas com espaços antes e depois da coordenada;
+* coordenadas fora do intervalo permitido;
+* formatos inválidos;
+* entradas vazias;
+* repetição da solicitação até que uma coordenada válida fosse informada.
+
+A funcionalidade foi validada sem necessidade de alterações nas regras de negócio existentes.

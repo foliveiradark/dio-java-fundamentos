@@ -100,6 +100,12 @@ public class ConsolePrinter {
         System.out.print("Informe a coluna: ");
     }
 
+    public void imprimirSolicitacaoCoordenada() {
+
+        System.out.print("Informe a coordenada (A1-I9): ");
+
+    }
+
     public void imprimirSolicitacaoNumero() {
 
         System.out.print("Informe o número: ");
@@ -155,11 +161,11 @@ public class ConsolePrinter {
 
     public void imprimirCampoVazio() {
 
-        System.out.print("O campo está vazio. Digite um número: ");
+        System.out.print("O campo está vazio. Digite uma coordenada válida (A1-I9): ");
     }
 
     public void imprimirEntradaInvalida() {
 
-        System.out.print("Entrada inválida. Digite um número inteiro: ");
+        System.out.print("Entrada inválida. Informe uma coordenada válida (A1-I9): ");
     }
 }

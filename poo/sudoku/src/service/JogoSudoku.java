@@ -61,11 +61,14 @@ public class JogoSudoku {
         boolean partidaEmAndamento = true;
 
         while (partidaEmAndamento) {
-            consolePrinter.imprimirSolicitacaoLinha();
-            int linha = consoleInput.lerInteiro();
+            consolePrinter.imprimirSolicitacaoCoordenada();
 
-            consolePrinter.imprimirSolicitacaoColuna();
-            int coluna = consoleInput.lerInteiro();
+            String coordenada = consoleInput.lerCoordenada();
+
+            int[] posicao = converterCoordenada(coordenada);
+
+            int linha = posicao[0];
+            int coluna = posicao[1];
 
             consolePrinter.imprimirSolicitacaoRemocao();
             boolean remover = consoleInput.lerConfirmacao();
@@ -187,6 +190,19 @@ public class JogoSudoku {
         }
 
         return StatusPartida.COMPLETA_VALIDA;
+
+    }
+
+    private int[] converterCoordenada(String coordenada) {
+
+        char letra = coordenada.charAt(0);
+        char numero = coordenada.charAt(1);
+
+        int coluna = Integer.parseInt(String.valueOf(numero)) - 1;
+
+        int linha = letra - 'A';
+
+        return new int[]{linha, coluna};
 
     }
 

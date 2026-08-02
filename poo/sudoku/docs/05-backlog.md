@@ -183,13 +183,27 @@ Quero informar as coordenadas utilizando letras e números
 
 Para localizar as casas do tabuleiro de forma mais intuitiva.
 
-Prioridade: 🟠 Média
+Prioridade: 🟢 Baixa
+
+Status: ✅ Concluído
+
+---
+
+## US-013 — Validar respostas de confirmação (S/N)
+
+**Como jogador**
+
+Quero informar apenas respostas válidas nas confirmações do sistema
+
+Para evitar que entradas incorretas sejam interpretadas automaticamente como "Não".
+
+Prioridade: 🟢 Baixa
 
 Status: ⏳ Não iniciada
 
 ---
 
-## US-013 — Refinar a interface visual do tabuleiro
+## US-014 — Refinar a interface visual do tabuleiro
 
 **Como jogador**
 
@@ -205,7 +219,7 @@ Status: ⏳ Não iniciada
 
 # Melhorias Futuras
 
-## US-014 — Interface gráfica (Swing)
+## US-015 — Interface gráfica (Swing)
 
 **Como jogador**
 
@@ -219,7 +233,7 @@ Status: ⏳
 
 ---
 
-## US-015 — Sistema de rascunhos
+## US-016 — Sistema de rascunhos
 
 **Como jogador**
 
@@ -233,7 +247,7 @@ Status: ⏳
 
 ---
 
-## US-016 — Estatísticas da partida
+## US-017 — Estatísticas da partida
 
 **Como jogador**
 
@@ -247,7 +261,7 @@ Status: ⏳
 
 ---
 
-## US-017 — Continuar partida
+## US-018 — Continuar partida
 
 **Como jogador**
 
