@@ -199,11 +199,32 @@ Para evitar que entradas incorretas sejam interpretadas automaticamente como "N�
 
 Prioridade: 🟢 Baixa
 
+Status: ✅ Concluído
+
+---
+
+## US-014 — Validar opções do Menu Principal
+
+**Como jogador**
+
+Quero receber uma mensagem quando informar uma opção inexistente no menu
+
+Para entender que a opção informada não é válida e poder escolher novamente.
+
+### Critérios:
+
+- aceitar apenas opções existentes;
+- exibir mensagem amigável;
+- solicitar novamente a opção;
+- manter a aplicação em execução.
+
+Prioridade: 🟢 Baixa
+
 Status: ⏳ Não iniciada
 
 ---
 
-## US-014 — Refinar a interface visual do tabuleiro
+## US-015 — Refinar a interface visual do tabuleiro
 
 **Como jogador**
 
@@ -219,7 +240,7 @@ Status: ⏳ Não iniciada
 
 # Melhorias Futuras
 
-## US-015 — Interface gráfica (Swing)
+## US-016 — Interface gráfica (Swing)
 
 **Como jogador**
 
@@ -233,7 +254,7 @@ Status: ⏳
 
 ---
 
-## US-016 — Sistema de rascunhos
+## US-017 — Sistema de rascunhos
 
 **Como jogador**
 
@@ -247,7 +268,7 @@ Status: ⏳
 
 ---
 
-## US-017 — Estatísticas da partida
+## US-018 — Estatísticas da partida
 
 **Como jogador**
 
@@ -261,7 +282,7 @@ Status: ⏳
 
 ---
 
-## US-018 — Continuar partida
+## US-019 — Continuar partida
 
 **Como jogador**
 
@@ -289,3 +310,5 @@ Produto Mínimo Viável.
 * Histórico de partidas
 
 ---
+
+Última atualização: 02/08/2026

@@ -380,3 +380,30 @@ Os testes manuais contemplaram os seguintes cenários:
 * repetição da solicitação até que uma coordenada válida fosse informada.
 
 A funcionalidade foi validada sem necessidade de alterações nas regras de negócio existentes.
+
+---
+
+### 📅 02/08/2026
+
+## 🔄 Encerramento da Sprint 13
+
+Foi implementada a validação das respostas de confirmação (`S/N`) utilizadas pela aplicação.
+
+A partir desta Sprint, todas as solicitações de confirmação passaram a aceitar apenas as respostas `S` e `N`, independentemente de letras maiúsculas ou minúsculas, ignorando espaços antes e depois da entrada.
+
+Quando uma resposta inválida é informada, o sistema exibe uma mensagem amigável e solicita novamente a confirmação, preservando o fluxo da aplicação e evitando interpretações incorretas durante a interação com o jogador.
+
+### Aprendizados
+
+* reutilizar o padrão de validação implementado em `lerInteiro()` e `lerCoordenada()` aumenta a consistência da interface;
+* concentrar toda a validação de entradas na classe `ConsoleInput` reduz duplicação de código e preserva a separação de responsabilidades;
+* normalizar a entrada utilizando `trim()` e `toUpperCase()` simplifica a lógica de validação;
+* testes manuais ajudam a identificar melhorias de usabilidade além do escopo originalmente planejado.
+
+### Observação
+
+Durante os testes foi identificada uma oportunidade de melhoria no **Menu Principal**.
+
+Atualmente, quando o jogador informa uma opção inexistente, a aplicação apenas redesenha o menu, sem informar que a opção é inválida.
+
+Essa funcionalidade foi considerada fora do escopo desta Sprint e registrada no Product Backlog para implementação futura, mantendo a evolução incremental da aplicação.

@@ -1,6 +1,6 @@
 ## [Não publicado]
 
-Última atualização: 01/08/2026
+Última atualização: 02/08/2026
 
 ### Adicionado
 
@@ -85,6 +85,16 @@
 - Validação do formato das coordenadas.
 - Solicitação automática de nova coordenada quando a entrada for inválida.
 - Refatoração do fluxo da partida para utilizar uma única entrada de coordenada.
+
+#### Validação de confirmações
+
+- Validação das respostas de confirmação (`S/N`).
+- Aceitação de letras maiúsculas e minúsculas (`S`, `s`, `N`, `n`).
+- Normalização automática das respostas (`trim()` e `toUpperCase()`).
+- Tratamento de respostas vazias.
+- Exibição de mensagens amigáveis para confirmações inválidas.
+- Solicitação automática de nova resposta até que uma confirmação válida seja informada.
+- Centralização da validação na classe `ConsoleInput`.
 
 ### Corrigido
 

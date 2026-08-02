@@ -90,16 +90,6 @@ public class ConsolePrinter {
         System.out.println("Saindo do jogo...");
     }
 
-    public void imprimirSolicitacaoLinha() {
-
-        System.out.print("Informe a linha: ");
-    }
-
-    public void imprimirSolicitacaoColuna() {
-
-        System.out.print("Informe a coluna: ");
-    }
-
     public void imprimirSolicitacaoCoordenada() {
 
         System.out.print("Informe a coordenada (A1-I9): ");
@@ -167,5 +157,10 @@ public class ConsolePrinter {
     public void imprimirEntradaInvalida() {
 
         System.out.print("Entrada inválida. Informe uma coordenada válida (A1-I9): ");
+    }
+
+    public void imprimirConfirmacaoInvalida() {
+
+        System.out.print("Confirmação inválida. Digite S ou N: ");
     }
 }

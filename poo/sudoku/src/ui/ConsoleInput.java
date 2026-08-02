@@ -74,11 +74,26 @@ public class ConsoleInput {
 
     public boolean lerConfirmacao() {
 
-        String resposta = scanner.nextLine();
+        while (true) {
 
-        return resposta.trim().equalsIgnoreCase("S");
+            String resposta = scanner.nextLine().trim().toUpperCase();
 
+            if (resposta.isBlank()) {
+
+                consolePrinter.imprimirConfirmacaoInvalida();
+                continue;
+            }
+
+            if (resposta.equals("S")) {
+                return true;
+            }
+
+            if (resposta.equals("N")) {
+                return false;
+            }
+
+            consolePrinter.imprimirConfirmacaoInvalida();
+        }
     }
-
 
 }
