@@ -163,4 +163,14 @@ public class ConsolePrinter {
 
         System.out.print("Confirmação inválida. Digite S ou N: ");
     }
+
+    public void imprimirOpcaoMenuInvalida() {
+
+        System.out.print("Opção inválida. Escolha uma opção do Menu: ");
+    }
+
+    public void imprimirFuncionalidadeIndisponivel(){
+
+        System.out.println("Funcionalidade ainda não disponível.");
+    }
 }

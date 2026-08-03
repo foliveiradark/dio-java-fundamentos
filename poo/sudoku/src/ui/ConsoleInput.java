@@ -96,4 +96,35 @@ public class ConsoleInput {
         }
     }
 
+    public int lerOpcaoMenu() {
+
+        while (true) {
+
+            String opcao = scanner.nextLine().trim();
+
+            if (opcao.isBlank()) {
+
+                consolePrinter.imprimirOpcaoMenuInvalida();
+                continue;
+            }
+
+            try {
+
+                int opcaoMenu = Integer.parseInt(opcao);
+
+                if (opcaoMenu >= 0 && opcaoMenu <= 2) {
+
+                    return opcaoMenu;
+                }
+
+                consolePrinter.imprimirOpcaoMenuInvalida();
+
+            } catch (NumberFormatException e) {
+
+                consolePrinter.imprimirOpcaoMenuInvalida();
+
+            }
+        }
+    }
+
 }

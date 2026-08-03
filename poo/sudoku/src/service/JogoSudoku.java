@@ -36,16 +36,23 @@ public class JogoSudoku {
 
             menu.exibir();
 
-            int opcao = consoleInput.lerInteiro();
+            int opcao = consoleInput.lerOpcaoMenu();
 
-            if (opcao == 0) {
-                executando = false;
-                consolePrinter.imprimirEncerramento();
-            } else if (opcao == 1) {
-                iniciarNovaPartida();
+            switch (opcao) {
+
+                case 0 -> {
+                    executando = false;
+                    consolePrinter.imprimirEncerramento();
+                }
+
+                case 1 -> iniciarNovaPartida();
+
+                case 2 -> {
+                    consolePrinter.imprimirFuncionalidadeIndisponivel();
+                    // TODO: Implementar US-019 - Continuar partida
+                }
             }
         }
-
     }
 
     // Fluxo da partida

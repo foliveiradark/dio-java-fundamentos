@@ -75,6 +75,11 @@
 - Validação centralizada na classe `ConsoleInput`.
 - Solicitação automática de nova entrada até que um valor válido seja informado.
 - Mensagens amigáveis para entradas inválidas.
+- Validação das opções do Menu Principal.
+- Aceitação apenas das opções disponíveis.
+- Tratamento de opções inexistentes.
+- Solicitação automática de nova opção até que uma opção válida seja informada.
+- Refatoração do fluxo do Menu Principal utilizando `switch`.
 
 #### Entrada de coordenadas
 

@@ -407,3 +407,41 @@ Durante os testes foi identificada uma oportunidade de melhoria no **Menu Princi
 Atualmente, quando o jogador informa uma opção inexistente, a aplicação apenas redesenha o menu, sem informar que a opção é inválida.
 
 Essa funcionalidade foi considerada fora do escopo desta Sprint e registrada no Product Backlog para implementação futura, mantendo a evolução incremental da aplicação.
+
+---
+
+### 📅 03/08/2026
+
+## 🔄 Encerramento da Sprint 14
+
+Foi implementada a validação das opções do Menu Principal.
+
+A aplicação passou a aceitar apenas as opções disponíveis (`0`, `1` e `2`), tratando entradas vazias, não numéricas e opções inexistentes de forma amigável, mantendo a aplicação em execução até que uma opção válida seja informada.
+
+Também foi realizada uma pequena refatoração no fluxo do Menu Principal, substituindo a 
+estrutura baseada em `if/else` por `switch`, tornando o código mais legível e preparado para a evolução das funcionalidades futuras.
+
+### Aprendizados
+- o `switch` representa melhor fluxos baseados em seleção de opções;
+- centralizar a validação na camada de entrada simplifica a lógica do domínio;
+- pequenas refatorações contínuas aumentam a legibilidade sem alterar o comportamento da aplicação;
+- validar a interação do usuário é tão importante quanto validar as regras de negócio.
+
+### Observação
+
+A validação do Menu Principal manteve o mesmo padrão arquitetural adotado nas User Stories 
+anteriores, concentrando toda a responsabilidade pela leitura e validação das entradas na 
+classe 'ConsoleInput'.
+
+Os testes manuais contemplaram:
+
+* entradas vazias;
+* entradas contendo apenas espaços;
+* letras;
+* símbolos;
+* números decimais;
+* números negativos;
+* opções inexistentes;
+* opções válidas (`0`, `1` e `2`).
+
+Todos os cenários previstos foram validados com sucesso.

@@ -220,7 +220,7 @@ Para entender que a opção informada não é válida e poder escolher novamente
 
 Prioridade: 🟢 Baixa
 
-Status: ⏳ Não iniciada
+Status: ✅ Concluído
 
 ---
 
