@@ -234,7 +234,7 @@ Para facilitar a leitura durante a partida.
 
 Prioridade: 🟢 Baixa
 
-Status: ⏳ Não iniciada
+Status: ✅ Concluído
 
 ---
 
@@ -311,4 +311,4 @@ Produto Mínimo Viável.
 
 ---
 
-Última atualização: 02/08/2026
+Última atualização: 03/08/2026

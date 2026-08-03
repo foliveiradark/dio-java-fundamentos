@@ -12,17 +12,18 @@ public class ConsolePrinter {
 
     public void imprimir(Tabuleiro tabuleiro) {
 
-        imprimirCabecalho();
-
-        imprimirSeparadorHorizontal();
+        imprimirCabecalhoColunas();
 
         imprimirTabuleiro(tabuleiro);
 
+        imprimirCabecalhoColunas();
+
     }
 
-    private void imprimirCabecalho() {
+    //Interface do tabuleiro
+    private void imprimirCabecalhoColunas() {
 
-        System.out.println("  | 1 2 3 | 4 5 6 | 7 8 9");
+        System.out.println("    1 2 3   4 5 6   7 8 9");
     }
 
     private void imprimirLinha(Tabuleiro tabuleiro, int linha) {
@@ -37,13 +38,13 @@ public class ConsolePrinter {
 
             System.out.print(formatarValor(casa) + " ");
 
-            if (coluna == 2 || coluna == 5) {
+            if (coluna == 2 || coluna == 5 || coluna == 8) {
                 imprimirSeparadorVertical();
             }
 
         }
 
-        System.out.println();
+        System.out.println(obterIdentificadorLinha(linha));
     }
 
     private char obterIdentificadorLinha(int linha) {
@@ -53,17 +54,28 @@ public class ConsolePrinter {
 
     private void imprimirSeparadorVertical() {
 
-        System.out.print("| ");
+        System.out.print("║ ");
 
     }
 
+    private void imprimirBordaSuperior() {
+
+        System.out.println("  ╔═══════╦═══════╦═══════╗");
+    }
     private void imprimirSeparadorHorizontal() {
 
-        System.out.println("--+-------+-------+------");
+        System.out.println("  ╠═══════╬═══════╬═══════╣");
 
+    }
+
+    private void imprimirBordaInferior() {
+
+        System.out.println("  ╚═══════╩═══════╩═══════╝");
     }
 
     private void imprimirTabuleiro(Tabuleiro tabuleiro) {
+
+        imprimirBordaSuperior();
 
         for (int linha = LIMITE_MINIMO; linha < TAMANHO; linha++) {
 
@@ -74,7 +86,7 @@ public class ConsolePrinter {
             }
         }
 
-        imprimirSeparadorHorizontal();
+        imprimirBordaInferior();
     }
 
     private String formatarValor(Casa casa) {
@@ -85,6 +97,7 @@ public class ConsolePrinter {
         return String.valueOf(casa.getNumero());
     }
 
+    //Mensagens
     public void imprimirEncerramento() {
 
         System.out.println("Saindo do jogo...");

@@ -1,6 +1,6 @@
 ## [Não publicado]
 
-Última atualização: 02/08/2026
+Última atualização: 03/08/2026
 
 ### Adicionado
 
@@ -23,6 +23,11 @@
 - Separação visual dos blocos 3×3.
 - Identificação das linhas (A–I).
 - Identificação das colunas (1–9).
+- Refinamento visual completo da impressão do tabuleiro.
+- Utilização de caracteres Unicode para delimitação dos blocos 3×3.
+- Identificação das colunas também no rodapé do tabuleiro.
+- Identificação das linhas no lado direito do tabuleiro.
+- Revisão do espaçamento e alinhamento da interface em modo texto.
 
 #### Fluxo da aplicação
 

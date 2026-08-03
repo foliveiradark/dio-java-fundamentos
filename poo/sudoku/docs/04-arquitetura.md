@@ -217,11 +217,12 @@ Durante o desenvolvimento foram adotados os seguintes princípios:
 
 As decisões arquiteturais que influenciaram a construção desta arquitetura encontram-se documentadas nas ADRs do projeto.
 
-- ADR-001 — Separação domínio/interface
-- ADR-002 — Responsabilidades do jogo
-- ADR-003 — Construção do tabuleiro
-- ADR-004 — Localização dos tabuleiros
-- ADR-005 — Organização da interface de console
-- ADR-006 — Responsabilidade de limpeza das jogadas
+- ADR-001 - Separação domínio/interface
+- ADR-002 - Responsabilidades do jogo
+- ADR-003 - Construção do tabuleiro
+- ADR-004 - Localização dos tabuleiros
+- ADR-005 - Organização da interface de console
+- ADR-006 - Responsabilidade de limpeza das jogadas
+- ADR-007 - Não diferenciar visualmente casas fixas na interface de console
 
 ---

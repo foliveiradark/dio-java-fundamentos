@@ -445,3 +445,42 @@ Os testes manuais contemplaram:
 * opções válidas (`0`, `1` e `2`).
 
 Todos os cenários previstos foram validados com sucesso.
+
+---
+
+### 📅 03/08/2026
+
+## 🔄 Encerramento da Sprint 15
+
+Foi concluído o refinamento visual da interface do tabuleiro.
+
+A impressão do Sudoku passou a utilizar caracteres Unicode para destacar a divisão entre os blocos 3×3, tornando a leitura mais organizada e agradável. Também foram adicionadas as identificações das colunas no cabeçalho e no rodapé, além das identificações das linhas nos lados esquerdo e direito do tabuleiro, facilitando a localização das coordenadas durante a partida.
+
+Toda a implementação permaneceu concentrada na classe `ConsolePrinter`, preservando a separação entre apresentação e regras de negócio.
+
+### Aprendizados
+
+- melhorias de usabilidade também agregam valor ao software, mesmo sem alterar regras de negócio;
+- pequenas alterações visuais podem reduzir o esforço cognitivo do usuário durante a interação;
+- concentrar toda a responsabilidade de impressão na camada de interface facilita futuras evoluções da aplicação;
+- manter a arquitetura consistente torna as refatorações mais simples e seguras.
+
+### Observação
+
+Durante a Sprint foi avaliada a possibilidade de diferenciar visualmente os números fixos das jogadas realizadas pelo jogador.
+
+Embora essa abordagem pudesse ser implementada na interface em modo texto, optou-se por não adicioná-la neste momento para evitar poluição visual e preservar a simplicidade da experiência do usuário.
+
+Essa diferenciação poderá ser implementada de forma mais elegante em uma futura interface gráfica (Swing), utilizando recursos como cores, estilos de fonte e bloqueio visual das casas fixas.
+
+Os testes manuais contemplaram:
+
+* impressão do tabuleiro inicial;
+* impressão após inserção de números;
+* impressão após remoção de jogadas;
+* alinhamento das linhas e colunas;
+* separação visual dos blocos 3×3;
+* identificação das coordenadas nos quatro lados do tabuleiro.
+
+Todos os cenários previstos foram validados com sucesso.
+
