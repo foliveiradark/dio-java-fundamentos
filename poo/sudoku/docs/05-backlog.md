@@ -268,7 +268,21 @@ Status: ⏳
 
 ---
 
-## US-018 — Estatísticas da partida
+## US-018 — Continuar partida
+
+**Como jogador**
+
+Quero continuar uma partida iniciada,
+
+Para não perder meu progresso.
+
+Prioridade: 🟢 Baixa
+
+Status: ⏳
+
+---
+
+## US-019 — Estatísticas da partida
 
 **Como jogador**
 
@@ -282,19 +296,7 @@ Status: ⏳
 
 ---
 
-## US-019 — Continuar partida
 
-**Como jogador**
-
-Quero continuar uma partida iniciada,
-
-Para não perder meu progresso.
-
-Prioridade: 🟢 Baixa
-
-Status: ⏳
-
----
 
 # Pós-MVP
 

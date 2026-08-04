@@ -12,21 +12,29 @@ O sistema será dividido em duas camadas principais:
 
 ## Classes do Domínio
 
-- JogoSudoku
 - Tabuleiro
 - Casa
+
+---
+
+## Classes de Serviço
+
+- JogoSudoku
 
 ---
 
 ## Classes da Interface
 
 - Menu
+- ConsoleInput
+- ConsolePrinter
 
 ---
 
 ## Relacionamentos
 
-- O Menu interage com o JogoSudoku.
-- O JogoSudoku controla uma partida e utiliza um Tabuleiro.
-- O Tabuleiro é composto por 81 objetos Casa.
-- Cada Casa representa uma posição do tabuleiro e conhece seu próprio estado.
+* Main inicia `JogoSudoku`;
+* `JogoSudoku` coordena a partida;
+* `JogoSudoku` utiliza `ConsoleInput`, `ConsolePrinter` e `Menu`;
+* `JogoSudoku` controla um `Tabuleiro`;
+* `Tabuleiro` é composto por 81 objetos `Casa`.

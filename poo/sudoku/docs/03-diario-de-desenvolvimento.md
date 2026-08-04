@@ -484,3 +484,29 @@ Os testes manuais contemplaram:
 
 Todos os cenários previstos foram validados com sucesso.
 
+---
+
+### 📅 03/08/2026
+
+## 🏁 Encerramento do Marco 1 — MVP Console
+
+Após a conclusão da Sprint 15, o projeto atingiu o primeiro marco planejado: a entrega de um Produto Mínimo Viável funcional em modo texto.
+
+Ao longo das quinze Sprints foram implementadas todas as funcionalidades previstas para o MVP, mantendo a arquitetura estável e evoluindo incrementalmente a aplicação.
+
+Além da implementação das funcionalidades, o projeto consolidou uma documentação técnica composta por requisitos, modelagem, arquitetura, backlog, roadmap, diário de desenvolvimento, ADRs e revisões de Sprint, garantindo rastreabilidade das decisões tomadas durante o desenvolvimento.
+
+### Aprendizados
+
+* desenvolvimento incremental reduz riscos e facilita refatorações;
+* registrar decisões arquiteturais evita retrabalho e preserva a consistência do projeto;
+* documentação contínua acompanha a evolução do software e não apenas sua entrega;
+* pequenas melhorias de arquitetura e usabilidade, realizadas ao longo das Sprints, contribuíram para manter o código organizado sem comprometer a lógica de negócio.
+
+### Próxima etapa
+
+Com o MVP consolidado, o projeto inicia um novo ciclo de evolução voltado para funcionalidades complementares, persistência, testes automatizados e futuras interfaces gráficas, preservando a arquitetura construída durante o primeiro marco.
+
+---
+
+

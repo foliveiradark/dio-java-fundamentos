@@ -15,49 +15,112 @@ e boas práticas de Engenharia de Software.
 
 Status: ✅ Concluída
 
-Objetivo:
+### Entregas:
 
-Construir a base arquitetural do projeto.
+* arquitetura inicial;
+* modelagem do domínio;
+* carregamento do tabuleiro;
+* estrutura do projeto.
 
 ---
 
 # 📍 Fase 2 — Interação com o Jogador
 
-Status: 🟡 Em andamento
+Status: ✅ Concluída
 
-Objetivo:
+### Entregas:
 
-Permitir que o jogador interaja com o sistema.
+* menu principal;
+* entrada de coordenadas;
+* inserção e remoção de números;
+* validações de entrada;
+* interface em modo texto.
 
 ---
 
 # 📍 Fase 3 — Regras do Sudoku
 
-Status: ⬜ Planejada
+Status: ✅ Concluída
 
-Objetivo:
+### Entregas:
 
-Implementar todas as regras de validação do jogo.
+* validação de jogadas;
+* verificação de linhas;
+* colunas;
+* blocos;
+* status da partida.
 
 ---
 
 # 📍 Fase 4 — Finalização
 
-Status: ⬜ Planejada
+Status: ✅ Concluída
 
-Objetivo:
+### Entregas:
 
-Permitir concluir partidas e reiniciar jogos.
+* limpeza do tabuleiro;
+* encerramento automático;
+* fluxo completo da partida.
 
 ---
 
-# 📍 Fase 5 — Release 1.0
+# 📍 Fase 5 — Consolidação do MVP 
+
+Status: ✅ Concluída
+
+### Entregas:
+
+* documentação completa;
+* backlog organizado;
+* ADRs;
+* diário de desenvolvimento;
+* refinamento visual da interface;
+* Marco 1 atingido.
+
+---
+
+# 📍 Fase 6 — Evolução do Produto
+
+Status: 🟡 Em andamento
+
+### Objetivo:
+
+Adicionar novas funcionalidades preservando a arquitetura construída e validando sua capacidade de evolução.
+
+### Próximas entregas:
+
+* Estatísticas da partida (US-018);
+* Continuar partida (US-019);
+* Persistência;
+* Testes automatizados.
+
+---
+
+# 📍 Fase 7 — Interface Gráfica
 
 Status: ⬜ Planejada
 
-Objetivo:
+### Objetivo:
 
-Revisar arquitetura, documentação e disponibilizar a primeira versão estável.
+Disponibilizar uma interface desktop utilizando Swing.
+
+---
+
+# 📍 Fase 8 — Produto Avançado
+
+Status: ⬜ Planejada
+
+### Objetivo:
+
+Adicionar funcionalidades voltadas para experiência do usuário.
+
+### Exemplos:
+
+* níveis de dificuldade;
+* gerador automático;
+* resolvedor;
+* histórico de partidas;
+* exportação.
 
 ---
 
@@ -73,3 +136,5 @@ Ao final do projeto, o repositório deverá demonstrar conhecimentos em:
 - Documentação Técnica
 - Organização de Projetos
 - Desenvolvimento Incremental
+- Documentação Arquitetural
+- Registro de Decisões (ADR)

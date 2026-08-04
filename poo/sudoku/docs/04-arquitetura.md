@@ -76,9 +76,9 @@ ConsolePrinter
 
 ### 5.1 Fluxo de uma Jogada
 ```text
-Ler linha
+Ler coordenada (A1–I9)
 ↓
-Ler coluna
+Converter para linha/coluna
 ↓
 Perguntar remoção
       │
@@ -208,6 +208,7 @@ Durante o desenvolvimento foram adotados os seguintes princípios:
 - Evolução contínua da arquitetura;
 - Interface desacoplada da lógica de negócio;
 - Coordenação do fluxo centralizada na camada de serviço (`JogoSudoku`).
+- Validação das entradas centralizada na camada de interface (`ConsoleInput`).
 
 ---
 
