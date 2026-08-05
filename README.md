@@ -145,6 +145,27 @@ Durante os estudos também foram realizados experimentos de migração entre fer
 
 ---
 
+## ⭐ Projeto em Destaque
+
+### 🧩 Sudoku em Java
+
+Projeto desenvolvido como aplicação prática de Programação Orientada a Objetos e Engenharia de Software.
+
+Além da implementação completa do jogo em modo texto, o projeto foi construído utilizando uma abordagem incremental baseada em:
+
+- User Stories;
+- Sprints;
+- ADRs (Architectural Decision Records);
+- documentação contínua;
+- arquitetura em camadas;
+- backlog e roadmap.
+
+📄 Acesse o projeto:
+
+## ➡️ [`poo/sudoku`](poo/sudoku)
+
+
+---
 ## 🛠️ Stack Atual
 
 <p>
@@ -155,20 +176,20 @@ Durante os estudos também foram realizados experimentos de migração entre fer
 
 ## 📊 Status da Formação
 
-| Área                             | Status          |
-| -------------------------------- | --------------- |
-| Fundamentos Java                 | ✅ Concluído     |
-| Controle de Fluxo                | ✅ Concluído     |
-| Tratamento de Exceções           | ✅ Concluído     |
-| Maven                            | ✅ Concluído     |
-| Gradle                           | ✅ Concluído     |
-| Programação Orientada a Objetos  | 🚧 Em andamento |
-| Inteligência Artificial Aplicada | ⏳ Planejado     |
-| Persistência de Dados            | ⏳ Planejado     |
-| Spring Boot                      | ⏳ Planejado     |
-| Boas Práticas de Desenvolvimento | ⏳ Planejado     |
-| JUnit e Testes Unitários         | ⏳ Planejado     |
-| Projeto Final                    | ⏳ Planejado     |
+| Área                             | Status       |
+| -------------------------------- |--------------|
+| Fundamentos Java                 | ✅ Concluído  |
+| Controle de Fluxo                | ✅ Concluído  |
+| Tratamento de Exceções           | ✅ Concluído  |
+| Maven                            | ✅ Concluído  |
+| Gradle                           | ✅ Concluído  |
+| Programação Orientada a Objetos  | ✅ Concluído  |
+| Inteligência Artificial Aplicada | ⏳ Planejado  |
+| Persistência de Dados            | ⏳ Planejado  |
+| Spring Boot                      | ⏳ Planejado  |
+| Boas Práticas de Desenvolvimento | ⏳ Planejado  |
+| JUnit e Testes Unitários         | ⏳ Planejado  |
+| Projeto Final                    | ⏳ Planejado  |
 
 ---
 
