@@ -147,7 +147,7 @@ Durante os estudos também foram realizados experimentos de migração entre fer
 
 ## ⭐ Projeto em Destaque
 
-### 🧩 Sudoku em Java
+### 🧩 [Sudoku em Java](poo/sudoku)
 
 Projeto desenvolvido como aplicação prática de Programação Orientada a Objetos e Engenharia de Software.
 
@@ -159,11 +159,6 @@ Além da implementação completa do jogo em modo texto, o projeto foi construí
 - documentação contínua;
 - arquitetura em camadas;
 - backlog e roadmap.
-
-📄 Acesse o projeto:
-
-## ➡️ [`poo/sudoku`](poo/sudoku)
-
 
 ---
 ## 🛠️ Stack Atual
