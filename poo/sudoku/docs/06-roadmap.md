@@ -85,14 +85,16 @@ Status: 🟡 Em andamento
 
 ### Objetivo:
 
-Adicionar novas funcionalidades preservando a arquitetura construída e validando sua capacidade de evolução.
+Adicionar novas funcionalidades preservando a arquitetura construída e
+validando sua capacidade de evolução.
 
 ### Próximas entregas:
 
-* Estatísticas da partida (US-018);
-* Continuar partida (US-019);
-* Persistência;
-* Testes automatizados.
+- Sistema de rascunhos (US-017);
+- Continuar partida (US-018);
+- Estatísticas da partida (US-019);
+- Persistência;
+- Testes automatizados.
 
 ---
 
@@ -103,6 +105,10 @@ Status: ⬜ Planejada
 ### Objetivo:
 
 Disponibilizar uma interface desktop utilizando Swing.
+
+### Entrega:
+
+- Interface gráfica (US-016).
 
 ---
 

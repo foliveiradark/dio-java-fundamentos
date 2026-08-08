@@ -240,20 +240,6 @@ Status: ✅ Concluído
 
 # Melhorias Futuras
 
-## US-016 — Interface gráfica (Swing)
-
-**Como jogador**
-
-Quero
-
-Para
-
-Prioridade: 🟢 Baixa
-
-Status: ⏳
-
----
-
 ## US-017 — Sistema de rascunhos
 
 **Como jogador**
@@ -283,6 +269,20 @@ Status: ⏳
 ---
 
 ## US-019 — Estatísticas da partida
+
+**Como jogador**
+
+Quero
+
+Para
+
+Prioridade: 🟢 Baixa
+
+Status: ⏳
+
+---
+
+## US-016 — Interface gráfica (Swing)
 
 **Como jogador**
 
