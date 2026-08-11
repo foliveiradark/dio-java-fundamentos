@@ -1,11 +1,15 @@
 package model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Casa {
 
     private final int linha;
     private final int coluna;
     private Integer numero;
     private final boolean fixa;
+    private final Set<Integer> candidatos;
 
     private static final int NUMERO_MINIMO = 1;
     private static final int NUMERO_MAXIMO = 9;
@@ -25,6 +29,7 @@ public class Casa {
         this.coluna = coluna;
         this.numero = numero;
         this.fixa = fixa;
+        this.candidatos = new HashSet<>();
     }
 
     public int getLinha() {
@@ -58,6 +63,7 @@ public class Casa {
         validarNumero(numero);
 
         this.numero = numero;
+        candidatos.clear();
 
     }
 
@@ -76,6 +82,29 @@ public class Casa {
 
     }
 
+    public boolean alternarCandidato(Integer candidato) {
+
+        if (isFixa()) {
+            throw new IllegalArgumentException(
+                    "Não é possível alterar uma casa fixa."
+            );
+        }
+
+        validarNumero(candidato);
+
+        if (candidatos.contains(candidato)) {
+            candidatos.remove(candidato);
+            return false;
+        }
+
+        candidatos.add(candidato);
+        return true;
+    }
+
+    public boolean possuiCandidato(Integer candidato) {
+        return candidatos.contains(candidato);
+    }
+
     private void validarNumero(Integer numero){
 
         if (numero == null) {
@@ -88,7 +117,7 @@ public class Casa {
             );
         }
 
-    };
+    }
 
     private void validarLinha(int linha){
 
@@ -96,7 +125,7 @@ public class Casa {
             throw new IllegalArgumentException("Linha inválida.");
         }
 
-    };
+    }
 
     private void validarColuna(int coluna){
 
@@ -104,7 +133,7 @@ public class Casa {
             throw new IllegalArgumentException("Coluna inválida.");
         }
 
-    };
+    }
 
     @Override
     public String toString() {

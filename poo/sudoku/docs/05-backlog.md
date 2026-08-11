@@ -244,9 +244,30 @@ Status: ✅ Concluído
 
 **Como jogador**
 
-Quero
+Quero inserir números de rascunho nas casas do Sudoku
 
-Para
+Para registrar possibilidades enquanto resolvo a partida.
+
+### Origem
+
+Requisito opcional do exercício da DIO:
+
+> Ter a opção de colocar números de rascunho nos quadrados,
+> seguindo o modelo proposto na seção "Modelo de rascunho".
+
+### Interpretação adotada
+
+Uma mesma casa poderá conter múltiplos números de rascunho
+simultaneamente, representando diferentes possibilidades para aquela casa.
+
+### Critérios de aceitação
+
+- Permitir inserir números de rascunho em uma casa;
+- Permitir múltiplos números de rascunho simultaneamente na mesma casa;
+- Permitir adicionar individualmente um número de rascunho;
+- Permitir remover individualmente um número de rascunho;
+- Os números de rascunho devem utilizar os valores de 1 a 9;
+- A representação dos rascunhos deve seguir o modelo apresentado no exercício.
 
 Prioridade: 🟢 Baixa
 
