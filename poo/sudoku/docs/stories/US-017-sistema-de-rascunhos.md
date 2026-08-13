@@ -5,9 +5,9 @@
 ## Informações Gerais
 
 > **ID:** US-017  
-> **Sprint:** Sprint 16  
+> **Sprint:** Sprint 17  
 > **Prioridade:** 🟢 Baixa  
-> **Status:** ⏳ Em desenvolvimento.
+> **Status:** ✅ Concluída.
 
 ---
 
@@ -111,7 +111,7 @@ A mesma regra deverá ser aplicada à operação de candidatos.
 
 A validação deverá permanecer no domínio, evitando duplicação da regra nas camadas superiores.
 
-**Status:** ⏳ Pendente.
+**Status:** ✅ Concluída.
 
 ---
 
@@ -128,7 +128,7 @@ A interpretação do prefixo `*` deverá permanecer restrita à camada de interf
 
 O domínio deverá receber a intenção da operação e o valor numérico, sem conhecimento da sintaxe utilizada pelo console.
 
-**Status:** ⏳ Pendente.
+**Status:** ✅ Concluída.
 
 ---
 
@@ -147,7 +147,7 @@ Deverão existir mensagens distintas para:
 
 A responsabilidade pelas mensagens permanecerá na camada de interface.
 
-**Status:** ⏳ Pendente.
+**Status:** ✅ Concluída.
 
 ---
 
@@ -155,13 +155,39 @@ A responsabilidade pelas mensagens permanecerá na camada de interface.
 
 Implementar a apresentação dos candidatos na interface de console.
 
+A `Casa` continua responsável pelo conjunto de candidatos, mas disponibiliza uma consulta sem permitir que outra camada altere diretamente esse conjunto.
+
 Os candidatos deverão ser apresentados dentro da própria célula do tabuleiro, permitindo visualizar múltiplos candidatos simultaneamente sem comprometer a legibilidade da interface.
 
 A forma de renderização deverá permanecer como responsabilidade da interface de console.
 
 A representação visual não deverá alterar a representação utilizada pelo domínio.
 
-**Status:** ⏳ Pendente.
+**Status:** ✅ Concluída.
+
+### Implementação
+
+Foi criada na classe `ConsolePrinter` a representação visual da `Casa` utilizando uma grade interna 3×3.
+
+Cada posição da grade corresponde a um possível candidato:
+
+```text
+1 2 3
+4 5 6
+7 8 9
+```
+
+Quando a casa está vazia, somente os candidatos existentes são apresentados em suas respectivas posições.
+
+Quando a casa possui um número definitivo, o número é apresentado centralizado na célula.
+
+A construção da representação foi encapsulada no método:
+
+```java
+construirLinhasCasa(Casa casa)
+```
+
+A implementação mantém a responsabilidade de apresentação exclusivamente na camada `ui`.
 
 ---
 
@@ -183,7 +209,7 @@ O `JogoSudoku` deverá coordenar o fluxo da operação, enquanto:
 - `Casa` executa a operação de domínio;
 - `ConsolePrinter` apresenta o resultado ao jogador.
 
-**Status:** ⏳ Pendente.
+**Status:** ✅ Concluída.
 
 ---
 
@@ -205,7 +231,7 @@ Validar a funcionalidade de rascunhos em diferentes situações da partida.
 - visualizar o estado atualizado da casa;
 - preservar o funcionamento das regras existentes do Sudoku.
 
-**Status:** ⏳ Pendente.
+**Status:** ✅ Concluída.
 
 ---
 
@@ -213,7 +239,7 @@ Validar a funcionalidade de rascunhos em diferentes situações da partida.
 
 Validar a Definition of Done da US-017.
 
-**Status:** ⏳ Pendente.
+**Status:** ✅ Concluída.
 
 ---
 
@@ -299,7 +325,17 @@ A geração dessas mensagens pertence à interface.
 
 ### Apresentação dos candidatos
 
-Os candidatos serão apresentados visualmente dentro da própria célula do tabuleiro.
+Os candidatos serão apresentados visualmente dentro da própria célula do tabuleiro utilizando uma grade interna 3×3.
+
+A correspondência visual adotada é:
+
+```text
+1 2 3
+4 5 6
+7 8 9
+```
+
+O número definitivo é apresentado centralizado.
 
 A forma específica de renderização pertence à interface de console.
 
@@ -307,9 +343,9 @@ A representação visual não deverá determinar a estrutura do domínio.
 
 ---
 
-# 🧪 Validações realizadas
+## 🧪 Validações realizadas
 
-As primeiras regras do domínio foram implementadas e validadas de forma controlada utilizando o IntelliJ IDEA.
+As regras do domínio, a interpretação da entrada de rascunhos, o feedback ao jogador e a apresentação visual foram implementados e validados de forma controlada utilizando o IntelliJ IDEA e a execução da partida pelo console.
 
 ### TASK-001
 
@@ -339,6 +375,239 @@ Foram validados:
 - remoção automática dos candidatos ao definir um número definitivo;
 - não restauração dos candidatos após remoção do número definitivo;
 - preservação dos candidatos quando uma tentativa de preenchimento inválida ocorre.
+
+**Resultado:** ✅ Validado.
+
+---
+
+### TASK-004
+
+Foi validado que uma casa fixa não permite a inclusão ou remoção de candidatos.
+
+A regra permanece protegida pela entidade `Casa`, evitando que a camada de aplicação ou interface precise duplicar essa validação.
+
+**Resultado:** ✅ Validado.
+
+---
+
+### TASK-005
+
+Foi validada a interpretação das entradas de jogada na interface de console.
+
+Entradas testadas:
+
+| Entrada | Número | Tipo |
+|---|---:|---|
+| `5` | 5 | `DEFINITIVA` |
+| `*5` | 5 | `CANDIDATO` |
+| `*9` | 9 | `CANDIDATO` |
+
+Também foram validadas entradas inválidas:
+
+- `*10`;
+- `10`.
+
+Essas entradas foram rejeitadas pela interface, mantendo a sintaxe `*` fora do domínio.
+
+Foi também validado o fluxo completo no console:
+
+- entrada de jogada definitiva;
+- entrada de candidato;
+- tentativa de candidato em casa fixa;
+- rejeição de entrada inválida;
+- retorno à leitura de uma nova jogada.
+
+**Resultado:** ✅ Validado.
+
+---
+
+### TASK-006
+
+Foi validado o feedback apresentado ao jogador após uma operação de candidato.
+
+Foi realizado um teste manual utilizando a mesma casa para verificar o comportamento de toggle:
+
+```text
+A5
+N
+*9
+```
+
+Resultado:
+
+`Candidato 9 adicionado.`
+
+Em seguida, a mesma operação foi realizada novamente:
+
+```text
+A5
+N
+*9
+```
+
+Resultado:
+
+`Candidato 9 removido.`
+
+O teste confirmou que:
+
+- o resultado `true` retornado por `alternarCandidato()` é interpretado como candidato adicionado;
+- o resultado `false` é interpretado como candidato removido;
+- a operação de toggle é executada uma única vez;
+- o número do candidato é apresentado corretamente na mensagem;
+- a apresentação das mensagens permanece sob responsabilidade do `ConsolePrinter`.
+
+**Resultado:** ✅ Validado.
+
+---
+
+### TASK-007
+
+Foi realizada validação manual da representação de:
+
+- casa vazia;
+- casa com número definitivo;
+- casa com múltiplos candidatos;
+- adição e remoção de candidatos durante uma partida real.
+
+Também foi validada a preservação da estrutura visual do tabuleiro, incluindo:
+
+- cabeçalho das colunas;
+- identificadores das linhas;
+- bordas;
+- separadores dos blocos 3×3;
+- alinhamento das células.
+
+**Resultado:** ✅ Validado.
+
+---
+
+### TASK-008
+
+Foi realizado teste integrado utilizando uma partida real pelo console.
+
+O fluxo validado foi:
+
+```text
+Coordenada
+    ↓
+ConsoleInput
+    ↓
+TipoJogada
+    ↓
+JogoSudoku
+    ↓
+Casa
+    ↓
+ConsolePrinter
+```
+
+Foi validada a inclusão de candidatos em uma casa editável e a atualização imediata da representação visual do tabuleiro.
+
+Também foi validada a integração entre a alteração do estado da `Casa` e sua posterior renderização pelo `ConsolePrinter`.
+
+**Resultado:** ✅ Validado.
+
+---
+
+### TASK-009
+
+Foram realizados testes manuais durante a execução da partida.
+
+#### Múltiplos candidatos
+
+Foi utilizada a mesma casa para adicionar diferentes candidatos:
+
+```text
+*2
+*7
+*9
+```
+
+A representação visual confirmou os candidatos nas posições correspondentes da grade 3×3.
+
+**Resultado:** ✅ Validado.
+
+#### Remoção de candidato
+
+Um candidato existente foi informado novamente.
+
+Exemplo:
+
+```text
+*5
+```
+
+Resultado:
+
+```text
+Candidato 5 removido.
+```
+
+A representação visual confirmou a remoção somente daquele candidato.
+
+**Resultado:** ✅ Validado.
+
+#### Número definitivo
+
+Uma casa contendo candidatos recebeu um número definitivo.
+
+Exemplo:
+
+```text
+8
+```
+
+Os candidatos desapareceram automaticamente e o número definitivo passou a ser apresentado centralizado na casa.
+
+**Resultado:** ✅ Validado.
+
+#### Tentativa de candidato em casa preenchida
+
+Após o preenchimento definitivo da casa, foi realizada nova tentativa de inclusão de candidato.
+
+Exemplo:
+
+```text
+*2
+```
+
+Resultado:
+
+```text
+Não é possível adicionar candidatos a uma casa preenchida.
+```
+
+A operação não alterou o estado da casa.
+
+**Resultado:** ✅ Validado.
+
+#### Integração com o fluxo da partida
+
+Após cada operação, o tabuleiro foi renderizado novamente e apresentou o estado atualizado da casa.
+
+O fluxo de limpeza das jogadas e consulta do status da partida continuou funcionando normalmente.
+
+**Resultado:** ✅ Validado.
+
+---
+
+### TASK-010
+
+Foi realizada a validação da Definition of Done da US-017.
+
+Foram confirmados:
+
+- implementação das funcionalidades previstas;
+- integração entre domínio, serviço e interface;
+- preservação das regras existentes;
+- validação manual dos principais cenários;
+- apresentação dos candidatos na interface;
+- encapsulamento da representação dos candidatos;
+- independência do domínio em relação à sintaxe do console;
+- funcionamento integrado da partida.
+
+A funcionalidade foi validada por meio da execução da aplicação e dos cenários definidos na TASK-009.
 
 **Resultado:** ✅ Validado.
 
@@ -375,10 +644,24 @@ Foram validados:
 
 # 📊 Status
 
-⏳ Em desenvolvimento.
+✅ Concluída.
 
 As decisões arquiteturais e funcionais necessárias para a implementação da US-017 foram consolidadas.
 
-As TASKs 001, 002 e 003 foram implementadas, validadas e revisadas.
+As TASKs 001 a 009 foram implementadas, validadas e revisadas.
 
-A próxima etapa consiste na implementação incremental das tarefas técnicas, preservando as responsabilidades existentes entre domínio, serviço e interface.
+Neste momento, a funcionalidade possui:
+
+- representação de candidatos no domínio;
+- operação de toggle;
+- regras de consistência entre candidato e número definitivo;
+- proteção de casas fixas;
+- interpretação da sintaxe `*1` até `*9` na interface;
+- representação da intenção da jogada por meio de `TipoJogada`;
+- encapsulamento da sintaxe específica do console;
+- feedback ao jogador para adição e remoção de candidatos;
+- apresentação visual dos candidatos em uma grade 3×3;
+- integração da funcionalidade ao fluxo da partida;
+- validação funcional dos principais cenários da US-017.
+
+A próxima etapa consiste na **TASK-010 — Validação da Definition of Done da US-017**, que deverá confirmar formalmente se a User Story atende aos critérios de conclusão estabelecidos pelo projeto.

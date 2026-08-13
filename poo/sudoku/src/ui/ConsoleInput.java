@@ -1,5 +1,8 @@
 package ui;
 
+import enums.TipoJogada;
+import service.Jogada;
+
 import java.util.Scanner;
 
 public class ConsoleInput {
@@ -123,6 +126,46 @@ public class ConsoleInput {
 
                 consolePrinter.imprimirOpcaoMenuInvalida();
 
+            }
+        }
+    }
+
+    public Jogada lerJogada() {
+
+        while (true) {
+
+            String entrada = scanner.nextLine().trim();
+
+            if (entrada.isBlank()) {
+
+                consolePrinter.imprimirJogadaInvalida();
+                continue;
+            }
+
+            boolean candidato = entrada.startsWith("*");
+
+            String valor = candidato
+                    ? entrada.substring(1)
+                    : entrada;
+
+            try {
+
+                int numero = Integer.parseInt(valor);
+
+                if (numero < 1 || numero > 9) {
+
+                    consolePrinter.imprimirJogadaInvalida();
+                    continue;
+                }
+
+                TipoJogada tipo = candidato
+                        ? TipoJogada.CANDIDATO
+                        : TipoJogada.DEFINITIVA;
+
+                return new Jogada(numero, tipo);
+            } catch (NumberFormatException e) {
+
+                consolePrinter.imprimirJogadaInvalida();
             }
         }
     }

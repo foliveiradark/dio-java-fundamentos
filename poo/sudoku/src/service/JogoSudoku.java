@@ -1,6 +1,7 @@
 package service;
 
 import enums.StatusPartida;
+import enums.TipoJogada;
 import model.Casa;
 import model.Tabuleiro;
 import ui.ConsoleInput;
@@ -87,9 +88,9 @@ public class JogoSudoku {
             } else {
 
                 consolePrinter.imprimirSolicitacaoNumero();
-                int numero = consoleInput.lerInteiro();
+                Jogada jogada = consoleInput.lerJogada();
 
-                executarJogada(linha,coluna,numero);
+                executarJogada(linha,coluna,jogada);
 
                 StatusPartida status = verificarStatusPartida();
 
@@ -134,13 +135,30 @@ public class JogoSudoku {
 
     private void executarJogada (int linha,
                                  int coluna,
-                                 int numero) {
+                                 Jogada jogada) {
 
         try {
 
             Casa casa = tabuleiro.getCasa(linha, coluna);
 
-            casa.preencher(numero);
+            if (jogada.tipo() == TipoJogada.DEFINITIVA) {
+
+                casa.preencher(jogada.numero());
+
+            } else {
+
+                boolean resultado = casa.alternarCandidato(jogada.numero());
+
+                if (resultado) {
+
+                    consolePrinter.imprimirCandidatoAdicionado(jogada.numero());
+
+                } else {
+
+                    consolePrinter.imprimirCandidatoRemovido(jogada.numero());
+                }
+
+            }
 
             consolePrinter.imprimir(tabuleiro);
 

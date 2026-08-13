@@ -4,6 +4,9 @@ import enums.StatusPartida;
 import model.Casa;
 import model.Tabuleiro;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ConsolePrinter {
 
     private static final int TAMANHO = 9;
@@ -23,28 +26,55 @@ public class ConsolePrinter {
     //Interface do tabuleiro
     private void imprimirCabecalhoColunas() {
 
-        System.out.println("    1 2 3   4 5 6   7 8 9");
+        System.out.println("  ║    1       2       3    ║    4       5       6    ║    7       8       9   ║");
     }
 
     private void imprimirLinha(Tabuleiro tabuleiro, int linha) {
 
-        System.out.print(obterIdentificadorLinha(linha) + " ");
-
-        imprimirSeparadorVertical();
+        List<List<String>> linhasDasCasas = new ArrayList<>();
 
         for (int coluna = LIMITE_MINIMO; coluna < TAMANHO; coluna++) {
 
             Casa casa = tabuleiro.getCasa(linha, coluna);
 
-            System.out.print(formatarValor(casa) + " ");
+            linhasDasCasas.add(construirLinhasCasa(casa));
+        }
 
-            if (coluna == 2 || coluna == 5 || coluna == 8) {
-                imprimirSeparadorVertical();
+        for (int linhaCasa = 0; linhaCasa < 3; linhaCasa++) {
+
+            if (linhaCasa == 1) {
+
+                System.out.print(obterIdentificadorLinha(linha) + " ");
+            } else {
+
+                System.out.print("  ");
+            }
+
+            imprimirSeparadorVertical();
+
+            for (int coluna = LIMITE_MINIMO; coluna < TAMANHO; coluna++) {
+
+                System.out.print(
+                        " " + linhasDasCasas.get(coluna).get(linhaCasa) + " "
+                );
+
+                if (coluna < 8) {
+                    System.out.print(" ");
+                }
+
+                if (coluna == 2 || coluna == 5 || coluna == 8) {
+                    imprimirSeparadorVertical();
+                }
+            }
+
+            if (linhaCasa == 1) {
+
+                System.out.println(obterIdentificadorLinha(linha));
+            } else {
+                System.out.println();
             }
 
         }
-
-        System.out.println(obterIdentificadorLinha(linha));
     }
 
     private char obterIdentificadorLinha(int linha) {
@@ -60,17 +90,17 @@ public class ConsolePrinter {
 
     private void imprimirBordaSuperior() {
 
-        System.out.println("  ╔═══════╦═══════╦═══════╗");
+        System.out.println("  ╔═════════════════════════╦═════════════════════════╦════════════════════════╗");
     }
     private void imprimirSeparadorHorizontal() {
 
-        System.out.println("  ╠═══════╬═══════╬═══════╣");
+        System.out.println("  ╠═════════════════════════╬═════════════════════════╬════════════════════════╣");
 
     }
 
     private void imprimirBordaInferior() {
 
-        System.out.println("  ╚═══════╩═══════╩═══════╝");
+        System.out.println("  ╚═════════════════════════╩═════════════════════════╩════════════════════════╝");
     }
 
     private void imprimirTabuleiro(Tabuleiro tabuleiro) {
@@ -89,12 +119,50 @@ public class ConsolePrinter {
         imprimirBordaInferior();
     }
 
-    private String formatarValor(Casa casa) {
+    private List<String> construirLinhasCasa(Casa casa) {
 
-        if (casa.estaVazia()) {
-            return ".";
+        List<String> linhas = new ArrayList<>();
+
+        for (int linha = 0; linha < 3; linha++) {
+
+            StringBuilder linhaCasa = new StringBuilder();
+
+            for (int coluna = 0; coluna < 3; coluna++) {
+
+                if (!casa.estaVazia()) {
+
+                    if (linha == 1 && coluna == 1) {
+
+                        linhaCasa.append(casa.getNumero());
+                    } else {
+
+                        linhaCasa.append(" ");
+                    }
+                } else {
+
+                    int candidato = linha * 3 + coluna + 1;
+
+                    if (casa.possuiCandidato(candidato)) {
+
+                        linhaCasa.append(candidato);
+
+                    } else {
+
+                        linhaCasa.append(" ");
+                    }
+                }
+
+                if (coluna < 2){
+
+                    linhaCasa.append(" ");
+                }
+
+            }
+
+            linhas.add(linhaCasa.toString());
         }
-        return String.valueOf(casa.getNumero());
+
+        return linhas;
     }
 
     //Mensagens
@@ -111,7 +179,7 @@ public class ConsolePrinter {
 
     public void imprimirSolicitacaoNumero() {
 
-        System.out.print("Informe o número: ");
+        System.out.print("Informe um número de 1 a 9 ou um candidato no formato *1-*9: ");
     }
 
     public void imprimirErro(String mensagem) {
@@ -172,6 +240,11 @@ public class ConsolePrinter {
         System.out.print("Entrada inválida. Informe uma coordenada válida (A1-I9): ");
     }
 
+    public void imprimirJogadaInvalida() {
+
+        System.out.print("Entrada inválida. Informe um número de 1 a 9 ou um candidato no formato *1-*9: ");
+    }
+
     public void imprimirConfirmacaoInvalida() {
 
         System.out.print("Confirmação inválida. Digite S ou N: ");
@@ -185,5 +258,13 @@ public class ConsolePrinter {
     public void imprimirFuncionalidadeIndisponivel(){
 
         System.out.println("Funcionalidade ainda não disponível.");
+    }
+
+    public void imprimirCandidatoAdicionado(int candidato) {
+        System.out.println("Candidato " + candidato + " adicionado.");
+    }
+
+    public void imprimirCandidatoRemovido(int candidato) {
+        System.out.println("Candidato " + candidato + " removido.");
     }
 }

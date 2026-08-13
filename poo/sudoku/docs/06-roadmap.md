@@ -136,6 +136,7 @@ Ao final do projeto, o repositório deverá demonstrar conhecimentos em:
 
 - Java
 - Programação Orientada a Objetos
+- Testes automatizados (JUnit)
 - Arquitetura de Software
 - Engenharia de Software
 - Git

@@ -90,6 +90,12 @@ public class Casa {
             );
         }
 
+        if (!estaVazia()) {
+            throw new IllegalArgumentException(
+                    "Não é possível alterar os candidatos de uma casa preenchida."
+            );
+        }
+
         validarNumero(candidato);
 
         if (candidatos.contains(candidato)) {
@@ -103,6 +109,11 @@ public class Casa {
 
     public boolean possuiCandidato(Integer candidato) {
         return candidatos.contains(candidato);
+    }
+
+    public Set<Integer> getCandidatos() {
+
+        return Set.copyOf(candidatos);
     }
 
     private void validarNumero(Integer numero){

@@ -271,7 +271,7 @@ simultaneamente, representando diferentes possibilidades para aquela casa.
 
 Prioridade: 🟢 Baixa
 
-Status: ⏳
+Status: ✅ Concluído
 
 ---
 
@@ -334,4 +334,4 @@ Produto Mínimo Viável.
 
 ---
 
-Última atualização: 03/08/2026
+Última atualização: 13/08/2026

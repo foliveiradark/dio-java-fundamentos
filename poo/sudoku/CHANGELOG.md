@@ -1,6 +1,6 @@
 ## [Não publicado]
 
-Última atualização: 03/08/2026
+Última atualização: 13/08/2026
 
 ### Adicionado
 
@@ -105,6 +105,18 @@
 - Exibição de mensagens amigáveis para confirmações inválidas.
 - Solicitação automática de nova resposta até que uma confirmação válida seja informada.
 - Centralização da validação na classe `ConsoleInput`.
+
+#### Sistema de rascunhos
+
+- Sistema de rascunhos para casas editáveis.
+- Possibilidade de registrar múltiplos candidatos em uma mesma casa.
+- Operação de toggle para adicionar e remover candidatos.
+- Representação dos candidatos utilizando `Set<Integer>` no domínio.
+- Novo tipo de jogada para diferenciar números definitivos e candidatos.
+- Apresentação visual dos candidatos em uma grade interna 3×3.
+- Feedback ao jogador para inclusão e remoção de candidatos.
+- Integração do sistema de rascunhos ao fluxo da partida.
+- Validação das regras de consistência entre candidatos e números definitivos.
 
 ### Corrigido
 
