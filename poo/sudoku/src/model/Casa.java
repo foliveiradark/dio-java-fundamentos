@@ -60,6 +60,13 @@ public class Casa {
             );
         }
 
+        if (!estaVazia()) {
+            throw new IllegalArgumentException(
+                    "Não é possível substituir uma jogada existente. Remova a jogada primeiro."
+            );
+
+        }
+
         validarNumero(numero);
 
         this.numero = numero;

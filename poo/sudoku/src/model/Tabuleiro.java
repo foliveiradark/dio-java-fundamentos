@@ -26,6 +26,19 @@ public class Tabuleiro {
         carregarTabuleiroInicial();
     }
 
+    public Tabuleiro(List<Casa> casas) {
+
+        this.casas = new Casa[TAMANHO][TAMANHO];
+
+        for (Casa casa : casas) {
+
+            int linha = casa.getLinha();
+            int coluna = casa.getColuna();
+
+            this.casas[linha][coluna] = casa;
+        }
+    }
+
     private Casa criarCasaVazia(int linha,
                                 int coluna) {
 

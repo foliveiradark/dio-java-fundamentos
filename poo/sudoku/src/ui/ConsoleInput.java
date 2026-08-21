@@ -130,6 +130,37 @@ public class ConsoleInput {
         }
     }
 
+    public int lerOpcaoMenuPartida() {
+
+        while (true) {
+
+            String opcao = scanner.nextLine().trim();
+
+            if (opcao.isBlank()) {
+
+                consolePrinter.imprimirOpcaoMenuInvalida();
+                continue;
+            }
+
+            try {
+
+                int opcaoMenu = Integer.parseInt(opcao);
+
+                if (opcaoMenu >= 0 && opcaoMenu <= 5) {
+
+                    return opcaoMenu;
+                }
+
+                consolePrinter.imprimirOpcaoMenuInvalida();
+
+            } catch (NumberFormatException e) {
+
+                consolePrinter.imprimirOpcaoMenuInvalida();
+
+            }
+        }
+    }
+
     public Jogada lerJogada() {
 
         while (true) {

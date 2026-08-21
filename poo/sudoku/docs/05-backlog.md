@@ -1,6 +1,7 @@
 # Product Backlog
 
 ---
+
 # 🎯 Objetivo
 
 O Product Backlog representa a lista priorizada de funcionalidades do projeto.
@@ -8,6 +9,7 @@ O Product Backlog representa a lista priorizada de funcionalidades do projeto.
 As User Stories serão selecionadas para as Sprints conforme a evolução do desenvolvimento.
 
 ---
+
 # MVP (Produto Mínimo Viável)
 
 ## US-001 — Visualizar o tabuleiro
@@ -49,6 +51,7 @@ Para iniciar uma nova partida ou acessar as opções do jogo.
 Prioridade: 🔴 Alta
 
 Status: ✅ Concluído
+
 ---
 
 ## US-004 — Inserir um número
@@ -95,8 +98,8 @@ Para localizar facilmente as posições do tabuleiro.
 
 **Critérios:**
 
-* Exibir índices de linhas; 
-* Exibir índices de colunas; 
+* Exibir índices de linhas;
+* Exibir índices de colunas;
 * Facilitar a interação do jogador.
 
 Prioridade: 🔴 Alta
@@ -211,12 +214,12 @@ Quero receber uma mensagem quando informar uma opção inexistente no menu
 
 Para entender que a opção informada não é válida e poder escolher novamente.
 
-### Critérios:
+### Critérios
 
-- aceitar apenas opções existentes;
-- exibir mensagem amigável;
-- solicitar novamente a opção;
-- manter a aplicação em execução.
+* aceitar apenas opções existentes;
+* exibir mensagem amigável;
+* solicitar novamente a opção;
+* manter a aplicação em execução.
 
 Prioridade: 🟢 Baixa
 
@@ -262,12 +265,12 @@ simultaneamente, representando diferentes possibilidades para aquela casa.
 
 ### Critérios de aceitação
 
-- Permitir inserir números de rascunho em uma casa;
-- Permitir múltiplos números de rascunho simultaneamente na mesma casa;
-- Permitir adicionar individualmente um número de rascunho;
-- Permitir remover individualmente um número de rascunho;
-- Os números de rascunho devem utilizar os valores de 1 a 9;
-- A representação dos rascunhos deve seguir o modelo apresentado no exercício.
+* Permitir inserir números de rascunho em uma casa;
+* Permitir múltiplos números de rascunho simultaneamente na mesma casa;
+* Permitir adicionar individualmente um número de rascunho;
+* Permitir remover individualmente um número de rascunho;
+* Os números de rascunho devem utilizar os valores de 1 a 9;
+* A representação dos rascunhos deve seguir o modelo apresentado no exercício.
 
 Prioridade: 🟢 Baixa
 
@@ -279,13 +282,13 @@ Status: ✅ Concluído
 
 **Como jogador**
 
-Quero continuar uma partida iniciada,
+Quero continuar uma partida iniciada
 
 Para não perder meu progresso.
 
 Prioridade: 🟢 Baixa
 
-Status: ⏳
+Status: ✅ Concluído
 
 ---
 
@@ -317,21 +320,15 @@ Status: ⏳
 
 ---
 
-
-
 # Pós-MVP
 
-Funcionalidades previstas para evolução futura do projeto após a conclusão do 
-Produto Mínimo Viável.
+Funcionalidades previstas para evolução futura do projeto após a conclusão do Produto Mínimo Viável.
 
-* Persistência da partida
-* Níveis de dificuldade 
-* Gerador automático de Sudoku 
-* Resolver Sudoku automaticamente 
-* Testes automatizados 
-* Exportar partidas 
-* Histórico de partidas
+* Níveis de dificuldade;
+* Gerador automático de Sudoku;
+* Resolver Sudoku automaticamente;
+* Testes automatizados;
+* Exportar partidas;
+* Histórico de partidas.
 
 ---
-
-Última atualização: 13/08/2026

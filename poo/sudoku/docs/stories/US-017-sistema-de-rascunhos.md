@@ -648,7 +648,7 @@ A funcionalidade foi validada por meio da execução da aplicação e dos cenár
 
 As decisões arquiteturais e funcionais necessárias para a implementação da US-017 foram consolidadas.
 
-As TASKs 001 a 009 foram implementadas, validadas e revisadas.
+As TASKs 001 a 010 foram implementadas, validadas e revisadas.
 
 Neste momento, a funcionalidade possui:
 
@@ -664,4 +664,3 @@ Neste momento, a funcionalidade possui:
 - integração da funcionalidade ao fluxo da partida;
 - validação funcional dos principais cenários da US-017.
 
-A próxima etapa consiste na **TASK-010 — Validação da Definition of Done da US-017**, que deverá confirmar formalmente se a User Story atende aos critérios de conclusão estabelecidos pelo projeto.

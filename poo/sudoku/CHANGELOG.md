@@ -1,6 +1,6 @@
 ## [Não publicado]
 
-Última atualização: 13/08/2026
+Última atualização: 21/08/2026
 
 ### Adicionado
 
@@ -117,6 +117,14 @@
 - Feedback ao jogador para inclusão e remoção de candidatos.
 - Integração do sistema de rascunhos ao fluxo da partida.
 - Validação das regras de consistência entre candidatos e números definitivos.
+
+#### Persistência e continuidade da partida
+
+* Persistência do estado da partida.
+* Restauração de uma partida previamente salva.
+* Continuação da partida a partir do estado persistido.
+* Integração da persistência ao fluxo da aplicação.
+* Preservação do estado do tabuleiro durante o salvamento e carregamento.
 
 ### Corrigido
 

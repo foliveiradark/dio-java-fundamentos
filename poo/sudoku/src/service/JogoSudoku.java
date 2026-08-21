@@ -4,21 +4,33 @@ import enums.StatusPartida;
 import enums.TipoJogada;
 import model.Casa;
 import model.Tabuleiro;
+import persistence.PartidaRepository;
+import persistence.TabuleiroRepository;
 import ui.ConsoleInput;
 import ui.Menu;
 import ui.ConsolePrinter;
+import ui.MenuPartida;
+
+import java.sql.SQLException;
 
 public class JogoSudoku {
 
-    private final Tabuleiro tabuleiro;
+    private Tabuleiro tabuleiro;
+    private Long tabuleiroId;
+    private Long partidaId;
+    private boolean partidaSalva;
     private final Menu menu;
+    private final MenuPartida menuPartida;
     private final ConsolePrinter consolePrinter = new ConsolePrinter();
     private final ConsoleInput consoleInput = new ConsoleInput(consolePrinter);
+    private final TabuleiroRepository tabuleiroRepository = new TabuleiroRepository();
+    private final PartidaRepository partidaRepository = new PartidaRepository();
 
     public JogoSudoku() {
 
         this.tabuleiro = new Tabuleiro();
         this.menu = new Menu();
+        this.menuPartida = new MenuPartida();
 
     }
 
@@ -28,7 +40,7 @@ public class JogoSudoku {
 
     }
 
-    // Menu principal
+    // Menus
     private void executarMenuPrincipal() {
 
         boolean executando = true;
@@ -49,88 +61,187 @@ public class JogoSudoku {
                 case 1 -> iniciarNovaPartida();
 
                 case 2 -> {
-                    consolePrinter.imprimirFuncionalidadeIndisponivel();
-                    // TODO: Implementar US-019 - Continuar partida
+
+                    try {
+
+                        partidaId = partidaRepository.buscarUltimaPartida();
+
+                        if (partidaId == null) {
+
+                            consolePrinter.imprimirErro("Não existe uma partida salva.");
+
+                        } else {
+
+                            tabuleiroId = partidaRepository.buscarTabuleiroId(partidaId);
+
+                            tabuleiro = partidaRepository.carregarPartida(partidaId);
+
+                            partidaSalva = true;
+
+                            consolePrinter.imprimir(tabuleiro);
+
+                            executarMenuPartida();
+                        }
+
+                    } catch (SQLException e) {
+
+                        consolePrinter.imprimirErro("Erro ao carregar partida.");
+                    }
                 }
+            }
+        }
+    }
+
+    private void executarMenuPartida() {
+
+        boolean executando = true;
+
+        while (executando) {
+
+            menuPartida.exibir();
+
+            int opcao = consoleInput.lerOpcaoMenuPartida();
+
+            switch (opcao) {
+
+                case 1 -> executarPartida();
+
+                case 2 -> salvarPartida();
+
+                case 3 -> {
+                    consolePrinter.imprimirSolicitacaoRemocao();
+                    boolean remover = consoleInput.lerConfirmacao();
+
+                    if (remover) {
+                        consolePrinter.imprimirSolicitacaoCoordenada();
+
+                        String coordenada = consoleInput.lerCoordenada();
+
+                        int[] posicao = converterCoordenada(coordenada);
+                        int linha = posicao[0]; int coluna = posicao[1];
+
+                        removerJogada(linha, coluna);
+
+                        consolePrinter.imprimirJogadaRemovida();
+                    }
+                }
+
+                case 4 -> {
+
+                    consolePrinter.imprimirSolicitacaoLimparJogadas();
+
+                    boolean desejaLimparJogadas = consoleInput.lerConfirmacao();
+
+                    if (desejaLimparJogadas) {
+
+                        consolePrinter.imprimirConfirmacaoLimparJogadas();
+
+                        boolean confirmarLimpeza = consoleInput.lerConfirmacao();
+
+                        if (confirmarLimpeza) {
+
+                            limparJogadas();
+
+                            consolePrinter.imprimirJogadasRemovidas();
+                        }
+                    }
+                }
+
+                case 5 -> consolePrinter.imprimirStatusPartida(verificarStatusPartida());
+
+                case 0 -> executando = false;
             }
         }
     }
 
     // Fluxo da partida
     private void iniciarNovaPartida() {
-        consolePrinter.imprimir(tabuleiro);
 
-        executarPartida();
+        try {
 
+            tabuleiroId = tabuleiroRepository.salvar(tabuleiro);
+
+            partidaId = partidaRepository.salvar(
+                    tabuleiroId,
+                    tabuleiro
+            );
+
+            partidaSalva = false;
+
+            consolePrinter.imprimir(tabuleiro);
+
+            executarMenuPartida();
+
+        } catch (SQLException e) {
+
+            consolePrinter.imprimirErro(
+                    "Não foi possível iniciar a partida."
+            );
+        }
     }
 
     private void executarPartida() {
 
-        boolean partidaEmAndamento = true;
+        consolePrinter.imprimirSolicitacaoCoordenada();
 
-        while (partidaEmAndamento) {
-            consolePrinter.imprimirSolicitacaoCoordenada();
+        String coordenada = consoleInput.lerCoordenada();
 
-            String coordenada = consoleInput.lerCoordenada();
+        int[] posicao = converterCoordenada(coordenada);
 
-            int[] posicao = converterCoordenada(coordenada);
+        int linha = posicao[0];
+        int coluna = posicao[1];
 
-            int linha = posicao[0];
-            int coluna = posicao[1];
+        consolePrinter.imprimirSolicitacaoNumero();
 
-            consolePrinter.imprimirSolicitacaoRemocao();
-            boolean remover = consoleInput.lerConfirmacao();
+        Jogada jogada = consoleInput.lerJogada();
 
-            if (remover) {
+        executarJogada(linha,coluna,jogada);
 
-                removerJogada(linha, coluna);
+        StatusPartida status = verificarStatusPartida();
 
-            } else {
+        if (status == StatusPartida.COMPLETA_VALIDA) {
 
-                consolePrinter.imprimirSolicitacaoNumero();
-                Jogada jogada = consoleInput.lerJogada();
+            consolePrinter.imprimirStatusPartida(status);
+        }
+    }
 
-                executarJogada(linha,coluna,jogada);
+    private void salvarPartida() {
 
-                StatusPartida status = verificarStatusPartida();
+        try {
 
-                if (status == StatusPartida.COMPLETA_VALIDA) {
+            if (partidaId == null) {
 
-                    consolePrinter.imprimirStatusPartida(status);
+                consolePrinter.imprimirErro("Não existe uma partida para salvar.");
 
-                    partidaEmAndamento = false;
-
-                    continue;
-
-                }
-
-                consolePrinter.imprimirSolicitacaoLimparJogadas();
-                boolean desejaLimparJogadas = consoleInput.lerConfirmacao();
-
-                if (desejaLimparJogadas) {
-
-                    consolePrinter.imprimirConfirmacaoLimparJogadas();
-                    boolean confirmarLimpeza = consoleInput.lerConfirmacao();
-
-                    if (confirmarLimpeza) {
-
-                        limparJogadas();
-                    }
-                }
-
-                consolePrinter.imprimirSolicitacaoStatusPartida();
-                boolean confirmarConsulta = consoleInput.lerConfirmacao();
-
-                if (confirmarConsulta) {
-
-                    consolePrinter.imprimirStatusPartida(verificarStatusPartida());
-
-                }
-
+                return;
             }
 
-        }
+            if (partidaSalva) {
 
+                consolePrinter.imprimirSolicitacaoSobrescrita();
+
+                boolean confirmarSobrescrita = consoleInput.lerConfirmacao();
+
+                if (!confirmarSobrescrita) {
+
+                    return;
+                }
+            }
+
+            partidaRepository.sobrescrever(
+                    partidaId,
+                    tabuleiroId,
+                    tabuleiro
+            );
+
+            consolePrinter.imprimirPartidaSalva();
+
+            partidaSalva = true;
+
+        } catch (SQLException e) {
+
+            consolePrinter.imprimirErro( "Não foi possível salvar a partida.");
+        }
     }
 
     private void executarJogada (int linha,
@@ -191,8 +302,6 @@ public class JogoSudoku {
     private void limparJogadas() {
 
         tabuleiro.limparJogadas();
-
-        consolePrinter.imprimirJogadasRemovidas();
 
         consolePrinter.imprimir(tabuleiro);
 

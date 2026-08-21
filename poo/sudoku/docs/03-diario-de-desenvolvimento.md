@@ -509,4 +509,231 @@ Com o MVP consolidado, o projeto inicia um novo ciclo de evolução voltado para
 
 ---
 
+---
 
+### 📅 04/08/2026
+
+## 🔄 Sprint 16 — Reorganização do Roadmap
+
+Após a conclusão do MVP Console, a Sprint 16 foi inicialmente planejada para iniciar a evolução da aplicação em direção à interface gráfica utilizando Swing.
+
+Durante a análise do Product Backlog, porém, foi identificado que a implementação da interface gráfica representaria uma mudança significativa de escopo e de natureza técnica em relação ao ciclo anterior.
+
+Como estratégia de evolução incremental, decidiu-se remanejar a **US-016 — Interface gráfica (Swing)** para uma etapa posterior, permitindo que funcionalidades complementares ao Sudoku em modo console fossem desenvolvidas antes da mudança de interface.
+
+A US-017 — Sistema de rascunhos, originalmente posicionada como melhoria futura, foi antecipada para a Sprint 17.
+
+### Aprendizados
+
+- nem toda funcionalidade planejada precisa ser implementada imediatamente após entrar no roadmap;
+- o Product Backlog deve permanecer adaptável conforme novas informações surgem durante o desenvolvimento;
+- mudanças significativas de arquitetura ou tecnologia devem ser planejadas antes da implementação;
+- priorizar funcionalidades menores permite continuar evoluindo o produto sem interromper o ciclo de aprendizado;
+- uma interface gráfica pode reutilizar grande parte das regras de negócio existentes quando a separação entre domínio e interface é preservada.
+
+### Decisão
+
+A **US-016 — Interface gráfica (Swing)** permanece no Product Backlog, mas foi remanejada para uma etapa posterior.
+
+A **US-017 — Sistema de rascunhos** foi priorizada para a Sprint 17 por representar uma evolução funcional do Sudoku que pode ser implementada sobre a arquitetura atual.
+
+Essa decisão mantém o desenvolvimento incremental e permite validar novas funcionalidades antes da introdução de uma nova tecnologia de interface.
+
+---
+
+### 📅 13/08/2026
+
+## 🔄 Encerramento da Sprint 17
+
+### Entrega: US-017 — Sistema de rascunhos
+
+Foi implementado o sistema de rascunhos do Sudoku, permitindo que o jogador registre múltiplos números candidatos nas casas editáveis durante a resolução da partida.
+
+A funcionalidade foi integrada ao fluxo existente da aplicação sem alterar as regras fundamentais do Sudoku.
+
+No domínio, a classe `Casa` passou a manter os candidatos utilizando `Set<Integer>` e disponibilizou uma operação de toggle para adicionar ou remover individualmente um candidato.
+
+Também foram implementadas as regras para impedir candidatos em casas preenchidas e para remover automaticamente os candidatos quando um número definitivo é atribuído.
+
+Na interface de console, a sintaxe `*1` até `*9` foi adotada para representar uma jogada de candidato. Essa sintaxe permanece restrita à camada de entrada, sendo convertida para a intenção da operação por meio de `TipoJogada`.
+
+A apresentação dos candidatos também foi incorporada ao tabuleiro utilizando uma grade interna 3×3, permitindo visualizar múltiplos candidatos simultaneamente sem alterar a representação utilizada pelo domínio.
+
+### Aprendizados
+
+- um `Set<Integer>` é adequado para representar uma coleção de candidatos sem permitir duplicidades;
+- a operação de toggle simplifica a adição e remoção individual de candidatos;
+- regras relacionadas ao estado da entidade devem permanecer protegidas pelo próprio domínio;
+- a sintaxe utilizada para interação com o console não deve contaminar as regras de negócio;
+- representar a intenção da operação por meio de um tipo específico torna o fluxo mais preparado para futuras interfaces;
+- a camada de apresentação pode evoluir visualmente sem alterar a estrutura interna do domínio;
+- funcionalidades podem ser integradas incrementalmente sem necessidade de grandes alterações na arquitetura existente;
+- validações manuais integradas ao fluxo real da aplicação ajudam a identificar problemas que testes isolados podem não revelar.
+
+### Validações realizadas
+
+Foram validados os principais cenários da funcionalidade:
+
+- inclusão de um candidato;
+- inclusão de múltiplos candidatos;
+- remoção individual de candidato;
+- tentativa de candidato em casa fixa;
+- tentativa de candidato em casa preenchida;
+- entrada inválida de candidato;
+- preenchimento definitivo de uma casa que possuía candidatos;
+- atualização da representação visual do tabuleiro;
+- integração da funcionalidade ao fluxo normal da partida.
+
+Todos os cenários previstos foram validados com sucesso.
+
+### Observação
+
+A implementação da US-017 também reforçou uma decisão arquitetural importante para a evolução futura do projeto: a interface deve informar **a intenção da operação**, enquanto o domínio permanece responsável por executar e validar essa operação.
+
+Essa separação permitirá que uma futura interface gráfica utilize as mesmas regras de negócio sem depender da sintaxe `*1`–`*9` adotada atualmente pelo console.
+
+### Próxima etapa
+
+Com a US-017 concluída, a próxima Sprint deverá ser definida a partir do estado atual do Product Backlog e das prioridades de evolução do projeto.
+
+---
+
+### 📅 21/08/2026
+
+## 🔄 Encerramento da Sprint 18
+
+### Entrega: US-018 — Continuar partida
+
+A Sprint 18 marcou a introdução da persistência de dados no projeto, ampliando o Sudoku Console para permitir que o progresso de uma partida seja salvo e posteriormente restaurado.
+
+Foi desenvolvida a modelagem necessária para separar a configuração permanente do Sudoku do estado produzido durante uma partida.
+
+A estrutura de persistência foi implementada no PostgreSQL e integrada à aplicação Java utilizando JDBC e o padrão Repository.
+
+A aplicação passou a permitir:
+
+* salvar uma partida em andamento;
+* restaurar uma partida anteriormente salva;
+* preservar jogadas definitivas;
+* preservar candidatos;
+* sobrescrever uma partida existente;
+* solicitar confirmação antes da sobrescrita;
+* cancelar uma sobrescrita mantendo o último estado salvo.
+
+Também foi validado o comportamento de uma partida sem dados persistidos, garantindo que a aplicação informe a ausência de uma partida salva e retorne ao fluxo apropriado.
+
+### Aprendizados
+
+* persistência exige separar claramente a configuração permanente do sistema do estado produzido durante sua execução;
+* a modelagem relacional deve representar as relações do domínio sem simplesmente reproduzir a estrutura das classes Java;
+* `PRIMARY KEY`, `FOREIGN KEY`, `UNIQUE`, `CHECK` e referências compostas podem ser utilizadas pelo banco para proteger a integridade dos dados;
+* JDBC estabelece a comunicação entre Java e PostgreSQL, enquanto o Repository concentra as operações relacionadas à persistência;
+* transações, `SAVEPOINT` e `ROLLBACK` são recursos importantes para validar operações de banco de forma controlada;
+* separar a configuração do tabuleiro do progresso da partida permite reutilizar um mesmo desafio sem duplicar sua configuração;
+* operações de Save/Load precisam considerar diferentes estados, incluindo ausência de dados, salvamento inicial, sobrescrita e cancelamento;
+* a persistência pode ser introduzida incrementalmente sem transferir responsabilidades de banco de dados para o domínio;
+* novas tecnologias podem ser incorporadas ao projeto preservando a arquitetura existente quando as responsabilidades entre as camadas permanecem bem definidas.
+
+### Decisões importantes
+
+A Sprint consolidou a separação entre:
+
+```text
+Configuração permanente
+
+TABULEIRO
+    ↓
+CASA
+```
+
+e:
+
+```text
+Progresso da partida
+
+PARTIDA
+    ↓
+ESTADO_CASA
+    ↓
+CANDIDATO
+```
+
+Essa separação permite que a configuração original do Sudoku permaneça independente das alterações realizadas pelo jogador durante uma partida.
+
+Também foi consolidada uma regra de domínio identificada durante os testes: uma jogada definitiva existente não pode ser substituída diretamente.
+
+O jogador deve primeiro remover a jogada existente para então realizar uma nova inserção.
+
+Essa decisão mantém coerência com a operação explícita de remoção já disponível na interface e preserva no domínio a responsabilidade de proteger o estado da `Casa`.
+
+### Validações realizadas
+
+Foram validados os principais fluxos da US-018:
+
+* criação e persistência da configuração do tabuleiro;
+* criação de uma partida;
+* persistência de jogadas definitivas;
+* persistência de candidatos;
+* carregamento de uma partida;
+* reconstrução do estado do tabuleiro;
+* salvamento inicial;
+* sobrescrita de uma partida existente;
+* confirmação da sobrescrita;
+* cancelamento da sobrescrita;
+* preservação do último estado salvo;
+* descarte de alterações não salvas;
+* carregamento sem existência de partida salva;
+* proteção contra substituição direta de jogadas definitivas;
+* remoção da jogada antes de uma nova inserção;
+* rejeição de candidatos em casas preenchidas;
+* remoção de candidatos ao realizar uma jogada definitiva.
+
+Todos os cenários previstos para a funcionalidade foram validados com sucesso.
+
+### Resultado
+
+Com a conclusão da Sprint 18, o projeto passou a possuir seu primeiro mecanismo de persistência de dados.
+
+A arquitetura evoluiu de:
+
+```text
+Java
+  ↓
+Memória
+  ↓
+Tabuleiro
+```
+
+para:
+
+```text
+Java
+  ↓
+JDBC
+  ↓
+PostgreSQL
+  ↓
+TABULEIRO → CASA
+```
+
+e:
+
+```text
+Java
+  ↓
+JDBC
+  ↓
+PostgreSQL
+  ↓
+PARTIDA
+  ↓
+ESTADO_CASA
+  ↓
+CANDIDATO
+```
+
+A Sprint também representou uma evolução importante no aprendizado técnico, pois o desenvolvimento passou a envolver, além da programação orientada a objetos, conceitos de modelagem relacional, SQL, integridade de dados, JDBC, Repository e persistência de estado.
+
+### Próxima etapa
+
+Com a Sprint 18 encerrada e seus artefatos preparados para versionamento, a próxima etapa deverá ser definida a partir do estado atualizado do Product Backlog e das prioridades de evolução do projeto.

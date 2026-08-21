@@ -267,4 +267,19 @@ public class ConsolePrinter {
     public void imprimirCandidatoRemovido(int candidato) {
         System.out.println("Candidato " + candidato + " removido.");
     }
+
+    public void imprimirJogadaRemovida() {
+
+        System.out.println("Jogada removida");
+    }
+
+    public void imprimirPartidaSalva() {
+
+        System.out.println("Partida salva com sucesso.");
+    }
+
+    public void imprimirSolicitacaoSobrescrita() {
+
+        System.out.print("Já existe uma partida salva. Deseja substituí-la? (S/N): ");
+    }
 }

@@ -92,6 +92,26 @@ O sistema deve apresentar o tabuleiro de forma organizada, destacando visualment
 
 ---
 
+### RF-017
+O sistema deve permitir salvar o estado atual de uma partida para que ela possa ser retomada posteriormente.
+
+---
+
+### RF-018
+O sistema deve permitir continuar uma partida previamente salva, restaurando seu estado no momento do salvamento.
+
+---
+
+### RF-019
+Quando não existir uma partida salva, o sistema deverá informar o jogador e retornar ao fluxo anterior.
+
+---
+
+### RF-020
+Antes de substituir uma partida salva existente, o sistema deverá solicitar confirmação ao jogador.
+
+---
+
 # 📝 Requisitos Não Funcionais
 
 ### RNF-001
@@ -131,5 +151,10 @@ A interface em modo texto deverá priorizar legibilidade e facilidade de uso, se
 
 ### RNF-008
 O projeto deverá ser desenvolvido de forma incremental, mantendo a documentação técnica sincronizada com a evolução do software.
+
+---
+
+### RNF-009
+A persistência dos dados deverá permanecer desacoplada das regras de negócio do domínio.
 
 ---

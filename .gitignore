@@ -40,3 +40,7 @@ build/
 
 READMEold.md
 test/
+templates/
+
+# Dependências locais
+lib/
