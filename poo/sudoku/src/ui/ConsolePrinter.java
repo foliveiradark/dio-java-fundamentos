@@ -7,13 +7,14 @@ import model.Tabuleiro;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConsolePrinter {
+public class ConsolePrinter implements InterfaceApresentacao {
 
     private static final int TAMANHO = 9;
 
     private static final int LIMITE_MINIMO = 0;
 
-    public void imprimir(Tabuleiro tabuleiro) {
+    @Override
+    public void exibirTabuleiro(Tabuleiro tabuleiro) {
 
         imprimirCabecalhoColunas();
 
@@ -92,6 +93,7 @@ public class ConsolePrinter {
 
         System.out.println("  ╔═════════════════════════╦═════════════════════════╦════════════════════════╗");
     }
+
     private void imprimirSeparadorHorizontal() {
 
         System.out.println("  ╠═════════════════════════╬═════════════════════════╬════════════════════════╣");
@@ -166,43 +168,58 @@ public class ConsolePrinter {
     }
 
     //Mensagens
-    public void imprimirEncerramento() {
+
+    @Override
+    public void exibirEncerramento() {
 
         System.out.println("Saindo do jogo...");
     }
 
-    public void imprimirSolicitacaoCoordenada() {
+    @Override
+    public void exibirSolicitacaoCoordenada() {
 
         System.out.print("Informe a coordenada (A1-I9): ");
 
     }
 
-    public void imprimirSolicitacaoNumero() {
+    @Override
+    public void exibirSolicitacaoNumero() {
 
         System.out.print("Informe um número de 1 a 9 ou um candidato no formato *1-*9: ");
     }
 
-    public void imprimirErro(String mensagem) {
+    @Override
+    public void exibirErro(String mensagem) {
 
         System.out.println(mensagem);
     }
 
-    public void imprimirSolicitacaoRemocao() {
+    @Override
+    public void exibirSolicitacaoRemocao() {
 
         System.out.print("Deseja remover o número? (S/N): ");
     }
 
-    public void imprimirSolicitacaoLimparJogadas() {
+    @Override
+    public void exibirSolicitacaoLimparJogadas() {
 
         System.out.print("Deseja limpar todas as jogadas? (S/N): ");
     }
 
-    public void imprimirConfirmacaoLimparJogadas() {
+    @Override
+    public void exibirConfirmacaoLimparJogadas() {
 
         System.out.print("Tem certeza que deseja limpar todas as jogadas? (S/N): ");
     }
 
-    public void imprimirJogadasRemovidas() {
+    @Override
+    public void exibirJogadaRemovida() {
+
+        System.out.println("Jogada removida");
+    }
+
+    @Override
+    public void exibirJogadasRemovidas() {
 
         System.out.println("Todas as Jogadas foram removidas.");
     }
@@ -212,7 +229,8 @@ public class ConsolePrinter {
         System.out.print("Deseja consultar o status da partida? (S/N): ");
     }
 
-    public void imprimirStatusPartida(StatusPartida status) {
+    @Override
+    public void exibirStatusPartida(StatusPartida status) {
 
         switch (status) {
 
@@ -260,25 +278,24 @@ public class ConsolePrinter {
         System.out.println("Funcionalidade ainda não disponível.");
     }
 
-    public void imprimirCandidatoAdicionado(int candidato) {
+    @Override
+    public void exibirCandidatoAdicionado(int candidato) {
         System.out.println("Candidato " + candidato + " adicionado.");
     }
 
-    public void imprimirCandidatoRemovido(int candidato) {
+    @Override
+    public void exibirCandidatoRemovido(int candidato) {
         System.out.println("Candidato " + candidato + " removido.");
     }
 
-    public void imprimirJogadaRemovida() {
-
-        System.out.println("Jogada removida");
-    }
-
-    public void imprimirPartidaSalva() {
+    @Override
+    public void exibirPartidaSalva() {
 
         System.out.println("Partida salva com sucesso.");
     }
 
-    public void imprimirSolicitacaoSobrescrita() {
+    @Override
+    public void exibirSolicitacaoSobrescrita() {
 
         System.out.print("Já existe uma partida salva. Deseja substituí-la? (S/N): ");
     }

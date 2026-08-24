@@ -5,7 +5,7 @@ import service.Jogada;
 
 import java.util.Scanner;
 
-public class ConsoleInput {
+public class ConsoleInput implements InterfaceUsuario {
 
     private final Scanner scanner;
 
@@ -18,6 +18,7 @@ public class ConsoleInput {
 
     }
 
+    @Override
     public int lerInteiro() {
 
         while (true) {
@@ -42,6 +43,7 @@ public class ConsoleInput {
 
     }
 
+    @Override
     public String lerCoordenada() {
 
         while (true) {
@@ -75,6 +77,7 @@ public class ConsoleInput {
         }
     }
 
+    @Override
     public boolean lerConfirmacao() {
 
         while (true) {
@@ -99,6 +102,7 @@ public class ConsoleInput {
         }
     }
 
+    @Override
     public int lerOpcaoMenu() {
 
         while (true) {
@@ -130,6 +134,7 @@ public class ConsoleInput {
         }
     }
 
+    @Override
     public int lerOpcaoMenuPartida() {
 
         while (true) {
@@ -161,6 +166,7 @@ public class ConsoleInput {
         }
     }
 
+    @Override
     public Jogada lerJogada() {
 
         while (true) {

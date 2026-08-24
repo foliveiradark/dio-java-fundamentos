@@ -4,13 +4,15 @@
 
 # 🎯 Objetivo
 
-O Product Backlog representa a lista priorizada de funcionalidades do projeto.
+O Product Backlog representa a lista priorizada de funcionalidades e
+evoluções do projeto.
 
-As User Stories serão selecionadas para as Sprints conforme a evolução do desenvolvimento.
+As User Stories serão selecionadas para as Sprints conforme a evolução
+do desenvolvimento e a estratégia definida para o produto.
 
 ---
 
-# MVP (Produto Mínimo Viável)
+# MVP — Fundação do Produto
 
 ## US-001 — Visualizar o tabuleiro
 
@@ -241,7 +243,42 @@ Status: ✅ Concluído
 
 ---
 
-# Melhorias Futuras
+# Evolução do Produto
+
+## US-016 — Interface gráfica (Swing)
+
+**Como jogador**
+
+Quero jogar Sudoku através de uma interface gráfica desktop
+
+Para ter uma experiência de jogo agradável, intuitiva e visualmente diferenciada.
+
+### Evolução do escopo
+
+A US-016 foi originalmente prevista como uma melhoria visual da interface
+existente.
+
+Posteriormente, seu escopo foi ampliado para representar a transição da
+aplicação em modo console para uma aplicação desktop gráfica, jogável e
+distribuível.
+
+Durante a US-019, a tecnologia gráfica foi avaliada e **JavaFX foi definida
+como a tecnologia escolhida para a próxima fase**.
+
+Por esse motivo, a US-016 não será implementada com Swing.
+
+A implementação da interface gráfica foi desmembrada em uma nova User Story,
+US-020, criada para representar explicitamente a implementação da interface
+JavaFX.
+
+Prioridade: 🟢 Baixa
+
+Status: 🔄 Reclassificada
+
+> A US-016 é mantida como registro histórico da evolução do requisito.
+> Sua implementação foi substituída pela US-020 — Interface gráfica JavaFX.
+
+---
 
 ## US-017 — Sistema de rascunhos
 
@@ -292,43 +329,116 @@ Status: ✅ Concluído
 
 ---
 
-## US-019 — Estatísticas da partida
+## US-019 — Preparar arquitetura para múltiplas interfaces
+
+**Como desenvolvedor**
+
+Quero separar o fluxo da aplicação da tecnologia de interface utilizada
+
+Para permitir a evolução da aplicação de console para uma interface gráfica
+sem comprometer o domínio, as regras do jogo e a persistência existentes.
+
+Prioridade: 🔴 Alta
+
+Status: ✅ Concluído
+
+### Resultado
+
+A arquitetura foi preparada para suportar diferentes interfaces.
+
+Foram definidos contratos de interação e apresentação, o `JogoSudoku`
+foi desacoplado das implementações específicas do Console e os fluxos
+existentes foram validados após a refatoração.
+
+Também foram definidas as tecnologias para a próxima fase:
+
+* **Sistema de build:** Maven;
+* **Tecnologia gráfica:** JavaFX.
+
+---
+
+# Próxima User Story
+
+## US-020 — Implementar interface gráfica JavaFX
 
 **Como jogador**
 
-Quero
+Quero jogar Sudoku através de uma interface gráfica desktop em JavaFX
 
-Para
+Para ter uma experiência de jogo agradável, intuitiva e visualmente
+diferenciada.
 
-Prioridade: 🟢 Baixa
+### Contexto
 
-Status: ⏳
+A US-020 representa a próxima etapa da evolução do produto após a
+preparação arquitetural realizada pela US-019.
+
+A arquitetura existente deverá ser utilizada como base para a
+implementação da interface gráfica, evitando duplicação das regras do
+Sudoku e mantendo a separação entre interface, aplicação, domínio e
+persistência.
+
+A implementação deverá considerar as decisões registradas durante a
+US-019:
+
+* JavaFX como tecnologia gráfica;
+* Maven como sistema de build;
+* `JogoSudoku` como responsável pela orquestração da aplicação;
+* interface desacoplada das regras do domínio;
+* persistência independente da interface.
+
+O detalhamento das Tasks e do escopo de implementação será realizado
+durante o planejamento da Sprint correspondente.
+
+Prioridade: 🔴 Alta
+
+Status: 📋 Backlog
+
+---
+
+# Próximas Evoluções Planejadas
+
+### Sistema de build
+
+A adoção do Maven será realizada como parte da preparação tecnológica
+necessária para a nova fase, considerando:
+
+* gerenciamento de dependências;
+* compilação;
+* execução;
+* testes;
+* empacotamento;
+* futura distribuição da aplicação.
+
+### Distribuição
+
+Após a consolidação da interface gráfica, preparar a aplicação para que
+possa ser executada por um usuário final fora do ambiente de desenvolvimento.
 
 ---
 
-## US-016 — Interface gráfica (Swing)
+# Evoluções Futuras
 
-**Como jogador**
+Funcionalidades que poderão ser consideradas após a consolidação da primeira
+versão gráfica jogável:
 
-Quero
-
-Para
-
-Prioridade: 🟢 Baixa
-
-Status: ⏳
-
----
-
-# Pós-MVP
-
-Funcionalidades previstas para evolução futura do projeto após a conclusão do Produto Mínimo Viável.
-
-* Níveis de dificuldade;
-* Gerador automático de Sudoku;
-* Resolver Sudoku automaticamente;
-* Testes automatizados;
-* Exportar partidas;
-* Histórico de partidas.
+* níveis de dificuldade;
+* progressão;
+* gerador automático de Sudoku;
+* resolver Sudoku automaticamente;
+* estatísticas da partida;
+* histórico de partidas;
+* exportar partidas.
 
 ---
+
+# Visão Futura
+
+Possibilidades ainda fora do escopo atual:
+
+* interação com IA durante as partidas;
+* recursos inteligentes de auxílio ao jogador;
+* novas formas de interação e experiência.
+
+Essas funcionalidades dependerão da evolução técnica e da validação do
+produto ao longo do projeto.

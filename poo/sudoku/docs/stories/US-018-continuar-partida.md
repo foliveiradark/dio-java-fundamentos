@@ -849,7 +849,7 @@ Sprint.
 A persistência implementada nesta User Story poderá servir como base para
 futuras funcionalidades, incluindo:
 
-* US-019 — Estatísticas da partida;
+* Estatísticas da partida;
 * histórico de partidas;
 * exportação de partidas;
 * evolução da interface gráfica;

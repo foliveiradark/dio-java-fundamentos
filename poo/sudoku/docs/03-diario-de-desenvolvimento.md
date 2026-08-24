@@ -737,3 +737,183 @@ A Sprint também representou uma evolução importante no aprendizado técnico, 
 ### Próxima etapa
 
 Com a Sprint 18 encerrada e seus artefatos preparados para versionamento, a próxima etapa deverá ser definida a partir do estado atualizado do Product Backlog e das prioridades de evolução do projeto.
+
+---
+
+### 📅 24/08/2026
+
+## 🔄 Encerramento da Sprint 19
+
+### Entrega: US-019 — Preparar arquitetura para múltiplas interfaces
+
+A Sprint 19 foi dedicada à preparação arquitetural da aplicação para
+permitir a evolução da interface de console para uma futura interface
+gráfica, sem duplicação das regras do Sudoku ou dependência da camada de
+persistência.
+
+Durante a Sprint foi realizada uma análise das responsabilidades
+existentes no `JogoSudoku`, identificando o acoplamento entre a
+orquestração da aplicação e os componentes específicos da interface de
+console.
+
+A partir dessa análise foram definidos contratos para separar a
+interação com o usuário da execução do fluxo da aplicação.
+
+Foram introduzidas as interfaces:
+
+* `InterfaceUsuario`;
+* `InterfaceApresentacao`.
+
+A implementação existente foi adaptada para utilizar esses contratos:
+
+* `ConsoleInput` implementa `InterfaceUsuario`;
+* `ConsolePrinter` implementa `InterfaceApresentacao`.
+
+O `JogoSudoku` passou a utilizar as abstrações de interface em vez de
+depender diretamente das implementações específicas do Console.
+
+Essa alteração permitiu preservar a implementação atual de console
+enquanto prepara a aplicação para receber uma segunda interface.
+
+### Aprendizados
+
+* abstrações devem ser introduzidas a partir de necessidades
+  arquiteturais reais, evitando complexidade prematura;
+* separar contratos de interação das implementações concretas reduz o
+  acoplamento entre aplicação e interface;
+* a interface deve ser responsável pela interação e apresentação,
+  enquanto a aplicação coordena os casos de uso;
+* o domínio e a persistência devem permanecer independentes da
+  tecnologia utilizada para interação com o usuário;
+* refatorações arquiteturais podem ser realizadas incrementalmente sem
+  alterar o comportamento funcional existente;
+* validar o fluxo completo após uma refatoração é fundamental para
+  identificar regressões;
+* decisões tecnológicas da próxima fase devem considerar não apenas a
+  tecnologia gráfica, mas também build, dependências, testes, execução e
+  distribuição.
+
+### Decisões arquiteturais
+
+Foi consolidada a separação entre interface, aplicação, domínio e
+persistência.
+
+A direção arquitetural adotada passou a ser:
+
+```text
+Interface
+    ↓
+Aplicação
+    ↓
+Domínio / Persistência
+```
+
+O `JogoSudoku` permanece responsável pela orquestração do fluxo da
+aplicação, enquanto as implementações de interface ficam responsáveis
+pela interação específica com o usuário.
+
+Não foram identificados novos pontos de acoplamento relevantes que
+justificassem a criação de abstrações adicionais nesta etapa.
+
+Essa decisão foi registrada no:
+
+**ADR-011 — Separação entre interface e aplicação**
+
+### Avaliação tecnológica
+
+Como parte da preparação para a próxima fase, foram avaliadas as
+alternativas de sistema de build e tecnologia gráfica.
+
+Para o sistema de build, foram consideradas Maven e Gradle. Foi definido
+que **Maven** é a opção recomendada para a próxima fase, principalmente
+pela simplicidade, convenção e adequação ao estágio atual do projeto.
+
+A migração ainda não foi implementada durante a Sprint 19.
+
+Também foram avaliadas as alternativas **Swing e JavaFX** para a futura
+interface gráfica.
+
+Considerando a evolução prevista do produto, a capacidade de evolução
+visual e o objetivo de construção de um projeto desktop moderno em Java,
+foi definida a utilização de **JavaFX** na próxima fase.
+
+A decisão não altera a arquitetura da US-019. A futura interface JavaFX
+deverá utilizar os contratos da aplicação existentes e não deverá
+reimplementar regras do Sudoku.
+
+### Validações realizadas
+
+Após a refatoração arquitetural, foi executado manualmente o fluxo
+completo da aplicação através da interface Console.
+
+Foram validados:
+
+* criação de nova partida;
+* exibição do tabuleiro;
+* inserção de número;
+* inserção de candidato;
+* remoção de candidato;
+* remoção de jogada;
+* limpeza das jogadas;
+* consulta do status;
+* salvamento da partida;
+* retorno ao menu principal;
+* continuação da partida salva;
+* recuperação do estado persistido;
+* retorno ao menu principal;
+* encerramento da aplicação.
+
+Também foi verificado que regras existentes da aplicação continuaram
+funcionando após o desacoplamento da interface.
+
+A partida persistida foi carregada posteriormente através da opção
+`Continuar`, confirmando a preservação da integração entre a aplicação
+refatorada e a camada de persistência.
+
+### Build
+
+Foi realizada a verificação da compilação do projeto após as alterações
+arquiteturais.
+
+O build atual continua sendo realizado através da configuração existente
+do projeto e do ambiente de desenvolvimento.
+
+A necessidade de substituir esse processo por um sistema de build
+independente da IDE foi registrada como parte da próxima fase, com
+**Maven** definido como opção recomendada.
+
+### Resultado
+
+A Sprint 19 concluiu a preparação arquitetural necessária para que o
+projeto possa evoluir para uma segunda interface sem duplicação das
+regras de negócio.
+
+A arquitetura passou a possuir uma separação mais clara entre:
+
+```text
+Console / Futura GUI
+        ↓
+Interface
+        ↓
+JogoSudoku
+        ↓
+Domínio / Persistência
+```
+
+O comportamento funcional existente foi preservado e validado através
+do fluxo completo da aplicação.
+
+A Sprint também estabeleceu as principais direções tecnológicas da
+próxima fase:
+
+* **Interface gráfica:** JavaFX;
+* **Sistema de build:** Maven.
+
+Essas tecnologias ainda não foram implementadas nesta Sprint.
+
+### Próxima etapa
+
+Com a US-019 concluída, a próxima evolução do projeto será a
+preparação técnica para a implementação da interface gráfica JavaFX,
+incluindo a adoção do Maven e a definição da estrutura necessária para
+execução, testes e futura distribuição da aplicação.

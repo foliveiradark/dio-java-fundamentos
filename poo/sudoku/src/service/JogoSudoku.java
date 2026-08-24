@@ -6,10 +6,10 @@ import model.Casa;
 import model.Tabuleiro;
 import persistence.PartidaRepository;
 import persistence.TabuleiroRepository;
-import ui.ConsoleInput;
 import ui.Menu;
-import ui.ConsolePrinter;
 import ui.MenuPartida;
+import ui.InterfaceUsuario;
+import ui.InterfaceApresentacao;
 
 import java.sql.SQLException;
 
@@ -21,16 +21,20 @@ public class JogoSudoku {
     private boolean partidaSalva;
     private final Menu menu;
     private final MenuPartida menuPartida;
-    private final ConsolePrinter consolePrinter = new ConsolePrinter();
-    private final ConsoleInput consoleInput = new ConsoleInput(consolePrinter);
+    private final InterfaceApresentacao interfaceApresentacao;
+    private final InterfaceUsuario interfaceUsuario;
     private final TabuleiroRepository tabuleiroRepository = new TabuleiroRepository();
     private final PartidaRepository partidaRepository = new PartidaRepository();
 
-    public JogoSudoku() {
+    public JogoSudoku(InterfaceUsuario interfaceUsuario,
+                      InterfaceApresentacao interfaceApresentacao) {
 
         this.tabuleiro = new Tabuleiro();
         this.menu = new Menu();
         this.menuPartida = new MenuPartida();
+
+        this.interfaceUsuario = interfaceUsuario;
+        this.interfaceApresentacao = interfaceApresentacao;
 
     }
 
@@ -49,13 +53,13 @@ public class JogoSudoku {
 
             menu.exibir();
 
-            int opcao = consoleInput.lerOpcaoMenu();
+            int opcao = interfaceUsuario.lerOpcaoMenu();
 
             switch (opcao) {
 
                 case 0 -> {
                     executando = false;
-                    consolePrinter.imprimirEncerramento();
+                    interfaceApresentacao.exibirEncerramento();
                 }
 
                 case 1 -> iniciarNovaPartida();
@@ -68,7 +72,7 @@ public class JogoSudoku {
 
                         if (partidaId == null) {
 
-                            consolePrinter.imprimirErro("Não existe uma partida salva.");
+                            interfaceApresentacao.exibirErro("Não existe uma partida salva.");
 
                         } else {
 
@@ -78,14 +82,14 @@ public class JogoSudoku {
 
                             partidaSalva = true;
 
-                            consolePrinter.imprimir(tabuleiro);
+                            interfaceApresentacao.exibirTabuleiro(tabuleiro);
 
                             executarMenuPartida();
                         }
 
                     } catch (SQLException e) {
 
-                        consolePrinter.imprimirErro("Erro ao carregar partida.");
+                        interfaceApresentacao.exibirErro("Erro ao carregar partida.");
                     }
                 }
             }
@@ -100,7 +104,7 @@ public class JogoSudoku {
 
             menuPartida.exibir();
 
-            int opcao = consoleInput.lerOpcaoMenuPartida();
+            int opcao = interfaceUsuario.lerOpcaoMenuPartida();
 
             switch (opcao) {
 
@@ -109,45 +113,45 @@ public class JogoSudoku {
                 case 2 -> salvarPartida();
 
                 case 3 -> {
-                    consolePrinter.imprimirSolicitacaoRemocao();
-                    boolean remover = consoleInput.lerConfirmacao();
+                    interfaceApresentacao.exibirSolicitacaoRemocao();
+                    boolean remover = interfaceUsuario.lerConfirmacao();
 
                     if (remover) {
-                        consolePrinter.imprimirSolicitacaoCoordenada();
+                        interfaceApresentacao.exibirSolicitacaoCoordenada();
 
-                        String coordenada = consoleInput.lerCoordenada();
+                        String coordenada = interfaceUsuario.lerCoordenada();
 
                         int[] posicao = converterCoordenada(coordenada);
                         int linha = posicao[0]; int coluna = posicao[1];
 
                         removerJogada(linha, coluna);
 
-                        consolePrinter.imprimirJogadaRemovida();
+                        interfaceApresentacao.exibirJogadaRemovida();
                     }
                 }
 
                 case 4 -> {
 
-                    consolePrinter.imprimirSolicitacaoLimparJogadas();
+                    interfaceApresentacao.exibirSolicitacaoLimparJogadas();
 
-                    boolean desejaLimparJogadas = consoleInput.lerConfirmacao();
+                    boolean desejaLimparJogadas = interfaceUsuario.lerConfirmacao();
 
                     if (desejaLimparJogadas) {
 
-                        consolePrinter.imprimirConfirmacaoLimparJogadas();
+                        interfaceApresentacao.exibirConfirmacaoLimparJogadas();
 
-                        boolean confirmarLimpeza = consoleInput.lerConfirmacao();
+                        boolean confirmarLimpeza = interfaceUsuario.lerConfirmacao();
 
                         if (confirmarLimpeza) {
 
                             limparJogadas();
 
-                            consolePrinter.imprimirJogadasRemovidas();
+                            interfaceApresentacao.exibirJogadasRemovidas();
                         }
                     }
                 }
 
-                case 5 -> consolePrinter.imprimirStatusPartida(verificarStatusPartida());
+                case 5 -> interfaceApresentacao.exibirStatusPartida(verificarStatusPartida());
 
                 case 0 -> executando = false;
             }
@@ -168,13 +172,13 @@ public class JogoSudoku {
 
             partidaSalva = false;
 
-            consolePrinter.imprimir(tabuleiro);
+            interfaceApresentacao.exibirTabuleiro(tabuleiro);
 
             executarMenuPartida();
 
         } catch (SQLException e) {
 
-            consolePrinter.imprimirErro(
+            interfaceApresentacao.exibirErro(
                     "Não foi possível iniciar a partida."
             );
         }
@@ -182,18 +186,18 @@ public class JogoSudoku {
 
     private void executarPartida() {
 
-        consolePrinter.imprimirSolicitacaoCoordenada();
+        interfaceApresentacao.exibirSolicitacaoCoordenada();
 
-        String coordenada = consoleInput.lerCoordenada();
+        String coordenada = interfaceUsuario.lerCoordenada();
 
         int[] posicao = converterCoordenada(coordenada);
 
         int linha = posicao[0];
         int coluna = posicao[1];
 
-        consolePrinter.imprimirSolicitacaoNumero();
+        interfaceApresentacao.exibirSolicitacaoNumero();
 
-        Jogada jogada = consoleInput.lerJogada();
+        Jogada jogada = interfaceUsuario.lerJogada();
 
         executarJogada(linha,coluna,jogada);
 
@@ -201,7 +205,7 @@ public class JogoSudoku {
 
         if (status == StatusPartida.COMPLETA_VALIDA) {
 
-            consolePrinter.imprimirStatusPartida(status);
+            interfaceApresentacao.exibirStatusPartida(status);
         }
     }
 
@@ -211,16 +215,16 @@ public class JogoSudoku {
 
             if (partidaId == null) {
 
-                consolePrinter.imprimirErro("Não existe uma partida para salvar.");
+                interfaceApresentacao.exibirErro("Não existe uma partida para salvar.");
 
                 return;
             }
 
             if (partidaSalva) {
 
-                consolePrinter.imprimirSolicitacaoSobrescrita();
+                interfaceApresentacao.exibirSolicitacaoSobrescrita();
 
-                boolean confirmarSobrescrita = consoleInput.lerConfirmacao();
+                boolean confirmarSobrescrita = interfaceUsuario.lerConfirmacao();
 
                 if (!confirmarSobrescrita) {
 
@@ -234,13 +238,13 @@ public class JogoSudoku {
                     tabuleiro
             );
 
-            consolePrinter.imprimirPartidaSalva();
+            interfaceApresentacao.exibirPartidaSalva();
 
             partidaSalva = true;
 
         } catch (SQLException e) {
 
-            consolePrinter.imprimirErro( "Não foi possível salvar a partida.");
+            interfaceApresentacao.exibirErro( "Não foi possível salvar a partida.");
         }
     }
 
@@ -262,20 +266,20 @@ public class JogoSudoku {
 
                 if (resultado) {
 
-                    consolePrinter.imprimirCandidatoAdicionado(jogada.numero());
+                    interfaceApresentacao.exibirCandidatoAdicionado(jogada.numero());
 
                 } else {
 
-                    consolePrinter.imprimirCandidatoRemovido(jogada.numero());
+                    interfaceApresentacao.exibirCandidatoRemovido(jogada.numero());
                 }
 
             }
 
-            consolePrinter.imprimir(tabuleiro);
+            interfaceApresentacao.exibirTabuleiro(tabuleiro);
 
         } catch (IllegalArgumentException e) {
 
-            consolePrinter.imprimirErro(e.getMessage());
+            interfaceApresentacao.exibirErro(e.getMessage());
         }
 
     }
@@ -289,11 +293,11 @@ public class JogoSudoku {
 
             casa.removerNumero();
 
-            consolePrinter.imprimir(tabuleiro);
+            interfaceApresentacao.exibirTabuleiro(tabuleiro);
 
         } catch (IllegalArgumentException e) {
 
-            consolePrinter.imprimirErro(e.getMessage());
+            interfaceApresentacao.exibirErro(e.getMessage());
 
         }
 
@@ -303,7 +307,7 @@ public class JogoSudoku {
 
         tabuleiro.limparJogadas();
 
-        consolePrinter.imprimir(tabuleiro);
+        interfaceApresentacao.exibirTabuleiro(tabuleiro);
 
     }
 

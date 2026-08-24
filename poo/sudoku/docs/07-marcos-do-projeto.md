@@ -50,7 +50,7 @@ Durante o desenvolvimento foram incorporadas práticas de engenharia como:
 - Sprint Review;
 - Diário de Desenvolvimento;
 - CHANGELOG;
-- Architecture Decision Records (ADRs);;
+- Architecture Decision Records (ADRs);
 - Commits semânticos;
 - Documentação contínua.
 
