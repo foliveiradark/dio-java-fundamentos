@@ -398,15 +398,7 @@ Status: ✅ Concluído
 
 ### Sistema de build
 
-A adoção do Maven será realizada como parte da preparação tecnológica
-necessária para a nova fase, considerando:
-
-* gerenciamento de dependências;
-* compilação;
-* execução;
-* testes;
-* empacotamento;
-* futura distribuição da aplicação.
+O Maven foi adotado durante a US-020 como sistema de build do projeto, passando a gerenciar dependências, compilação e execução. A infraestrutura poderá ser ampliada futuramente para suportar testes, empacotamento e distribuição.
 
 ### Distribuição
 
