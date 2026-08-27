@@ -38,6 +38,10 @@ public class JogoSudoku {
 
     }
 
+    public Tabuleiro getTabuleiro() {
+        return tabuleiro;
+    }
+
     // Fluxo principal
     public void iniciar() {
         executarMenuPrincipal();
@@ -248,7 +252,7 @@ public class JogoSudoku {
         }
     }
 
-    private void executarJogada (int linha,
+    public void executarJogada (int linha,
                                  int coluna,
                                  Jogada jogada) {
 

@@ -103,26 +103,34 @@ Status: 🟡 Em andamento
 
 ### Objetivo:
 
-Preparar a arquitetura existente para permitir a evolução da aplicação
-de console para uma interface gráfica, preservando o domínio, as regras
-do jogo e a persistência.
+Evoluir a aplicação de console para um jogo desktop com interface gráfica,
+preservando o domínio, as regras do jogo e a persistência existentes.
 
-A nova interface deverá evoluir o projeto de uma aplicação orientada ao
-console para um jogo desktop real, com experiência visual agradável,
-intuitiva, exclusiva e preparada para distribuição futura.
+A fase foi iniciada com a preparação arquitetural para múltiplas interfaces
+e avançou para a implementação do primeiro vertical slice jogável em JavaFX.
 
-### Entregas:
+A primeira versão gráfica deverá ser ampliada progressivamente, sem exigir
+paridade funcional imediata com a interface Console.
+
+### Entregas concluídas:
 
 * [x] Preparar arquitetura para múltiplas interfaces (US-019);
 * [x] Avaliar e definir o sistema de build — Maven;
 * [x] Avaliar e definir a tecnologia da interface gráfica — JavaFX;
-* [ ] Implementar a interface gráfica JavaFX (US-020);
-* [ ] Integrar as funcionalidades existentes à interface gráfica;
-* [ ] Preparar a aplicação para distribuição.
+* [x] Implementar o primeiro vertical slice jogável com JavaFX (US-020).
 
-### Direção tecnológica definida
+### Próximas evoluções da fase:
 
-A US-019 estabeleceu as seguintes decisões para a próxima fase:
+* [ ] Ampliar a integração das funcionalidades existentes à interface gráfica;
+* [ ] Evoluir a experiência de interação da GUI;
+* [ ] Incorporar progressivamente funcionalidades disponíveis no Console;
+* [ ] Refinar a apresentação visual;
+* [ ] Preparar a aplicação para distribuição;
+* [ ] Avaliar empacotamento e execução fora do ambiente de desenvolvimento.
+
+### Direção tecnológica
+
+A Fase 7 segue as decisões estabelecidas durante a US-019:
 
 * **Sistema de build:** Maven;
 * **Tecnologia gráfica:** JavaFX;
@@ -140,7 +148,8 @@ Status: ⬜ Planejada
 ### Objetivo:
 
 Adicionar funcionalidades que ampliem a experiência do jogador após a
-primeira versão gráfica jogável estar consolidada.
+consolidação da primeira versão gráfica e da infraestrutura necessária
+para sua evolução.
 
 ### Possíveis evoluções:
 
@@ -174,20 +183,20 @@ conforme a evolução técnica do projeto.
 
 Ao final do projeto, o repositório deverá demonstrar conhecimentos em:
 
-- Java;
-- Programação Orientada a Objetos;
-- Testes automatizados (JUnit);
-- Arquitetura de Software;
-- Engenharia de Software;
-- Git;
-- Documentação Técnica;
-- Organização de Projetos;
-- Desenvolvimento Incremental;
-- Documentação Arquitetural;
-- Registro de Decisões (ADR);
-- Desenvolvimento de aplicações desktop;
-- Persistência de dados;
-- Preparação de aplicações para distribuição.
+* Java;
+* Programação Orientada a Objetos;
+* Testes automatizados (JUnit);
+* Arquitetura de Software;
+* Engenharia de Software;
+* Git;
+* Documentação Técnica;
+* Organização de Projetos;
+* Desenvolvimento Incremental;
+* Documentação Arquitetural;
+* Registro de Decisões (ADR);
+* Desenvolvimento de aplicações desktop;
+* Persistência de dados;
+* Preparação de aplicações para distribuição.
 
 Além do valor técnico para o portfólio, o projeto deverá resultar em uma
 versão jogável do Sudoku que possa ser utilizada por um usuário final.

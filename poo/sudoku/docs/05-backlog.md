@@ -357,13 +357,11 @@ Também foram definidas as tecnologias para a próxima fase:
 
 ---
 
-# Próxima User Story
-
 ## US-020 — Implementar interface gráfica JavaFX
 
 **Como jogador**
 
-Quero jogar Sudoku através de uma interface gráfica desktop em JavaFX
+Quero jogar Sudoku por uma interface gráfica desktop em JavaFX
 
 Para ter uma experiência de jogo agradável, intuitiva e visualmente
 diferenciada.
@@ -392,7 +390,7 @@ durante o planejamento da Sprint correspondente.
 
 Prioridade: 🔴 Alta
 
-Status: 📋 Backlog
+Status: ✅ Concluído
 
 ---
 
@@ -412,8 +410,7 @@ necessária para a nova fase, considerando:
 
 ### Distribuição
 
-Após a consolidação da interface gráfica, preparar a aplicação para que
-possa ser executada por um usuário final fora do ambiente de desenvolvimento.
+Após a consolidação da interface gráfica, preparar a aplicação para poder ser executada por um usuário final fora do ambiente de desenvolvimento.
 
 ---
 

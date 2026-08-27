@@ -917,3 +917,105 @@ Com a US-019 concluída, a próxima evolução do projeto será a
 preparação técnica para a implementação da interface gráfica JavaFX,
 incluindo a adoção do Maven e a definição da estrutura necessária para
 execução, testes e futura distribuição da aplicação.
+
+---
+
+### 📅 27/08/2026
+
+## 🔄 Encerramento da Sprint 20
+
+### Entrega: US-020 — Primeiro vertical slice jogável com JavaFX
+
+A Sprint 20 marcou o início efetivo da transição do Sudoku de uma aplicação orientada ao Console para um jogo desktop com interface gráfica.
+
+O objetivo foi validar essa transição através de um **vertical slice jogável**, utilizando Maven e JavaFX e reaproveitando a arquitetura preparada na Sprint 19.
+
+Durante a Sprint, o projeto passou a utilizar **Maven** como sistema de build e **JavaFX** como tecnologia da interface gráfica.
+
+A primeira aplicação JavaFX foi implementada e integrada ao fluxo real do Sudoku. O usuário passou a conseguir iniciar uma partida, visualizar o tabuleiro, selecionar uma casa, inserir um número e visualizar o resultado da operação através da nova interface.
+
+A implementação reutilizou as regras e a lógica existentes da aplicação, sem reproduzi-las na camada gráfica.
+
+### O que foi realizado
+
+* configuração do Maven como sistema de build;
+* configuração das dependências JavaFX;
+* criação e execução da aplicação JavaFX;
+* implementação da primeira interface gráfica;
+* apresentação gráfica do tabuleiro;
+* seleção de casas;
+* inserção de números;
+* atualização visual após uma jogada;
+* integração com o fluxo existente da aplicação;
+* preservação das regras existentes;
+* preservação da interface Console.
+
+O resultado foi uma primeira versão gráfica efetivamente jogável, deliberadamente limitada ao escopo definido para o vertical slice.
+
+### Aprendizados e constatações
+
+A Sprint demonstrou, na prática, que a estratégia de **vertical slice** é adequada para a evolução do projeto. Foi possível validar uma cadeia funcional completa sem antecipar a implementação de todas as funcionalidades já existentes no Console.
+
+A introdução do JavaFX também confirmou o valor da separação estabelecida na Sprint 19. A nova interface pôde ser integrada ao projeto sem exigir reconstrução do domínio ou duplicação das regras do Sudoku.
+
+Outro ponto importante foi a validação da tecnologia através de uma funcionalidade real. Mais do que confirmar que Maven e JavaFX estavam configurados corretamente, a Sprint demonstrou que ambos poderiam sustentar uma experiência efetivamente jogável.
+
+A preservação do Console também se mostrou importante durante a transição, mantendo a implementação existente funcional enquanto uma segunda interface era introduzida.
+
+### Validações realizadas
+
+O vertical slice definido para a Sprint foi executado com sucesso:
+
+```text
+Abrir aplicação
+↓
+Iniciar nova partida
+↓
+Visualizar tabuleiro
+↓
+Selecionar casa
+↓
+Inserir número
+↓
+Visualizar resultado
+```
+
+Também foi confirmado que a operação gráfica utiliza as regras existentes da aplicação e que a interface Console permanece funcional após a introdução do JavaFX.
+
+### Code Review
+
+O Code Review foi realizado após a implementação.
+
+A revisão confirmou a aderência da solução à direção arquitetural estabelecida na US-019, especialmente quanto à separação entre interface e aplicação.
+
+Não foram identificados problemas concretos que justificassem a reabertura das decisões arquiteturais anteriormente estabelecidas.
+
+### Decisões arquiteturais
+
+A implementação confirmou, na prática, a decisão registrada no **ADR-011 — Separação entre interface e orquestração da aplicação**.
+
+Não foi identificada durante a Sprint nenhuma nova decisão arquitetural relevante que justificasse a criação de outro ADR.
+
+### Resultado
+
+A Sprint 20 atingiu seu objetivo principal: o Sudoku passou a possuir uma primeira interface JavaFX funcional e capaz de executar uma operação real de jogo.
+
+A evolução pode ser representada por:
+
+```text
+Aplicação Console
+        ↓
+Arquitetura preparada para múltiplas interfaces
+        ↓
+Console + JavaFX
+        ↓
+Primeiro vertical slice jogável
+```
+
+A GUI ainda não possui paridade funcional com o Console, conforme deliberadamente definido no escopo da Sprint. Essa limitação representa o ponto de partida para sua evolução incremental, e não uma pendência da Sprint.
+
+### Estado do projeto
+
+Com a conclusão da US-020, o projeto possui uma primeira experiência gráfica funcional e uma base tecnológica validada para a continuidade da evolução do jogo como aplicação desktop.
+
+As próximas funcionalidades deverão ser avaliadas a partir do estado atual do produto e do Product Backlog, mantendo a estratégia de evolução incremental e evitando antecipar complexidade que ainda não seja necessária.

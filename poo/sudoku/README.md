@@ -84,7 +84,7 @@ camadas e decisões arquiteturais (ADRs), está disponível em
 
 ## 📂 Estrutura do projeto
 
-O projeto está organizado de forma a separar claramente o código-fonte da documentação técnica, facilitando a manutenção, a evolução da aplicação e a rastreabilidade das decisões tomadas durante o desenvolvimento.
+O projeto está organizado para separar claramente o código-fonte da documentação técnica, facilitando a manutenção, a evolução da aplicação e a rastreabilidade das decisões tomadas durante o desenvolvimento.
 ```text
 sudoku
 ├── src/

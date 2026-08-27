@@ -82,16 +82,18 @@ Toda documentação será mantida atualizada durante o projeto.
 
 Cada documento possui uma responsabilidade específica.
 
-| Documento | Objetivo |
-|-----------|----------|
-| Guia | Processo de desenvolvimento |
-| Roadmap | Evolução macro do produto |
-| Backlog | Lista priorizada das funcionalidades |
-| Sprint | Planejamento da Sprint |
-| User Story | Especificação da funcionalidade |
-| ADR | Registro de decisões arquiteturais |
-| Diário | Evolução do desenvolvimento |
-| Changelog | Histórico das entregas |
+| Documento         | Objetivo                                  |
+|-------------------|-------------------------------------------|
+| Guia              | Processo de desenvolvimento               |
+| Roadmap           | Evolução macro do produto                 |
+| Backlog           | Lista priorizada das funcionalidades      |
+| Sprint            | Planejamento da Sprint                    |
+| User Story        | Especificação da funcionalidade           |
+| ADR               | Registro de decisões arquiteturais        |
+| Diário            | Evolução do desenvolvimento               |
+| Changelog         | Histórico das entregas                    |
+| Marcos do projeto | Registro dos principais marcos do projeto |
+
 
 # 📁 Fluxo dos Documentos
 ```text
@@ -112,6 +114,7 @@ Changelog
 
 ## Antes da implementação (Sprint Planning)
 
+- Consultar o Roadmap
 - Consultar o Backlog
 - Planejar a Sprint
 - Criar User Story
@@ -119,7 +122,7 @@ Changelog
 
 ## Durante a implementação
 
-- Atualizar a User Story (alterando o status, quando aplicável)q
+- Atualizar a User Story (alterando o status, quando aplicável)
 
 ## Encerramento da Sprint
 
@@ -209,6 +212,7 @@ src/
 ├── service
 ├── util
 ├── enums
+├── persistence
 └── exception
 
 docs/

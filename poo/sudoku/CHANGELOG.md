@@ -1,6 +1,6 @@
 ## [Não publicado]
 
-Última atualização: 21/08/2026
+Última atualização: 27/08/2026
 
 ### Adicionado
 
@@ -125,6 +125,21 @@
 * Continuação da partida a partir do estado persistido.
 * Integração da persistência ao fluxo da aplicação.
 * Preservação do estado do tabuleiro durante o salvamento e carregamento.
+
+#### Interface gráfica JavaFX
+
+* Configuração do Maven como sistema de build do projeto.
+* Configuração das dependências JavaFX.
+* Criação da aplicação JavaFX.
+* Primeira interface gráfica desktop do Sudoku.
+* Apresentação gráfica do tabuleiro.
+* Seleção de casas através da interface gráfica.
+* Inserção de números através da interface JavaFX.
+* Atualização visual do tabuleiro após uma jogada.
+* Primeiro vertical slice jogável da aplicação.
+* Integração da interface JavaFX com a orquestração existente em `JogoSudoku`.
+* Preservação das regras do Sudoku fora da camada de interface.
+* Preservação da interface Console após a introdução da interface gráfica.
 
 ### Corrigido
 
