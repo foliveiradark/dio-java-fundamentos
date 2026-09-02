@@ -220,73 +220,225 @@ Toda essa documentação é mantida sincronizada com a evolução do código, pe
 
 ---
 
-# 🚀 Como executar
+## ▶️ Como executar
 
-### 1. Clone o repositório
+### 1. Pré-requisitos
+
+Para executar o projeto, é necessário ter instalado:
+
+* **JDK 26 ou superior**
+* **Maven**
+* **Git**
+
+O JavaFX é gerenciado pelo Maven. As dependências necessárias são baixadas automaticamente durante a execução do projeto, não sendo necessária uma instalação manual do JavaFX.
+
+Para utilizar as funcionalidades de persistência, também é necessário:
+
+* **PostgreSQL**
+
+> O PostgreSQL não é necessário para validar o fluxo inicial da interface JavaFX. Ele é necessário para as funcionalidades que utilizam persistência de dados.
+
+---
+
+### 2. Clonar o projeto
+
+Clone o repositório:
 
 ```bash
 git clone https://github.com/foliveiradark/dio-java-fundamentos.git
 ```
 
-### 2. Acesse o projeto
+Entre no diretório do projeto:
 
 ```bash
 cd dio-java-fundamentos/poo/sudoku
 ```
 
-### 3. Requisitos
+---
 
-* Java JDK 26 ou superior;
-* Maven;
-* PostgreSQL, caso sejam utilizadas as funcionalidades de persistência.
+### 3. Validar o ambiente Maven
 
-### 4. Compile o projeto
-
-Utilize o Maven para realizar o build:
+Após clonar o projeto, valide inicialmente a configuração do ambiente:
 
 ```bash
-mvn clean package
+mvn clean compile
 ```
 
-### 5. Execute a interface gráfica
+Em seguida, execute os testes:
 
-A primeira interface gráfica do projeto utiliza JavaFX.
+```bash
+mvn test
+```
 
-Para iniciar a aplicação configurada no Maven:
+A execução dessas etapas permite verificar, antes de iniciar a aplicação, se:
+
+* o JDK está corretamente configurado;
+* o Maven está disponível;
+* as dependências do projeto podem ser resolvidas;
+* o código pode ser compilado;
+* os testes automatizados podem ser executados.
+
+---
+
+### 4. Executar a interface JavaFX
+
+Para iniciar a aplicação gráfica:
 
 ```bash
 mvn javafx:run
 ```
 
-A aplicação será iniciada apresentando o primeiro vertical slice jogável do Sudoku.
+O Maven utiliza o plugin JavaFX configurado no `pom.xml` para iniciar a classe:
 
-O fluxo atualmente disponível na interface gráfica contempla:
+```text
+ui.javafx.SudokuApplication
+```
+
+O fluxo atualmente implementado é:
 
 ```text
 Abrir aplicação
-↓
+      ↓
 Visualizar tabuleiro
-↓
-Selecionar casa
-↓
+      ↓
+Selecionar célula
+      ↓
 Inserir número
-↓
+      ↓
 Visualizar resultado
 ```
 
-### 6. Execute a interface Console
+A interface JavaFX encontra-se em evolução e representa atualmente o **vertical slice inicial** da aplicação desktop.
 
-A interface Console permanece disponível como implementação alternativa.
+---
 
-A classe `Main` continua sendo a entrada da aplicação em modo texto.
+### 5. Configurar o PostgreSQL
 
-A execução pela IDE pode ser realizada utilizando a classe:
+As funcionalidades de persistência utilizam PostgreSQL.
+
+A aplicação está configurada para estabelecer a conexão utilizando os seguintes parâmetros:
 
 ```text
-Main
+Host:     localhost
+Porta:    5432
+Banco:    sudoku
+Usuário:  sudoku
+Senha:    sudoku_dev
 ```
 
-> A interface gráfica JavaFX e a interface Console coexistem no projeto. A GUI encontra-se em evolução e ainda não possui paridade funcional com a interface Console.
+Esses parâmetros estão definidos atualmente na classe:
+
+```text
+persistence.ConnectionFactory
+```
+
+#### 5.1 Criar o usuário do banco
+
+No PostgreSQL, crie o usuário utilizado pela aplicação:
+
+```sql
+CREATE USER sudoku WITH PASSWORD 'sudoku_dev';
+```
+
+#### 5.2 Criar o banco de dados
+
+Crie o banco:
+
+```sql
+CREATE DATABASE sudoku OWNER sudoku;
+```
+
+#### 5.3 Criar as tabelas
+
+Com o banco `sudoku` criado, execute o script:
+
+```text
+schema.sql
+```
+
+O script cria as estruturas necessárias para a persistência do Sudoku:
+
+```text
+tabuleiro
+    ↓
+casa
+
+partida
+    ↓
+estado_casa
+    ↓
+candidato
+```
+
+A execução do script deve ser realizada no banco `sudoku`.
+
+Por exemplo, utilizando o cliente `psql`:
+
+```bash
+psql -U sudoku -d sudoku -f schema.sql
+```
+
+> O comando acima pressupõe que o cliente `psql` esteja instalado e que o PostgreSQL esteja acessível em `localhost:5432`.
+
+---
+
+### 6. Executar a versão Console
+
+A versão Console permanece disponível como uma das interfaces da aplicação.
+
+Ela pode ser executada pela IDE, utilizando a classe `Main` como ponto de entrada.
+
+A coexistência entre Console e JavaFX é intencional: as interfaces utilizam a mesma camada de orquestração e domínio, evitando duplicação das regras do Sudoku.
+
+---
+
+### 7. Sequência recomendada para uma nova estação
+
+Para configurar e validar o projeto em uma nova estação de desenvolvimento, recomenda-se seguir esta sequência:
+
+```text
+Instalar JDK
+      ↓
+Instalar Maven
+      ↓
+Instalar Git
+      ↓
+Clonar repositório
+      ↓
+mvn clean compile
+      ↓
+mvn test
+      ↓
+mvn javafx:run
+      ↓
+Configurar PostgreSQL
+      ↓
+Criar banco sudoku
+      ↓
+Executar schema.sql
+      ↓
+Validar funcionalidades de persistência
+```
+
+Essa sequência permite separar a validação do ambiente Java da configuração específica necessária para persistência.
+
+---
+
+### 8. Ambiente de desenvolvimento
+
+O projeto utiliza atualmente:
+
+* Java 26
+* JavaFX 26.0.1
+* Maven
+* PostgreSQL
+* JDBC
+* JUnit
+* Git
+* GitHub
+* IntelliJ IDEA
+
+As versões das principais dependências Java utilizadas pelo projeto estão definidas no arquivo `pom.xml`.
 
 ---
 
