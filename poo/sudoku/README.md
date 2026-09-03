@@ -2,145 +2,229 @@
 
 ## 📖 Sobre o projeto
 
-Projeto desenvolvido em Java como parte da minha jornada de aprendizado em Programação Orientada a Objetos e Engenharia de Software.
+Este projeto foi desenvolvido em Java como parte da minha jornada de aprendizado em **Programação Orientada a Objetos e Engenharia de Software**.
 
-Mais do que implementar um jogo de Sudoku, o objetivo deste projeto é aplicar práticas de desenvolvimento profissional, utilizando arquitetura em camadas, documentação técnica, decisões arquiteturais (ADRs) e desenvolvimento incremental orientado por User Stories e Sprints.
+Mais do que implementar um jogo de Sudoku, o objetivo é aplicar práticas de desenvolvimento profissional, utilizando:
 
-O projeto evoluiu de uma aplicação inicialmente orientada ao Console para um jogo desktop com persistência de partidas e uma primeira interface gráfica desenvolvida com JavaFX.
+- Arquitetura em camadas;
+- Separação de responsabilidades;
+- Documentação técnica;
+- Decisões arquiteturais (ADRs);
+- Desenvolvimento incremental;
+- User Stories;
+- Sprints;
+- Persistência de dados;
+- Evolução gradual da arquitetura.
+
+O projeto começou como uma aplicação executada exclusivamente pelo **Console** e evoluiu progressivamente para uma aplicação desktop, incorporando persistência de partidas e uma primeira interface gráfica desenvolvida com **JavaFX**.
 
 ---
 
 ## 🎯 Objetivos
 
-* Desenvolver um jogo de Sudoku funcional em Java utilizando Programação Orientada a Objetos.
-* Aplicar conceitos de arquitetura de software e separação de responsabilidades durante a implementação.
-* Exercitar um fluxo de desenvolvimento incremental baseado em User Stories, Sprints e decisões arquiteturais.
-* Aplicar persistência de dados utilizando PostgreSQL e JDBC.
-* Explorar o desenvolvimento de interfaces gráficas desktop utilizando JavaFX.
-* Construir um projeto organizado e bem documentado que possa compor um portfólio técnico.
+O principal objetivo é utilizar o desenvolvimento do Sudoku como um laboratório prático para consolidar conhecimentos em Java e Engenharia de Software.
+
+Durante sua evolução, o projeto busca praticar:
+
+- Programação Orientada a Objetos;
+- Encapsulamento;
+- Herança;
+- Polimorfismo;
+- Abstração;
+- Interfaces;
+- Separação de responsabilidades;
+- Arquitetura em camadas;
+- Persistência de dados;
+- JDBC;
+- PostgreSQL;
+- Maven;
+- JavaFX;
+- Desenvolvimento incremental;
+- Refatoração;
+- Documentação técnica;
+- Decisões arquiteturais.
 
 ---
 
 ## 🎮 Demonstração
 
-> 🚧 Em construção.
+O projeto atualmente possui duas interfaces:
 
-O projeto possui atualmente uma primeira versão gráfica funcional desenvolvida com JavaFX, ainda em evolução.
+- **Console** — versão mais completa e utilizada para validação das funcionalidades;
+- **JavaFX** — primeira versão da interface gráfica, construída como um vertical slice funcional.
 
----
-
-## ✨ Funcionalidades implementadas
-
-### 🎮 Jogabilidade
-
-* Início de uma nova partida.
-* Inserção e remoção de números no tabuleiro.
-* Limpeza das jogadas realizadas pelo jogador.
-* Sistema de rascunhos com múltiplos candidatos por casa.
-* Encerramento automático quando o Sudoku é concluído corretamente.
-
-### 📋 Interface Console
-
-* Menu principal para navegação.
-* Entrada de coordenadas no formato **A1–I9**.
-* Tabuleiro organizado com separação visual dos blocos 3×3 utilizando caracteres Unicode.
-* Identificação das linhas e colunas para facilitar a navegação.
-* Validação de entradas e confirmações.
-* Preservação da interface Console após a introdução da interface gráfica.
-
-### 🖥️ Interface gráfica
-
-* Primeira aplicação gráfica utilizando JavaFX.
-* Apresentação gráfica do tabuleiro.
-* Seleção de casas.
-* Inserção de números através da interface gráfica.
-* Atualização visual do tabuleiro após uma jogada.
-* Primeiro vertical slice jogável do produto.
-
-> A interface JavaFX ainda não possui paridade funcional com a interface Console. Sua evolução ocorrerá de forma incremental nas próximas etapas do projeto.
-
-### ✔ Validações
-
-* Tratamento de entradas inválidas e não numéricas.
-* Validação das opções do menu principal.
-* Validação das respostas de confirmação (S/N).
-* Proteção das casas fixas contra alterações.
-* Validação das regras das jogadas.
-* Verificação de linhas, colunas e blocos 3×3.
-* Validação da consistência entre candidatos e números definitivos.
-
-### 💾 Persistência
-
-* Persistência do estado da partida.
-* Salvamento de partidas em andamento.
-* Restauração de partidas previamente salvas.
-* Continuação da partida a partir do estado persistido.
-* Persistência de números definitivos e candidatos.
-* Confirmação antes da sobrescrita de uma partida existente.
-
-### 📊 Acompanhamento da partida
-
-* Verificação do status da partida.
-* Identificação de tabuleiro incompleto, válido ou inválido.
-* Atualização da interface após cada ação do jogador.
+A interface gráfica encontra-se em evolução e ainda não possui paridade funcional com a interface Console.
 
 ---
 
-## 🏗 Arquitetura
+# 🚀 Funcionalidades implementadas
 
-A aplicação utiliza uma arquitetura em camadas simples, com foco na separação de responsabilidades, baixo acoplamento e evolução incremental.
+## 🎲 Jogabilidade
 
-A partir da Sprint 19, a arquitetura passou a permitir múltiplas interfaces de interação. A Sprint 20 validou essa abordagem através da introdução do JavaFX.
+A aplicação permite:
 
-O fluxo de alto nível pode ser representado da seguinte forma:
+- Iniciar uma nova partida;
+- Inserir números no tabuleiro;
+- Remover números inseridos pelo jogador;
+- Limpar jogadas realizadas;
+- Registrar múltiplos candidatos em uma casa;
+- Concluir uma partida;
+- Verificar o estado atual do tabuleiro.
+
+---
+
+## 💻 Interface Console
+
+A interface Console possui:
+
+- Menu principal;
+- Navegação por coordenadas de `A1` a `I9`;
+- Representação visual do tabuleiro utilizando blocos Unicode;
+- Identificação de linhas e colunas;
+- Validação das jogadas;
+- Gerenciamento das partidas;
+- Persistência das partidas;
+- Recuperação de partidas salvas.
+
+A interface Console permanece no projeto como uma implementação funcional da aplicação e também como referência para a evolução das demais interfaces.
+
+---
+
+## 🖥️ Interface gráfica
+
+O projeto possui uma primeira interface gráfica desenvolvida com **JavaFX**.
+
+O vertical slice atualmente implementado permite:
+
+1. Abrir a aplicação;
+2. Visualizar o tabuleiro;
+3. Selecionar uma casa;
+4. Inserir um número;
+5. Visualizar o resultado da ação.
+
+A interface gráfica utiliza a mesma camada de domínio e orquestração da aplicação, evitando duplicar as regras do Sudoku na interface.
+
+A GUI encontra-se em evolução e ainda não possui todas as funcionalidades disponíveis na interface Console.
+
+---
+
+## ✅ Validações
+
+A aplicação realiza validações relacionadas a:
+
+- Entrada de dados inválida;
+- Valores não numéricos;
+- Opções do menu;
+- Confirmações de operações;
+- Proteção de casas fixas;
+- Regras para inserção de números;
+- Regras de linhas;
+- Regras de colunas;
+- Regras das regiões `3x3`;
+- Diferenciação entre candidatos e números definitivos.
+
+---
+
+## 💾 Persistência
+
+A aplicação possui persistência de partidas utilizando **PostgreSQL e JDBC**.
+
+É possível:
+
+- Salvar uma partida em andamento;
+- Recuperar uma partida salva;
+- Continuar uma partida posteriormente;
+- Persistir números definitivos;
+- Persistir candidatos;
+- Sobrescrever uma partida existente mediante confirmação.
+
+A persistência atualmente está integrada à **interface Console**.
+
+---
+
+## 📊 Acompanhamento da partida
+
+A aplicação permite verificar o estado atual do tabuleiro, identificando situações como:
+
+- Partida incompleta;
+- Tabuleiro válido;
+- Tabuleiro inválido.
+
+O estado da partida também é refletido pela interface após as ações realizadas pelo jogador.
+
+---
+
+# 🏗️ Arquitetura
+
+A aplicação utiliza uma arquitetura organizada em camadas, buscando manter baixo acoplamento e separar responsabilidades.
+
+A evolução arquitetural permitiu que diferentes interfaces utilizassem a mesma lógica de negócio e orquestração.
 
 ```text
-                         Main
-                          │
-                          ▼
-                     JogoSudoku
-                    Orquestração
-                          │
-              ┌───────────┴───────────┐
-              ▼                       ▼
-          Console                  JavaFX
-          Interface               Interface
-              │                       │
-              └───────────┬───────────┘
-                          ▼
-                       Domínio
-                    ┌─────┴─────┐
-                    ▼           ▼
-                Tabuleiro      Casa
-                          │
-                          ▼
-                     Persistência
+                    ┌───────────────┐
+                    │     Main      │
+                    │    Console    │
+                    └───────┬───────┘
+                            │
+                            ▼
+                    ┌───────────────┐
+                    │  JogoSudoku   │
+                    │  Orquestração │
+                    └───────┬───────┘
+                            │
+              ┌─────────────┴─────────────┐
+              │                           │
+              ▼                           ▼
+      ┌───────────────┐           ┌───────────────┐
+      │    Console    │           │    JavaFX     │
+      │   Interface   │           │   Interface   │
+      └───────┬───────┘           └───────┬───────┘
+              │                           │
+              └─────────────┬─────────────┘
+                            │
+                            ▼
+                    ┌───────────────┐
+                    │    Domínio    │
+                    │ Tabuleiro/Casa│
+                    └───────┬───────┘
+                            │
+                            ▼
+                    ┌───────────────┐
+                    │  Persistência │
+                    │ Repositories  │
+                    └───────────────┘
 ```
 
-A interface de usuário não deve assumir responsabilidades pertencentes ao domínio ou à persistência.
+As interfaces são responsáveis pela interação com o usuário, enquanto as regras do Sudoku permanecem concentradas nas camadas responsáveis pelo domínio e pela orquestração.
 
-A persistência é realizada por meio de repositórios, mantendo o acesso aos dados separado das regras do jogo.
+A persistência é isolada por meio de **Repositories**, evitando que as interfaces tenham responsabilidade direta pelo acesso aos dados.
 
-📖 A documentação arquitetural completa, incluindo fluxos de negócio, responsabilidades das camadas e decisões arquiteturais (ADRs), está disponível em [docs/04-arquitetura.md](docs/04-arquitetura.md).
+Mais detalhes sobre a arquitetura podem ser encontrados em:
+
+- [`docs/04-arquitetura.md`](docs/04-arquitetura.md)
 
 ---
 
-## 📂 Estrutura do projeto
-
-O projeto utiliza a estrutura padrão de aplicações Java com Maven, mantendo o código-fonte separado da documentação técnica.
+# 📁 Estrutura do projeto
 
 ```text
 sudoku
 ├── src/
-│   └── main/
-│       └── java/
-│           ├── enums/
-│           ├── model/
-│           ├── persistence/
-│           ├── service/
-│           ├── ui/
-│           │   └── javafx/
-│           └── util/
+│   ├── main/
+│   │   └── java/
+│   │       ├── enums/
+│   │       ├── exception/
+│   │       ├── model/
+│   │       ├── persistence/
+│   │       ├── service/
+│   │       ├── ui/
+│   │       │   └── javafx/
+│   │       └── util/
+│   │
+│   └── test/
+│
+├── database/
+│   └── schema.sql
 │
 ├── docs/
 │   ├── decisoes/
@@ -163,352 +247,327 @@ sudoku
 
 ### Principais diretórios
 
-| Diretório/Arquivo | Descrição                                                                                               |
-| ----------------- | ------------------------------------------------------------------------------------------------------- |
-| `src/main/java/`  | Código-fonte principal da aplicação.                                                                    |
-| `model/`          | Entidades e regras relacionadas ao domínio do Sudoku.                                                   |
-| `service/`        | Orquestração e serviços da aplicação.                                                                   |
-| `ui/`             | Interfaces de interação com o usuário.                                                                  |
-| `ui/javafx/`      | Implementação da interface gráfica JavaFX.                                                              |
-| `persistence/`    | Repositórios e infraestrutura de persistência.                                                          |
-| `docs/`           | Documentação técnica, requisitos, arquitetura, backlog, decisões, User Stories e histórico das Sprints. |
-| `pom.xml`         | Configuração do Maven e gerenciamento das dependências do projeto.                                      |
-| `CHANGELOG.md`    | Registro das funcionalidades e melhorias implementadas ao longo do projeto.                             |
-| `README.md`       | Visão geral do projeto e ponto de entrada para a documentação.                                          |
+| Diretório / Arquivo | Responsabilidade |
+|---|---|
+| `src/main/java/` | Código-fonte da aplicação |
+| `model/` | Entidades e regras relacionadas ao domínio |
+| `service/` | Orquestração e serviços da aplicação |
+| `ui/` | Interfaces de interação com o usuário |
+| `ui/javafx/` | Implementação da interface gráfica JavaFX |
+| `persistence/` | Acesso e persistência de dados |
+| `database/` | Scripts relacionados ao banco de dados |
+| `docs/` | Documentação técnica e histórico de desenvolvimento |
+| `pom.xml` | Configuração do Maven e dependências |
+| `CHANGELOG.md` | Registro das principais alterações |
+| `README.md` | Documentação principal do projeto |
 
 ---
 
 # 📚 Documentação
 
-A documentação foi construída de forma incremental durante todo o desenvolvimento do projeto, registrando tanto a evolução técnica quanto as decisões de engenharia adotadas em cada etapa.
+A documentação acompanha a evolução técnica do projeto e registra não apenas o código, mas também as decisões e o processo de desenvolvimento.
 
-Ela está organizada em diferentes categorias:
-
-| Documento                                 | Objetivo                                                                             |
-| ----------------------------------------- | ------------------------------------------------------------------------------------ |
-| **Guia de Desenvolvimento**               | Define o fluxo de trabalho utilizado durante a implementação do projeto.             |
-| **Requisitos e Modelagem**                | Descrevem o problema, as funcionalidades e a estrutura do domínio.                   |
-| **Arquitetura**                           | Documenta a organização da aplicação e a responsabilidade das camadas.               |
-| **Product Backlog**                       | Centraliza as User Stories e sua priorização.                                        |
-| **Roadmap**                               | Apresenta a evolução planejada do projeto.                                           |
-| **User Stories**                          | Especificam cada funcionalidade implementada.                                        |
-| **Sprints**                               | Registram o planejamento, execução e encerramento de cada ciclo de desenvolvimento.  |
-| **Diário de Desenvolvimento**             | Documenta aprendizados, decisões e dificuldades encontradas durante a implementação. |
-| **ADRs (Architectural Decision Records)** | Registram as principais decisões arquiteturais tomadas ao longo do projeto.          |
-| **Marcos do Projeto**                     | Consolidam as principais entregas e a evolução do sistema.                           |
-| **CHANGELOG**                             | Histórico das funcionalidades e melhorias implementadas.                             |
-
-Toda essa documentação é mantida sincronizada com a evolução do código, permitindo acompanhar não apenas o resultado, mas também o processo utilizado para construí-lo.
+| Documento | Descrição |
+|---|---|
+| [Guia de Desenvolvimento](docs/00-guia-de-desenvolvimento.md) | Processo e metodologia utilizados no projeto |
+| [Requisitos](docs/01-requisitos.md) | Requisitos funcionais e não funcionais |
+| [Modelagem](docs/02-modelagem.md) | Modelagem do domínio |
+| [Arquitetura](docs/04-arquitetura.md) | Organização arquitetural da aplicação |
+| [Backlog](docs/05-backlog.md) | User Stories e evolução planejada |
+| [Roadmap](docs/06-roadmap.md) | Direcionamento futuro do projeto |
+| [User Stories](docs/stories/) | Especificação das funcionalidades |
+| [Sprints](docs/sprints/) | Histórico de desenvolvimento por Sprint |
+| [Diário de Desenvolvimento](docs/03-diario-de-desenvolvimento.md) | Registro da evolução técnica |
+| [ADRs](docs/decisoes/) | Decisões arquiteturais |
+| [Marcos do Projeto](docs/07-marcos-do-projeto.md) | Principais marcos da evolução |
+| [CHANGELOG](CHANGELOG.md) | Registro das alterações relevantes |
 
 ---
 
-# 🛠 Tecnologias e conceitos aplicados
+# 🛠️ Tecnologias e conceitos aplicados
 
-| Tecnologia        | Aplicação no projeto                                                                                                    |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| **Java**          | Desenvolvimento da aplicação utilizando Programação Orientada a Objetos.                                                |
-| **JavaFX**        | Desenvolvimento da primeira interface gráfica desktop.                                                                  |
-| **Maven**         | Gerenciamento do projeto, dependências e processo de build.                                                             |
-| **PostgreSQL**    | Persistência das partidas.                                                                                              |
-| **JDBC**          | Comunicação entre a aplicação Java e o banco de dados.                                                                  |
-| **Docker**        | Execução do ambiente PostgreSQL durante o desenvolvimento.                                                              |
-| **JUnit**         | Testes automatizados e validação do comportamento da aplicação.                                                         |
-| **IntelliJ IDEA** | Ambiente de desenvolvimento utilizado durante a implementação.                                                          |
-| **Git**           | Controle de versão baseado em commits incrementais durante cada Sprint.                                                 |
-| **GitHub**        | Versionamento, documentação e publicação do projeto.                                                                    |
-| **Markdown**      | Documentação técnica do projeto, incluindo requisitos, arquitetura, backlog, Sprints, ADRs e diário de desenvolvimento. |
-
----
-
-## ▶️ Como executar
-
-### 1. Pré-requisitos
-
-Para executar o projeto, é necessário ter instalado:
-
-* **JDK 26 ou superior**
-* **Maven**
-* **Git**
-
-O JavaFX é gerenciado pelo Maven. As dependências necessárias são baixadas automaticamente durante a execução do projeto, não sendo necessária uma instalação manual do JavaFX.
-
-Para utilizar as funcionalidades de persistência, também é necessário:
-
-* **PostgreSQL**
-
-> O PostgreSQL não é necessário para validar o fluxo inicial da interface JavaFX. Ele é necessário para as funcionalidades que utilizam persistência de dados.
+| Tecnologia / Conceito | Utilização |
+|---|---|
+| **Java 26** | Linguagem principal |
+| **JavaFX 26** | Interface gráfica |
+| **Maven** | Gerenciamento do projeto e dependências |
+| **PostgreSQL** | Banco de dados |
+| **JDBC** | Integração com o banco de dados |
+| **IntelliJ IDEA** | Ambiente de desenvolvimento |
+| **Git** | Controle de versão |
+| **GitHub** | Hospedagem e versionamento do projeto |
+| **Markdown** | Documentação |
+| **Programação Orientada a Objetos** | Modelagem e organização do domínio |
+| **Arquitetura em camadas** | Separação de responsabilidades |
+| **Repositories** | Abstração do acesso aos dados |
+| **ADRs** | Registro de decisões arquiteturais |
+| **User Stories e Sprints** | Organização do desenvolvimento incremental |
 
 ---
 
-### 2. Clonar o projeto
+# 🚀 Como executar
 
-Clone o repositório:
+## 1. Clone o repositório
 
 ```bash
 git clone https://github.com/foliveiradark/dio-java-fundamentos.git
 ```
 
-Entre no diretório do projeto:
+## 2. Acesse o projeto
 
 ```bash
 cd dio-java-fundamentos/poo/sudoku
 ```
 
----
+## 3. Requisitos
 
-### 3. Validar o ambiente Maven
+Para executar o projeto, são necessários:
 
-Após clonar o projeto, valide inicialmente a configuração do ambiente:
+- Java JDK 26 ou superior;
+- Maven.
 
-```bash
-mvn clean compile
-```
-
-Em seguida, execute os testes:
-
-```bash
-mvn test
-```
-
-A execução dessas etapas permite verificar, antes de iniciar a aplicação, se:
-
-* o JDK está corretamente configurado;
-* o Maven está disponível;
-* as dependências do projeto podem ser resolvidas;
-* o código pode ser compilado;
-* os testes automatizados podem ser executados.
+O PostgreSQL é necessário caso sejam utilizadas as funcionalidades de persistência.
 
 ---
 
-### 4. Executar a interface JavaFX
+## 4. Compile o projeto
 
-Para iniciar a aplicação gráfica:
+Execute:
+
+```bash
+mvn clean package
+```
+
+---
+
+## 5. Execute a interface gráfica
+
+A aplicação JavaFX pode ser iniciada com:
 
 ```bash
 mvn javafx:run
 ```
 
-O Maven utiliza o plugin JavaFX configurado no `pom.xml` para iniciar a classe:
-
-```text
-ui.javafx.SudokuApplication
-```
-
-O fluxo atualmente implementado é:
+O vertical slice atualmente disponível segue o fluxo:
 
 ```text
 Abrir aplicação
       ↓
 Visualizar tabuleiro
       ↓
-Selecionar célula
+Selecionar casa
       ↓
 Inserir número
       ↓
 Visualizar resultado
 ```
 
-A interface JavaFX encontra-se em evolução e representa atualmente o **vertical slice inicial** da aplicação desktop.
+A interface gráfica está em evolução e ainda não possui todas as funcionalidades disponíveis na interface Console.
 
 ---
 
-### 5. Configurar o PostgreSQL
+## 6. Execute a interface Console
 
-As funcionalidades de persistência utilizam PostgreSQL.
+A interface Console permanece disponível como implementação alternativa.
 
-A aplicação está configurada para estabelecer a conexão utilizando os seguintes parâmetros:
+Para executá-la utilizando Maven:
 
-```text
-Host:     localhost
-Porta:    5432
-Banco:    sudoku
-Usuário:  sudoku
-Senha:    sudoku_dev
+### Linux / macOS
+
+```bash
+mvn exec:java -Dexec.mainClass=Main
 ```
 
-Esses parâmetros estão definidos atualmente na classe:
+### Windows PowerShell
+
+```powershell
+mvn exec:java "-Dexec.mainClass=Main"
+```
+
+A classe `Main` continua sendo a entrada da aplicação em modo texto.
+
+---
+
+# 🗄️ Configuração da persistência
+
+Para utilizar as funcionalidades de persistência, é necessário possuir uma instalação do PostgreSQL em execução.
+
+A aplicação utiliza atualmente as seguintes configurações:
+
+> **Nota:** as credenciais abaixo são destinadas exclusivamente ao ambiente local de desenvolvimento.
+
+| Configuração | Valor        |
+|--------------|--------------|
+| Host         | `localhost`  |
+| Porta        | `5432`       |
+| Banco        | `sudoku`     |
+| Usuário      | `sudoku`     |
+| Senha        | `sudoku_dev` |
+
+A conexão é centralizada pela classe:
 
 ```text
 persistence.ConnectionFactory
 ```
 
-#### 5.1 Criar o usuário do banco
+## 1. Criar o usuário
 
-No PostgreSQL, crie o usuário utilizado pela aplicação:
+Conecte-se ao PostgreSQL utilizando um usuário com permissão administrativa e execute:
 
 ```sql
 CREATE USER sudoku WITH PASSWORD 'sudoku_dev';
 ```
 
-#### 5.2 Criar o banco de dados
-
-Crie o banco:
+## 2. Criar o banco de dados
 
 ```sql
 CREATE DATABASE sudoku OWNER sudoku;
 ```
 
-#### 5.3 Criar as tabelas
+## 3. Criar as tabelas
 
-Com o banco `sudoku` criado, execute o script:
+A partir da raiz do projeto `poo/sudoku`, execute:
 
-```text
-schema.sql
-```
-
-O script cria as estruturas necessárias para a persistência do Sudoku:
-
-```text
-tabuleiro
-    ↓
-casa
-
-partida
-    ↓
-estado_casa
-    ↓
-candidato
-```
-
-A execução do script deve ser realizada no banco `sudoku`.
-
-Por exemplo, utilizando o cliente `psql`:
+### Linux / macOS
 
 ```bash
-psql -U sudoku -d sudoku -f schema.sql
+psql -U sudoku -d sudoku -f database/schema.sql
 ```
 
-> O comando acima pressupõe que o cliente `psql` esteja instalado e que o PostgreSQL esteja acessível em `localhost:5432`.
+### Windows PowerShell
+
+```powershell
+psql -U sudoku -d sudoku -f database\schema.sql
+```
+
+O script cria as estruturas necessárias para a persistência das partidas, incluindo:
+
+- `tabuleiro`;
+- `casa`;
+- `partida`;
+- `estado_casa`;
+- `candidato`.
 
 ---
 
-### 6. Executar a versão Console
+## 7. Validar a persistência
 
-A versão Console permanece disponível como uma das interfaces da aplicação.
+Com o PostgreSQL configurado, a persistência pode ser validada pela interface Console.
 
-Ela pode ser executada pela IDE, utilizando a classe `Main` como ponto de entrada.
-
-A coexistência entre Console e JavaFX é intencional: as interfaces utilizam a mesma camada de orquestração e domínio, evitando duplicação das regras do Sudoku.
-
----
-
-### 7. Sequência recomendada para uma nova estação
-
-Para configurar e validar o projeto em uma nova estação de desenvolvimento, recomenda-se seguir esta sequência:
+Fluxo básico:
 
 ```text
-Instalar JDK
-      ↓
-Instalar Maven
-      ↓
-Instalar Git
-      ↓
-Clonar repositório
-      ↓
-mvn clean compile
-      ↓
-mvn test
-      ↓
-mvn javafx:run
-      ↓
-Configurar PostgreSQL
-      ↓
-Criar banco sudoku
-      ↓
-Executar schema.sql
-      ↓
-Validar funcionalidades de persistência
+Iniciar uma nova partida
+        ↓
+Realizar uma jogada
+        ↓
+Salvar a partida
+        ↓
+Retornar ao menu
+        ↓
+Selecionar "Continuar partida"
+        ↓
+Verificar o estado recuperado
 ```
 
-Essa sequência permite separar a validação do ambiente Java da configuração específica necessária para persistência.
+Também é possível validar a persistência de candidatos registrados nas casas durante a partida.
 
 ---
 
-### 8. Ambiente de desenvolvimento
+# 🗺️ Roadmap
 
-O projeto utiliza atualmente:
+O projeto iniciou como uma aplicação Console e evoluiu progressivamente para uma aplicação desktop com persistência e interface gráfica.
 
-* Java 26
-* JavaFX 26.0.1
-* Maven
-* PostgreSQL
-* JDBC
-* JUnit
-* Git
-* GitHub
-* IntelliJ IDEA
+### Próximas evoluções
 
-As versões das principais dependências Java utilizadas pelo projeto estão definidas no arquivo `pom.xml`.
+- Refinamento da interface gráfica;
+- Ampliação das funcionalidades disponíveis na GUI;
+- Integração das funcionalidades existentes à interface gráfica;
+- Estatísticas de partidas;
+- Diferentes níveis de dificuldade;
+- Geração automática de tabuleiros;
+- Preparação para distribuição da aplicação.
 
----
+O roadmap completo está disponível em:
 
-# 🗺 Roadmap
-
-O projeto iniciou como uma aplicação Java em modo texto e evoluiu progressivamente para um jogo desktop com persistência e interface gráfica.
-
-Atualmente, o projeto encontra-se na fase de evolução da interface gráfica utilizando JavaFX.
-
-### Próximas etapas
-
-* 🎨 Refinamento progressivo da interface gráfica;
-* 🧩 Ampliação das funcionalidades disponíveis na GUI;
-* 📋 Integração progressiva das funcionalidades existentes à interface gráfica;
-* 📊 Estatísticas da partida;
-* 🎯 Novos níveis de dificuldade;
-* 🧩 Geração automática de tabuleiros;
-* 📦 Preparação da aplicação para distribuição.
-
-O planejamento completo, incluindo as fases concluídas e as possibilidades futuras, está disponível em:
-
-📄 [docs/06-roadmap.md](docs/06-roadmap.md)
+- [`docs/06-roadmap.md`](docs/06-roadmap.md)
 
 ---
 
-# 🎓 Principais conceitos praticados
+# 🧠 Principais conceitos praticados
 
-Ao longo do desenvolvimento deste projeto foram aplicados conceitos fundamentais de Java e Engenharia de Software, entre eles:
+Ao longo da evolução do projeto, foram praticados conceitos como:
 
-* Programação Orientada a Objetos;
-* Encapsulamento e abstração;
-* Arquitetura em camadas;
-* Separação de responsabilidades;
-* Baixo acoplamento e alta coesão;
-* Desenvolvimento incremental;
-* Refatoração contínua;
-* Persistência de dados;
-* Desenvolvimento de aplicações desktop;
-* Desenvolvimento orientado por User Stories e Sprints;
-* Documentação técnica;
-* Versionamento com Git e GitHub;
-* Registro de Decisões Arquiteturais (ADR);
-* Evolução arquitetural incremental.
+### Programação
 
-Para conhecer em mais detalhes a evolução do projeto, consulte:
+- Classes e objetos;
+- Encapsulamento;
+- Herança;
+- Polimorfismo;
+- Abstração;
+- Interfaces;
+- Coleções;
+- Tratamento de exceções;
+- Validação de regras.
 
-* 📐 [Arquitetura](docs/04-arquitetura.md)
-* 🗺️ [Roadmap](docs/06-roadmap.md)
-* 📝 [Diário de Desenvolvimento](docs/03-diario-de-desenvolvimento.md)
-* 📚 [Decisões Arquiteturais (ADRs)](docs/decisoes)
+### Engenharia de Software
+
+- Separação de responsabilidades;
+- Arquitetura em camadas;
+- Baixo acoplamento;
+- Refatoração;
+- Desenvolvimento incremental;
+- User Stories;
+- Sprints;
+- ADRs;
+- Documentação técnica.
+
+### Persistência
+
+- PostgreSQL;
+- JDBC;
+- Repositories;
+- Modelagem de dados;
+- Persistência de estado.
+
+### Interface
+
+- Aplicação Console;
+- JavaFX;
+- Separação entre interface e lógica de negócio;
+- Evolução para múltiplas interfaces.
 
 ---
 
 # 📌 Status
 
-**Status atual:** Primeiro vertical slice gráfico funcional
+### Primeiro vertical slice gráfico funcional
 
-O projeto possui uma versão funcional em modo texto, persistência de partidas e uma primeira interface gráfica JavaFX capaz de executar uma operação real de uma partida.
+O projeto atualmente possui:
 
-A interface gráfica continua em desenvolvimento e não possui paridade funcional com a interface Console. Sua evolução continuará de forma incremental, utilizando a arquitetura preparada nas Sprints anteriores.
+- ✅ Aplicação Console funcional;
+- ✅ Regras do Sudoku implementadas;
+- ✅ Sistema de candidatos;
+- ✅ Persistência de partidas com PostgreSQL;
+- ✅ Recuperação de partidas;
+- ✅ Arquitetura preparada para múltiplas interfaces;
+- ✅ Primeira interface gráfica JavaFX;
+- ✅ Primeiro vertical slice funcional na GUI.
 
-O objetivo de longo prazo é transformar o projeto em um jogo desktop completo, jogável e distribuível, mantendo o foco simultâneo no desenvolvimento técnico, na qualidade arquitetural e na documentação da evolução.
+A interface gráfica continua em desenvolvimento e será gradualmente ampliada até incorporar as funcionalidades existentes na aplicação Console.
+
+O objetivo de longo prazo é transformar o projeto em uma aplicação desktop completa, funcional e distribuível.
 
 ---
 
-## 👨‍💻 Autor
+# 👨‍💻 Autor
 
-Desenvolvido por **Flávio Oliveira** como parte da construção do meu portfólio de desenvolvimento de software, documentando a evolução técnica ao longo do processo.
+**Flávio Oliveira**
 
-Este projeto representa não apenas o aprendizado da linguagem, mas também a aplicação prática de princípios de Arquitetura de Software, Engenharia de Software e desenvolvimento incremental orientado por documentação.
+Projeto desenvolvido como parte da minha jornada de aprendizado em Java, com foco em **Engenharia de Software, arquitetura, desenvolvimento incremental e construção de portfólio técnico**.
 
-* GitHub: https://github.com/foliveiradark
-* LinkedIn: https://www.linkedin.com/in/flaviocoliveira/
+A evolução do projeto pode ser acompanhada através do histórico de commits, documentação técnica, User Stories, Sprints e decisões arquiteturais registradas no repositório.
+
+**GitHub**: https://github.com/foliveiradark
+
+**LinkedIn**: https://www.linkedin.com/in/flaviocoliveira/
