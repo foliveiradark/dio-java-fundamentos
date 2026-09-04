@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -47,12 +48,6 @@ public class SudokuApplication extends Application {
         );
         boardContainer.getChildren().add(board);
 
-        content.getChildren().addAll(
-                title,
-                boardContainer,
-                numberInput
-        );
-
         root.setCenter(content);
 
         JavaFXPrinter printer = new JavaFXPrinter(board);
@@ -78,6 +73,19 @@ public class SudokuApplication extends Application {
 
             numberInput.clear();
         });
+
+        Button removeButton = new Button("Remover");
+
+        removeButton.setOnAction(event -> {
+            controller.removerJogada();
+        });
+
+        content.getChildren().addAll(
+                title,
+                boardContainer,
+                numberInput,
+                removeButton
+        );
 
         Scene scene = new Scene(root, 600, 700);
 

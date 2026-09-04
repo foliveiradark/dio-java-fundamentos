@@ -46,4 +46,19 @@ public class JavaFXController {
                 jogada
         );
     }
+
+    public void removerJogada() {
+
+        if (linhaSelecionada == -1 || colunaSelecionada == -1) {
+
+            System.out.println("Nenhuma casa selecionada.");
+
+            return;
+        }
+
+        jogo.removerJogada(
+                linhaSelecionada,
+                colunaSelecionada
+        );
+    }
 }

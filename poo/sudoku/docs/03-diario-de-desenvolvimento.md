@@ -1019,3 +1019,129 @@ A GUI ainda não possui paridade funcional com o Console, conforme deliberadamen
 Com a conclusão da US-020, o projeto possui uma primeira experiência gráfica funcional e uma base tecnológica validada para a continuidade da evolução do jogo como aplicação desktop.
 
 As próximas funcionalidades deverão ser avaliadas a partir do estado atual do produto e do Product Backlog, mantendo a estratégia de evolução incremental e evitando antecipar complexidade que ainda não seja necessária.
+
+---
+
+### 📅 04/09/2026
+
+## 🔄 Encerramento da Sprint 21
+
+### Entrega: US-021 — Remover número pela interface JavaFX
+
+A Sprint 21 representou a primeira evolução funcional da interface gráfica após a implementação do primeiro vertical slice da Sprint 20.
+
+O objetivo foi permitir que o jogador removesse, através da interface JavaFX, uma jogada definitiva realizada anteriormente.
+
+A implementação foi realizada de forma incremental, utilizando a arquitetura estabelecida na Sprint 19 e validada durante a Sprint 20.
+
+A operação de remoção foi disponibilizada através da aplicação, mantendo a regra de domínio em `Casa.removerNumero()` e evitando que a interface gráfica passasse a conhecer ou reproduzir regras do Sudoku.
+
+### O que foi realizado
+
+* disponibilização da operação de remoção em `JogoSudoku`;
+* integração da operação ao `JavaFXController`;
+* criação do botão **Remover** na interface JavaFX;
+* utilização da casa atualmente selecionada para solicitar a remoção;
+* remoção de jogadas realizadas pelo jogador;
+* atualização visual após remoção;
+* tratamento de tentativa de remoção de casa fixa;
+* tratamento de tentativa de remoção de casa sem jogada do jogador;
+* preservação da interação com o tabuleiro após operações válidas e inválidas;
+* preservação da interface Console;
+* correção incidental da apresentação indevida de `Jogada removida` no Console após operações inválidas.
+
+O resultado foi uma nova funcionalidade efetivamente integrada ao fluxo gráfico do Sudoku, sem alteração desnecessária da arquitetura existente.
+
+### Aprendizados e constatações
+
+A Sprint reforçou a estratégia de evolução incremental adotada para a interface gráfica.
+
+A funcionalidade de remoção pôde ser adicionada utilizando a arquitetura já preparada nas Sprints anteriores, sem necessidade de duplicar regras na camada JavaFX.
+
+A separação entre interface, aplicação e domínio mostrou novamente seu valor. A interface gráfica ficou responsável pela interação, `JogoSudoku` pela coordenação da operação e `Casa` pela regra de remoção.
+
+Outro ponto importante foi a identificação de uma inconsistência preexistente na apresentação do Console. A correção pôde ser realizada de forma pequena e diretamente relacionada à funcionalidade em desenvolvimento, sem transformar a Sprint em uma refatoração mais ampla.
+
+### Validações realizadas
+
+A funcionalidade foi validada através dos principais cenários definidos para a User Story:
+
+```text
+Selecionar casa
+↓
+Solicitar remoção
+↓
+Remover jogada
+↓
+Atualizar representação visual
+↓
+Continuar interação
+```
+
+Também foram validados cenários inválidos:
+
+```text
+Selecionar casa fixa
+↓
+Solicitar remoção
+↓
+Operação recusada
+↓
+Estado preservado
+```
+
+e:
+
+```text
+Selecionar casa sem jogada
+↓
+Solicitar remoção
+↓
+Operação recusada
+↓
+Estado preservado
+```
+
+A interface Console também foi utilizada para confirmar a preservação da funcionalidade existente.
+
+### Code Review
+
+O Code Review foi realizado após a implementação.
+
+A revisão confirmou que a alteração permaneceu restrita ao objetivo da US-021 e respeitou a separação arquitetural estabelecida anteriormente.
+
+Não foram identificadas duplicações de regras do Sudoku na interface JavaFX, novas abstrações desnecessárias ou refatorações fora do escopo da Sprint.
+
+### Decisões arquiteturais
+
+A Sprint não exigiu uma nova decisão arquitetural.
+
+A implementação confirmou novamente, na prática, a decisão registrada no **ADR-011 — Separação entre interface e orquestração da aplicação**.
+
+A interface JavaFX utiliza o ponto de entrada da aplicação para solicitar a operação, enquanto a regra de remoção permanece no domínio.
+
+Não foi criado novo ADR.
+
+### Resultado
+
+A Sprint 21 atingiu seu objetivo principal: a interface JavaFX passou a permitir a remoção de jogadas realizadas pelo jogador.
+
+A evolução pode ser representada por:
+
+```text
+Primeiro vertical slice JavaFX
+        ↓
+Inserção de jogadas
+        ↓
+Remoção de jogadas
+        ↓
+Evolução incremental da experiência gráfica
+```
+
+A funcionalidade foi implementada sem buscar paridade funcional completa com o Console, mantendo a estratégia definida para a evolução da GUI.
+
+### Estado do projeto
+
+Com a conclusão da US-021, o Sudoku possui uma nova operação funcional disponível pela interface JavaFX, mantendo a arquitetura preparada para a continuidade da evolução da aplicação desktop.
+
+A próxima evolução deverá ser definida a partir do Product Backlog, mantendo a abordagem incremental e evitando antecipar funcionalidades ou complexidade que ainda não sejam necessárias.

@@ -394,22 +394,133 @@ Status: ✅ Concluído
 
 ---
 
+## US-021 — Remover número pela interface JavaFX
+
+**Como jogador**
+
+Quero remover uma jogada pela interface gráfica
+
+Para corrigir um número inserido anteriormente.
+
+Prioridade: 🔴 Alta
+
+Status: ✅ Concluído
+
+---
+
+## US-022 — Utilizar candidatos pela interface JavaFX
+
+**Como jogador**
+
+Quero inserir e remover números de rascunho pela interface gráfica
+
+Para registrar e ajustar possibilidades durante a resolução do Sudoku.
+
+Prioridade: 🔴 Alta
+
+Status: ⏳ Backlog
+
+---
+
+## US-023 — Limpar jogadas pela interface JavaFX
+
+**Como jogador**
+
+Quero limpar as jogadas realizadas pela interface gráfica
+
+Para remover minhas alterações e manter apenas os números fixos do tabuleiro.
+
+Prioridade: 🟠 Média
+
+Status: ⏳ Backlog
+
+---
+
+## US-024 — Finalizar partida pela interface JavaFX
+
+**Como jogador**
+
+Quero finalizar a partida pela interface gráfica
+
+Para concluir o Sudoku quando ele estiver corretamente resolvido.
+
+Prioridade: 🟠 Média
+
+Status: ⏳ Backlog
+
+---
+
+## US-025 — Salvar partida pela interface JavaFX
+
+**Como jogador**
+
+Quero salvar minha partida pela interface gráfica
+
+Para preservar meu progresso e continuar posteriormente.
+
+Prioridade: 🟠 Média
+
+Status: ⏳ Backlog
+
+---
+
+## US-026 — Continuar partida pela interface JavaFX
+
+**Como jogador**
+
+Quero continuar uma partida salva pela interface gráfica
+
+Para retomar meu progresso sem precisar iniciar uma nova partida.
+
+Prioridade: 🟠 Média
+
+Status: ⏳ Backlog
+
+---
+
+## US-027 — Refinar experiência de interação da GUI
+
+**Como jogador**
+
+Quero uma interface gráfica com interações mais claras e consistentes
+
+Para jogar Sudoku de forma mais intuitiva e agradável.
+
+Prioridade: 🟡 Média
+
+Status: ⏳ Backlog
+
+---
+
+## US-028 — Preparar distribuição da aplicação desktop
+
+**Como usuário**
+
+Quero executar a aplicação desktop fora do ambiente de desenvolvimento
+
+Para utilizar o Sudoku como uma aplicação independente.
+
+Prioridade: 🟢 Baixa
+
+Status: ⏳ Backlog
+
+---
+
 # Próximas Evoluções Planejadas
 
-### Sistema de build
+A próxima etapa do projeto consiste na ampliação progressiva da interface
+gráfica JavaFX, incorporando funcionalidades já existentes no domínio e na
+interface Console.
 
-O Maven foi adotado durante a US-020 como sistema de build do projeto, passando a gerenciar dependências, compilação e execução. A infraestrutura poderá ser ampliada futuramente para suportar testes, empacotamento e distribuição.
-
-### Distribuição
-
-Após a consolidação da interface gráfica, preparar a aplicação para poder ser executada por um usuário final fora do ambiente de desenvolvimento.
+As próximas evoluções estão registradas e priorizadas no Product Backlog,
+a partir da US-021.
 
 ---
 
 # Evoluções Futuras
 
-Funcionalidades que poderão ser consideradas após a consolidação da primeira
-versão gráfica jogável:
+Funcionalidades que poderão ser consideradas após a consolidação da
+aplicação desktop e da infraestrutura necessária para sua evolução:
 
 * níveis de dificuldade;
 * progressão;

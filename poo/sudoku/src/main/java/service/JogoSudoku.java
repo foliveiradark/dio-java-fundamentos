@@ -128,9 +128,12 @@ public class JogoSudoku {
                         int[] posicao = converterCoordenada(coordenada);
                         int linha = posicao[0]; int coluna = posicao[1];
 
-                        removerJogada(linha, coluna);
+                        boolean removida = removerJogada(linha, coluna);
 
-                        interfaceApresentacao.exibirJogadaRemovida();
+                        if (removida) {
+
+                            interfaceApresentacao.exibirJogadaRemovida();
+                        }
                     }
                 }
 
@@ -288,7 +291,7 @@ public class JogoSudoku {
 
     }
 
-    private void removerJogada(int linha,
+    public boolean removerJogada(int linha,
                                int coluna) {
 
         try {
@@ -299,9 +302,13 @@ public class JogoSudoku {
 
             interfaceApresentacao.exibirTabuleiro(tabuleiro);
 
+            return true;
+
         } catch (IllegalArgumentException e) {
 
             interfaceApresentacao.exibirErro(e.getMessage());
+
+            return false;
 
         }
 

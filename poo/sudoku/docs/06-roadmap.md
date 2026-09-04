@@ -118,26 +118,49 @@ paridade funcional imediata com a interface Console.
 * [x] Avaliar e definir o sistema de build — Maven;
 * [x] Avaliar e definir a tecnologia da interface gráfica — JavaFX;
 * [x] Implementar o primeiro vertical slice jogável com JavaFX (US-020).
+* [x] Permitir remoção de jogadas pela interface gráfica;
 
 ### Próximas evoluções da fase:
 
-* [ ] Ampliar a integração das funcionalidades existentes à interface gráfica;
+* [ ] Ampliar as funcionalidades básicas de interação da GUI;
+* [ ] Incorporar o sistema de candidatos à interface gráfica;
+* [ ] Incorporar operações de limpeza e finalização da partida;
+* [ ] Integrar progressivamente a persistência à interface gráfica;
 * [ ] Evoluir a experiência de interação da GUI;
-* [ ] Incorporar progressivamente funcionalidades disponíveis no Console;
 * [ ] Refinar a apresentação visual;
 * [ ] Preparar a aplicação para distribuição;
 * [ ] Avaliar empacotamento e execução fora do ambiente de desenvolvimento.
+
+A sequência dessas evoluções será definida e priorizada no Product Backlog
+conforme a evolução do produto e o resultado das Sprints.
 
 ### Direção tecnológica
 
 A Fase 7 segue as decisões estabelecidas durante a US-019:
 
 * **Sistema de build:** Maven;
-* **Tecnologia gráfica:** JavaFX;
+* **Tecnologia da interface gráfica:** JavaFX;
 * **Arquitetura:** interface desacoplada da orquestração da aplicação;
 * **Orquestração:** `JogoSudoku`;
 * **Persistência:** independente da interface;
 * **Domínio:** independente da tecnologia de interação.
+
+### Relação com o Product Backlog
+
+As próximas evoluções da Fase 7 serão representadas por User Stories
+específicas no Product Backlog, evitando concentrar toda a evolução da
+interface gráfica em uma única User Story.
+
+A priorização atual contempla, progressivamente:
+
+* **US-021** — Remover número pela interface JavaFX;
+* **US-022** — Utilizar candidatos pela interface JavaFX;
+* **US-023** — Limpar jogadas pela interface JavaFX;
+* **US-024** — Finalizar partida pela interface JavaFX;
+* **US-025** — Salvar partida pela interface JavaFX;
+* **US-026** — Continuar partida pela interface JavaFX;
+* **US-027** — Refinar experiência de interação da GUI;
+* **US-028** — Preparar distribuição da aplicação desktop.
 
 ---
 
