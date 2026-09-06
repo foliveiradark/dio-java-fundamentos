@@ -326,7 +326,9 @@ Para executar o projeto, são necessários:
 - Java JDK 26 ou superior;
 - Maven.
 
-O PostgreSQL é necessário caso sejam utilizadas as funcionalidades de persistência.
+Para utilizar as funcionalidades de persistência, é necessário disponibilizar uma instância do PostgreSQL.
+
+Durante o desenvolvimento, o projeto utiliza **Docker Compose** para disponibilizar o PostgreSQL. O arquivo `docker-compose.yml` necessário para criar o ambiente está versionado no repositório.
 
 ---
 
@@ -390,11 +392,25 @@ A classe `Main` continua sendo a entrada da aplicação em modo texto.
 
 # 🗄️ Configuração da persistência
 
-Para utilizar as funcionalidades de persistência, é necessário possuir uma instalação do PostgreSQL em execução.
+A aplicação utiliza PostgreSQL para armazenar os dados das partidas.
 
-A aplicação utiliza atualmente as seguintes configurações:
+Durante o desenvolvimento, o PostgreSQL pode ser disponibilizado pelo **Docker Compose** incluído no projeto.
 
-> **Nota:** as credenciais abaixo são destinadas exclusivamente ao ambiente local de desenvolvimento.
+## 1. Inicie o PostgreSQL
+
+Na pasta `poo/sudoku`, execute:
+
+```bash
+docker compose up -d
+```
+
+O Compose criará e iniciará o container, caso ele ainda não exista:
+
+```text
+sudoku-postgres
+```
+
+com as seguintes configurações:
 
 | Configuração | Valor        |
 |--------------|--------------|
@@ -410,67 +426,78 @@ A conexão é centralizada pela classe:
 persistence.ConnectionFactory
 ```
 
-## 1. Criar o usuário
-
-Conecte-se ao PostgreSQL utilizando um usuário com permissão administrativa e execute:
-
-```sql
-CREATE USER sudoku WITH PASSWORD 'sudoku_dev';
-```
-
-## 2. Criar o banco de dados
-
-```sql
-CREATE DATABASE sudoku OWNER sudoku;
-```
-
-## 3. Criar as tabelas
-
-A partir da raiz do projeto `poo/sudoku`, execute:
-
-### Linux / macOS
+Para verificar se o container está em execução:
 
 ```bash
-psql -U sudoku -d sudoku -f database/schema.sql
+docker compose ps
 ```
 
-### Windows PowerShell
-
-```powershell
-psql -U sudoku -d sudoku -f database\schema.sql
-```
-
-O script cria as estruturas necessárias para a persistência das partidas, incluindo:
-
-- `tabuleiro`;
-- `casa`;
-- `partida`;
-- `estado_casa`;
-- `candidato`.
+O ambiente PostgreSQL é definido pelo arquivo `docker-compose.yml`, que também especifica a imagem PostgreSQL utilizada pelo projeto.
 
 ---
 
-## 7. Validar a persistência
+## 2. Criar as tabelas
 
-Com o PostgreSQL configurado, a persistência pode ser validada pela interface Console.
+Com o PostgreSQL em execução, aplique o schema do projeto:
 
-Fluxo básico:
-
-```text
-Iniciar uma nova partida
-        ↓
-Realizar uma jogada
-        ↓
-Salvar a partida
-        ↓
-Retornar ao menu
-        ↓
-Selecionar "Continuar partida"
-        ↓
-Verificar o estado recuperado
+```bash
+docker exec -i sudoku-postgres psql -U sudoku -d sudoku < database/schema.sql
 ```
 
-Também é possível validar a persistência de candidatos registrados nas casas durante a partida.
+O arquivo `database/schema.sql` contém a estrutura necessária para a persistência, incluindo as tabelas:
+
+* `tabuleiro`;
+* `casa`;
+* `partida`;
+* `estado_casa`;
+* `candidato`.
+
+> O banco, o usuário e suas credenciais de desenvolvimento são configurados pelo Docker Compose. O arquivo `schema.sql` é responsável pela estrutura das tabelas.
+
+---
+
+## 3. Executar a aplicação
+
+Após disponibilizar o PostgreSQL e aplicar o schema, a aplicação pode ser executada normalmente pela interface Console ou pela interface gráfica.
+
+A persistência atualmente está integrada à interface Console.
+
+---
+
+## 4. Validar a persistência
+
+Para validar o funcionamento da persistência:
+
+1. Inicie uma nova partida;
+2. Realize uma jogada;
+3. Salve a partida;
+4. Retorne ao menu;
+5. Selecione a opção de continuar a partida;
+6. Verifique se o estado salvo foi recuperado.
+
+Os candidatos também podem ser utilizados para validar a persistência do estado editável das casas.
+
+---
+
+## PostgreSQL instalado localmente
+
+O projeto também pode ser executado utilizando uma instalação local do PostgreSQL, desde que sejam mantidas as configurações de conexão utilizadas pela aplicação:
+
+```text
+Host: localhost
+Porta: 5432
+Banco: sudoku
+Usuário: sudoku
+Senha: sudoku_dev
+```
+
+Nesse caso, o usuário deverá criar o banco, configurar o usuário e aplicar o arquivo:
+
+```text
+database/schema.sql
+```
+
+O uso do Docker Compose é o procedimento recomendado para reproduzir o ambiente de desenvolvimento do projeto.
 
 ---
 
