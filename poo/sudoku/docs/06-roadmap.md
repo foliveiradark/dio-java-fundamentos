@@ -118,12 +118,11 @@ paridade funcional imediata com a interface Console.
 * [x] Avaliar e definir o sistema de build — Maven;
 * [x] Avaliar e definir a tecnologia da interface gráfica — JavaFX;
 * [x] Implementar o primeiro vertical slice jogável com JavaFX (US-020).
-* [x] Permitir remoção de jogadas pela interface gráfica;
+* [x] Permitir remoção de jogadas pela interface gráfica (US-021);
+* [x] Incorporar o sistema de candidatos à interface gráfica (US-022);
 
 ### Próximas evoluções da fase:
 
-* [ ] Ampliar as funcionalidades básicas de interação da GUI;
-* [ ] Incorporar o sistema de candidatos à interface gráfica;
 * [ ] Incorporar operações de limpeza e finalização da partida;
 * [ ] Integrar progressivamente a persistência à interface gráfica;
 * [ ] Evoluir a experiência de interação da GUI;
@@ -153,8 +152,6 @@ interface gráfica em uma única User Story.
 
 A priorização atual contempla, progressivamente:
 
-* **US-021** — Remover número pela interface JavaFX;
-* **US-022** — Utilizar candidatos pela interface JavaFX;
 * **US-023** — Limpar jogadas pela interface JavaFX;
 * **US-024** — Finalizar partida pela interface JavaFX;
 * **US-025** — Salvar partida pela interface JavaFX;

@@ -1,6 +1,6 @@
 ## [Não publicado]
 
-Última atualização: 04/09/2026
+Última atualização: 15/09/2026
 
 ### Adicionado
 
@@ -146,6 +146,14 @@
 * Atualização visual do tabuleiro após a remoção de uma jogada.
 * Tratamento de tentativas de remoção de casas fixas.
 * Tratamento de tentativas de remoção de casas sem jogada do jogador.
+* Modo de candidatos integrado à interface JavaFX.
+* Inclusão e remoção de candidatos através da interface gráfica.
+* Representação visual dos candidatos em grade 3×3.
+* Atualização visual dos candidatos a partir do estado atual do domínio.
+* Tratamento de tentativas de utilização de candidatos em casas fixas ou preenchidas.
+* Tratamento de candidatos inválidos pela interface JavaFX.
+* Tratamento de operações de candidato sem casa selecionada.
+* Preservação da funcionalidade de candidatos na interface Console.
 
 ### Corrigido
 

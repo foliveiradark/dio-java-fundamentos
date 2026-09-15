@@ -1145,3 +1145,68 @@ A funcionalidade foi implementada sem buscar paridade funcional completa com o C
 Com a conclusão da US-021, o Sudoku possui uma nova operação funcional disponível pela interface JavaFX, mantendo a arquitetura preparada para a continuidade da evolução da aplicação desktop.
 
 A próxima evolução deverá ser definida a partir do Product Backlog, mantendo a abordagem incremental e evitando antecipar funcionalidades ou complexidade que ainda não sejam necessárias.
+
+---
+
+### 📅 15/09/2026
+
+## 🔄 Encerramento da Sprint 22
+
+### Entrega: US-022 — Utilizar candidatos pela interface JavaFX
+
+A Sprint 22 concluiu a integração da funcionalidade de candidatos à interface JavaFX.
+
+A funcionalidade de rascunhos, já existente no domínio desde a Sprint 17, passou a estar disponível também pela interface gráfica, permitindo ao jogador adicionar, remover e visualizar candidatos durante a resolução do Sudoku.
+
+A implementação reutilizou as operações existentes da aplicação e do domínio, mantendo `JogoSudoku` como ponto de orquestração e evitando a duplicação das regras de candidatos na JavaFX.
+
+### Aprendizados e constatações
+
+A Sprint reforçou a importância da arquitetura preparada nas Sprints anteriores.
+
+A interface JavaFX pôde incorporar uma funcionalidade já existente no domínio sem que fosse necessário transferir regras de negócio para a camada gráfica.
+
+Também foi reforçada a distinção entre **estado da interação** e **estado do domínio**. A seleção de uma casa pertence à interação da interface, enquanto as regras relacionadas à possibilidade de adicionar ou remover candidatos permanecem protegidas pelo domínio.
+
+Outro aprendizado importante foi a utilização de `InterfaceApresentacao` para fornecer feedback de erros à JavaFX. Essa abordagem permitiu tratar situações de interação, como a ausência de uma casa selecionada, sem acoplar o Controller diretamente à implementação concreta da interface.
+
+### Validações realizadas
+
+A US-022 foi validada através de cenários envolvendo:
+
+* inclusão e remoção de candidatos;
+* utilização de múltiplos candidatos;
+* conversão de uma casa com candidatos para uma jogada definitiva;
+* rejeição de operações em casas preenchidas ou fixas;
+* rejeição de valores inválidos;
+* recuperação após operações inválidas;
+* ausência de seleção;
+* regressão das jogadas definitivas;
+* regressão da remoção de jogadas;
+* preservação da funcionalidade de candidatos no Console.
+
+Todos os critérios de aceitação da US-022 foram validados com sucesso.
+
+### Code Review
+
+O Code Review confirmou a manutenção da separação entre interface, aplicação e domínio.
+
+Não foram identificadas alterações arquiteturais necessárias para a conclusão da User Story e nenhuma nova ADR foi criada.
+
+### Resultado
+
+A Sprint 22 atingiu seu objetivo principal: a funcionalidade de candidatos passou a fazer parte da experiência JavaFX sem alterar as regras existentes do Sudoku.
+
+A evolução da interface gráfica passa a contemplar:
+
+```text
+Primeiro vertical slice JavaFX
+        ↓
+Inserção de jogadas
+        ↓
+Remoção de jogadas
+        ↓
+Utilização de candidatos
+```
+
+A implementação mantém a estratégia de evolução incremental adotada pelo projeto e prepara a interface para as próximas funcionalidades previstas no Product Backlog.

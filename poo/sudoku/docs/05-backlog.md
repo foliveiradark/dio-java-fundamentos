@@ -418,7 +418,7 @@ Para registrar e ajustar possibilidades durante a resolução do Sudoku.
 
 Prioridade: 🔴 Alta
 
-Status: ⏳ Backlog
+Status: ✅ Concluído
 
 ---
 
@@ -513,7 +513,7 @@ gráfica JavaFX, incorporando funcionalidades já existentes no domínio e na
 interface Console.
 
 As próximas evoluções estão registradas e priorizadas no Product Backlog,
-a partir da US-021.
+a partir da US-023.
 
 ---
 

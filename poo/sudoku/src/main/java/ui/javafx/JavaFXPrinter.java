@@ -314,15 +314,11 @@ public class JavaFXPrinter implements InterfaceApresentacao {
 
     @Override
     public void exibirCandidatoAdicionado(int candidato) {
-        throw new UnsupportedOperationException(
-                "Ainda não implementado na interface JavaFX."
-        );
+
     }
 
     @Override
     public void exibirCandidatoRemovido(int candidato) {
-        throw new UnsupportedOperationException(
-                "Ainda não implementado na interface JavaFX."
-        );
+
     }
 }

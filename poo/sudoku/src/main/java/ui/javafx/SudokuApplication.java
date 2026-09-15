@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -59,7 +60,7 @@ public class SudokuApplication extends Application {
 
         printer.exibirTabuleiro(jogo.getTabuleiro());
 
-        JavaFXController controller = new JavaFXController(jogo);
+        JavaFXController controller = new JavaFXController(jogo, printer);
 
         printer.configurarClique(controller::selecionarCasa);
 
@@ -80,10 +81,19 @@ public class SudokuApplication extends Application {
             controller.removerJogada();
         });
 
+        ToggleButton alternarCandidato = new ToggleButton("✏️");
+
+        alternarCandidato.setOnAction(event -> {
+
+            controller.alternarModoCandidato();
+
+        });
+
         content.getChildren().addAll(
                 title,
                 boardContainer,
                 numberInput,
+                alternarCandidato,
                 removeButton
         );
 
