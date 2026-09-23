@@ -1210,3 +1210,75 @@ Utilização de candidatos
 ```
 
 A implementação mantém a estratégia de evolução incremental adotada pelo projeto e prepara a interface para as próximas funcionalidades previstas no Product Backlog.
+
+---
+
+### 📅 23/09/2026
+
+## 🔄 Encerramento da Sprint 23
+
+### Entrega: US-023 — Limpar jogadas pela interface JavaFX
+
+A Sprint 23 concluiu a integração da funcionalidade de limpeza de jogadas à interface JavaFX.
+
+A operação passou a permitir que o jogador remova as jogadas definitivas realizadas durante a partida, preservando os números fixos e os candidatos existentes.
+
+A implementação reutilizou a regra de limpeza já existente no domínio e manteve `JogoSudoku` como ponto de orquestração entre a interface e o domínio.
+
+### Aprendizados e constatações
+
+A Sprint reforçou a importância de identificar corretamente onde cada responsabilidade deve permanecer.
+
+Durante a implementação, foi necessário distinguir entre uma casa vazia e uma casa que possui uma jogada definitiva realizada pelo jogador. Essa distinção levou à criação de `Casa.possuiJogada()` e `Tabuleiro.possuiJogadasParaLimpar()`, mantendo cada regra próxima da responsabilidade correspondente.
+
+Outro aprendizado foi a introdução dos testes automatizados com JUnit ao processo de desenvolvimento.
+
+Os primeiros testes foram aplicados às regras de domínio relacionadas à identificação de jogadas, permitindo validar comportamentos específicos de `Casa` e `Tabuleiro` de forma automatizada.
+
+A Sprint também reforçou a separação entre o estado da interação da interface e o estado do domínio. A seleção de uma célula pertence à interação JavaFX e não deve determinar se a operação de limpeza pode ou não ser executada.
+
+### Validações realizadas
+
+A US-023 foi validada através de cenários envolvendo:
+
+* início da limpeza pela interface JavaFX;
+* confirmação da operação;
+* cancelamento sem alteração do tabuleiro;
+* remoção das jogadas definitivas realizadas pelo jogador;
+* preservação das casas fixas;
+* preservação dos candidatos;
+* atualização da representação visual do tabuleiro;
+* funcionamento independente da célula atualmente selecionada;
+* regressão das operações de inserir e remover jogadas;
+* regressão da utilização de candidatos;
+* preservação do fluxo da interface Console.
+
+Também foi executada a validação automatizada com `mvn clean test`, totalizando 5 testes executados com sucesso.
+
+### Code Review
+
+O Code Review confirmou a integração da funcionalidade à arquitetura existente, mantendo a separação entre interface, aplicação e domínio.
+
+A implementação JavaFX não duplicou a regra de limpeza existente no domínio.
+
+Não foi identificada necessidade de criação de uma nova ADR.
+
+### Resultado
+
+A Sprint 23 atingiu seu objetivo: a operação de limpeza de jogadas passou a estar disponível na interface JavaFX sem alterar a semântica existente da funcionalidade.
+
+A evolução da interface gráfica passa a contemplar:
+
+```text
+Primeiro vertical slice JavaFX
+        ↓
+Inserção de jogadas
+        ↓
+Remoção de jogadas
+        ↓
+Utilização de candidatos
+        ↓
+Limpeza de jogadas
+```
+
+A introdução dos primeiros testes automatizados também estabelece uma nova etapa na evolução do processo de desenvolvimento, que poderá ser ampliada progressivamente nas próximas User Stories.

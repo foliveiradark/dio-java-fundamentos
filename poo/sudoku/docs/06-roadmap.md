@@ -144,6 +144,20 @@ A Fase 7 segue as decisões estabelecidas durante a US-019:
 * **Persistência:** independente da interface;
 * **Domínio:** independente da tecnologia de interação.
 
+### Evolução técnica durante a fase
+
+Além da evolução funcional da interface gráfica, as User Stories desta fase também
+estão sendo utilizadas para incorporar progressivamente novos conhecimentos e
+práticas ao processo de desenvolvimento.
+
+A introdução de testes automatizados com JUnit foi iniciada durante a US-023,
+começando pelos fundamentos e pela aplicação dos primeiros testes às regras do
+domínio do Sudoku.
+
+A partir dessa introdução, os testes automatizados passam progressivamente a
+fazer parte da validação das User Stories que possuírem comportamentos adequados
+para teste automatizado.
+
 ### Relação com o Product Backlog
 
 As próximas evoluções da Fase 7 serão representadas por User Stories

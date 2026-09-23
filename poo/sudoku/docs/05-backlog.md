@@ -432,7 +432,7 @@ Para remover minhas alterações e manter apenas os números fixos do tabuleiro.
 
 Prioridade: 🟠 Média
 
-Status: ⏳ Backlog
+Status: ✅ Concluído
 
 ---
 

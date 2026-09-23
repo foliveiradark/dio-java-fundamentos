@@ -139,23 +139,33 @@ public class JogoSudoku {
 
                 case 4 -> {
 
-                    interfaceApresentacao.exibirSolicitacaoLimparJogadas();
+                    boolean possuiJogadas = possuiJogadasParaLimpar();
 
-                    boolean desejaLimparJogadas = interfaceUsuario.lerConfirmacao();
+                    if (!possuiJogadas) {
 
-                    if (desejaLimparJogadas) {
+                        interfaceApresentacao.exibirInformacao("Não há jogadas definitivas para limpar.");
 
-                        interfaceApresentacao.exibirConfirmacaoLimparJogadas();
+                    } else {
 
-                        boolean confirmarLimpeza = interfaceUsuario.lerConfirmacao();
+                        interfaceApresentacao.exibirSolicitacaoLimparJogadas();
 
-                        if (confirmarLimpeza) {
+                        boolean desejaLimparJogadas = interfaceUsuario.lerConfirmacao();
 
-                            limparJogadas();
+                        if (desejaLimparJogadas) {
 
-                            interfaceApresentacao.exibirJogadasRemovidas();
+                            interfaceApresentacao.exibirConfirmacaoLimparJogadas();
+
+                            boolean confirmarLimpeza = interfaceUsuario.lerConfirmacao();
+
+                            if (confirmarLimpeza) {
+
+                                limparJogadas();
+
+                                interfaceApresentacao.exibirJogadasRemovidas();
+                            }
                         }
                     }
+                    interfaceApresentacao.exibirTabuleiro(tabuleiro);
                 }
 
                 case 5 -> interfaceApresentacao.exibirStatusPartida(verificarStatusPartida());
@@ -314,11 +324,9 @@ public class JogoSudoku {
 
     }
 
-    private void limparJogadas() {
+    public void limparJogadas() {
 
         tabuleiro.limparJogadas();
-
-        interfaceApresentacao.exibirTabuleiro(tabuleiro);
 
     }
 
@@ -353,6 +361,16 @@ public class JogoSudoku {
 
         return new int[]{linha, coluna};
 
+    }
+
+    public boolean possuiJogadasParaLimpar() {
+
+        return tabuleiro.possuiJogadasParaLimpar();
+    }
+
+    public void apresentarTabuleiro() {
+
+        interfaceApresentacao.exibirTabuleiro(tabuleiro);
     }
 
 }

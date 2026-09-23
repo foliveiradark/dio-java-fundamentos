@@ -3,21 +3,20 @@ package ui.javafx;
 import enums.TipoJogada;
 import service.Jogada;
 import service.JogoSudoku;
-import ui.InterfaceApresentacao;
 
 public class JavaFXController {
 
     private final JogoSudoku jogo;
-    private final InterfaceApresentacao interfaceApresentacao;
+    private final JavaFXPrinter javaFXPrinter;
 
     private int linhaSelecionada = -1;
     private int colunaSelecionada = -1;
     private boolean modoCandidato = false;
 
     public JavaFXController(JogoSudoku jogo,
-                            InterfaceApresentacao interfaceApresentacao) {
+                            JavaFXPrinter javaFXPrinter) {
         this.jogo = jogo;
-        this.interfaceApresentacao = interfaceApresentacao;
+        this.javaFXPrinter = javaFXPrinter;
     }
 
     public void selecionarCasa(int linha, int coluna) {
@@ -25,10 +24,6 @@ public class JavaFXController {
         linhaSelecionada = linha;
         colunaSelecionada = coluna;
 
-        System.out.println(
-                "Casa selecionada: [" +
-                        linha + "," + coluna + "]"
-        );
     }
 
     public void alternarModoCandidato() {
@@ -41,7 +36,7 @@ public class JavaFXController {
 
         if (linhaSelecionada == -1 || colunaSelecionada == -1) {
 
-            interfaceApresentacao.exibirErro("Nenhuma casa selecionada.");
+            javaFXPrinter.exibirErro("Nenhuma casa selecionada.");
 
             return;
         }
@@ -74,7 +69,7 @@ public class JavaFXController {
 
         if (linhaSelecionada == -1 || colunaSelecionada == -1) {
 
-            interfaceApresentacao.exibirErro("Nenhuma casa selecionada.");
+            javaFXPrinter.exibirErro("Nenhuma casa selecionada.");
 
             return;
         }
@@ -84,4 +79,24 @@ public class JavaFXController {
                 colunaSelecionada
         );
     }
+
+    public void limparJogadas() {
+
+        if (!jogo.possuiJogadasParaLimpar()) {
+
+            javaFXPrinter.exibirInformacao("Não há jogadas definitivas para limpar.");
+
+            return;
+        }
+
+        boolean confirmouLimpeza = javaFXPrinter.confirmarLimpezaJogadas();
+
+        if (confirmouLimpeza) {
+
+            jogo.limparJogadas();
+
+            jogo.apresentarTabuleiro();
+        }
+    }
+
 }

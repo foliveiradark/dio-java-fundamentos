@@ -1,6 +1,6 @@
 ## [Não publicado]
 
-Última atualização: 15/09/2026
+Última atualização: 23/09/2026
 
 ### Adicionado
 
@@ -140,7 +140,7 @@
 * Integração da interface JavaFX com a orquestração existente em `JogoSudoku`.
 * Preservação das regras do Sudoku fora da camada de interface.
 * Preservação da interface Console após a introdução da interface gráfica.
-* Remoção de jogadas realizadas pelo jogador através da interface JavaFX.
+* Remoção de jogadas específicas realizadas pelo jogador através da interface JavaFX.
 * Botão Remover integrado à interface gráfica.
 * Encaminhamento da operação de remoção através do `JavaFXController` e `JogoSudoku`.
 * Atualização visual do tabuleiro após a remoção de uma jogada.
@@ -154,6 +154,15 @@
 * Tratamento de candidatos inválidos pela interface JavaFX.
 * Tratamento de operações de candidato sem casa selecionada.
 * Preservação da funcionalidade de candidatos na interface Console.
+* Limpeza de jogadas integrada à interface JavaFX.
+* Botão `Limpar Jogadas` adicionado à interface gráfica.
+* Confirmação antes da limpeza das jogadas.
+* Mensagem informativa quando não existem jogadas definitivas para limpar.
+* Remoção das jogadas realizadas pelo jogador através da interface JavaFX.
+* Preservação dos números fixos durante a limpeza.
+* Preservação dos candidatos durante a limpeza.
+* Atualização visual do tabuleiro após a limpeza.
+* Preservação do funcionamento da interface Console.
 
 ### Corrigido
 

@@ -11,6 +11,8 @@ public interface InterfaceApresentacao {
 
     void exibirErro(String mensagem);
 
+    void exibirInformacao(String mensagem);
+
     void exibirEncerramento();
 
     void exibirSolicitacaoRemocao();

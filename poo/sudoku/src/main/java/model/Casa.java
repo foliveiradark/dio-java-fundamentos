@@ -89,6 +89,11 @@ public class Casa {
 
     }
 
+    public boolean possuiJogada() {
+
+        return !isFixa() && !estaVazia();
+    }
+
     public boolean alternarCandidato(Integer candidato) {
 
         if (isFixa()) {

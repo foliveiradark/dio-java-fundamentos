@@ -114,6 +114,22 @@ public class Tabuleiro {
         return false;
     }
 
+    public boolean possuiJogadasParaLimpar() {
+
+        for (int linha = LIMITE_MINIMO; linha < TAMANHO; linha++) {
+
+            for(int coluna = LIMITE_MINIMO; coluna < TAMANHO; coluna++) {
+
+                Casa casa = getCasa(linha, coluna);
+
+                if (casa.possuiJogada()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     private boolean possuiErroNaLinha(int linha) {
 
         List<Integer> numerosDaLinha = new ArrayList<>();
@@ -249,7 +265,7 @@ public class Tabuleiro {
 
                 Casa casa = getCasa(linha, coluna);
 
-                if (!casa.isFixa() && !casa.estaVazia()) {
+                if (casa.possuiJogada()) {
 
                     casa.removerNumero();
                 }

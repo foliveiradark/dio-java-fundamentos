@@ -3,12 +3,15 @@ package ui.javafx;
 import enums.StatusPartida;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import model.Casa;
 import model.Tabuleiro;
 import ui.InterfaceApresentacao;
+
+import java.util.Optional;
 import java.util.function.BiConsumer;
 
 public class JavaFXPrinter implements InterfaceApresentacao {
@@ -59,7 +62,7 @@ public class JavaFXPrinter implements InterfaceApresentacao {
             return;
         }
 
-        for (var node: board.getChildren()) {
+        for (var node : board.getChildren()) {
 
             int coluna = GridPane.getColumnIndex(node);
             int linha = GridPane.getRowIndex(node);
@@ -91,7 +94,7 @@ public class JavaFXPrinter implements InterfaceApresentacao {
 
         if (!casa.estaVazia()) {
 
-            adicionarNumero(cell,casa);
+            adicionarNumero(cell, casa);
         } else {
 
             adicionarCandidatos(cell, casa);
@@ -223,6 +226,7 @@ public class JavaFXPrinter implements InterfaceApresentacao {
         cell.getChildren().add(candidateGrid);
     }
 
+    //Mensagens
     @Override
     public void exibirStatusPartida(StatusPartida status) {
         throw new UnsupportedOperationException(
@@ -240,6 +244,37 @@ public class JavaFXPrinter implements InterfaceApresentacao {
         alert.setContentText(mensagem);
 
         alert.showAndWait();
+    }
+
+    @Override
+    public void exibirInformacao(String mensagem) {
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+        alert.setTitle("Informação");
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+
+        alert.showAndWait();
+    }
+
+    public boolean confirmarLimpezaJogadas() {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+        alert.setTitle("Confirmação");
+        alert.setHeaderText(null);
+        alert.setContentText("Tem certeza que deseja limpar todas as jogadas?");
+
+        Optional<ButtonType> resultado = alert.showAndWait();
+
+        if (resultado.isPresent()) {
+
+            ButtonType botao = resultado.get();
+
+            return botao == ButtonType.OK;
+        }
+        return false;
     }
 
     @Override
@@ -307,9 +342,7 @@ public class JavaFXPrinter implements InterfaceApresentacao {
 
     @Override
     public void exibirConfirmacaoLimparJogadas() {
-        throw new UnsupportedOperationException(
-                "Ainda não implementado na interface JavaFX."
-        );
+
     }
 
     @Override

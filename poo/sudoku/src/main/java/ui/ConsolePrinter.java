@@ -195,6 +195,12 @@ public class ConsolePrinter implements InterfaceApresentacao {
     }
 
     @Override
+    public void exibirInformacao(String mensagem) {
+
+        System.out.println(mensagem);
+    }
+
+    @Override
     public void exibirSolicitacaoRemocao() {
 
         System.out.print("Deseja remover o número? (S/N): ");
