@@ -2,6 +2,7 @@ package ui.javafx;
 
 import enums.StatusPartida;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
@@ -229,9 +230,21 @@ public class JavaFXPrinter implements InterfaceApresentacao {
     //Mensagens
     @Override
     public void exibirStatusPartida(StatusPartida status) {
-        throw new UnsupportedOperationException(
-                "Ainda não implementado na interface JavaFX."
-        );
+
+        switch (status) {
+
+            case INCOMPLETA:
+                exibirInformacao("A partida ainda está incompleta.");
+                break;
+
+            case COMPLETA_INVALIDA:
+                exibirErro("O Sudoku possui erros.");
+                break;
+
+            case COMPLETA_VALIDA:
+                exibirInformacao("Parabéns! Sudoku concluído.");
+                break;
+        }
     }
 
     @Override
@@ -279,9 +292,36 @@ public class JavaFXPrinter implements InterfaceApresentacao {
 
     @Override
     public void exibirEncerramento() {
-        throw new UnsupportedOperationException(
-                "Ainda não implementado na interface JavaFX."
-        );
+
+
+
+    }
+
+    public boolean exibirDialogoConclusao() {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+        ButtonType sair = new ButtonType("Sair");
+
+        ButtonType novaPartida = new ButtonType("Nova partida");
+
+        alert.getButtonTypes().setAll(sair, novaPartida);
+
+        alert.setContentText("Parabéns! Sudoku concluído.");
+
+        Node botaoNovaPartida = alert.getDialogPane().lookupButton(novaPartida);
+
+        botaoNovaPartida.setDisable(true);
+
+        Optional<ButtonType> resultado = alert.showAndWait();
+
+        if (resultado.isPresent()) {
+
+           return resultado.get() == sair;
+
+        }
+        return false;
+
     }
 
     @Override

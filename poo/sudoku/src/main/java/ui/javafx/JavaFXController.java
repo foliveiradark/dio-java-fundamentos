@@ -1,6 +1,8 @@
 package ui.javafx;
 
+import enums.StatusPartida;
 import enums.TipoJogada;
+import javafx.stage.Stage;
 import service.Jogada;
 import service.JogoSudoku;
 
@@ -8,15 +10,18 @@ public class JavaFXController {
 
     private final JogoSudoku jogo;
     private final JavaFXPrinter javaFXPrinter;
+    private final Stage stage;
 
     private int linhaSelecionada = -1;
     private int colunaSelecionada = -1;
     private boolean modoCandidato = false;
 
     public JavaFXController(JogoSudoku jogo,
-                            JavaFXPrinter javaFXPrinter) {
+                            JavaFXPrinter javaFXPrinter,
+                            Stage stage) {
         this.jogo = jogo;
         this.javaFXPrinter = javaFXPrinter;
+        this.stage = stage;
     }
 
     public void selecionarCasa(int linha, int coluna) {
@@ -58,11 +63,27 @@ public class JavaFXController {
                 tipoJogada
         );
 
-        jogo.executarJogada(
+
+        boolean jogadaExecutada = jogo.executarJogada(
                 linhaSelecionada,
                 colunaSelecionada,
                 jogada
         );
+
+        if (jogadaExecutada && tipoJogada == TipoJogada.DEFINITIVA) {
+
+            StatusPartida status = jogo.consultarStatusPartida();
+
+            if (status == StatusPartida.COMPLETA_VALIDA) {
+
+                boolean confirmaSaida = javaFXPrinter.exibirDialogoConclusao();
+
+                if (confirmaSaida) {
+
+                    stage.close();
+                }
+            }
+        }
     }
 
     public void removerJogada() {
@@ -97,6 +118,26 @@ public class JavaFXController {
 
             jogo.apresentarTabuleiro();
         }
+    }
+
+    public void verificarStatusPartida() {
+
+        StatusPartida status = jogo.consultarStatusPartida();
+
+        if (status == StatusPartida.COMPLETA_VALIDA) {
+
+            boolean confirmaSaida = javaFXPrinter.exibirDialogoConclusao();
+
+            if (confirmaSaida) {
+
+                stage.close();
+            }
+
+        } else {
+
+            javaFXPrinter.exibirStatusPartida(status);
+        }
+
     }
 
 }

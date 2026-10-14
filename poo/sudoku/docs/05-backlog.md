@@ -446,7 +446,7 @@ Para concluir o Sudoku quando ele estiver corretamente resolvido.
 
 Prioridade: 🟠 Média
 
-Status: ⏳ Backlog
+Status: ✅ Concluído
 
 ---
 
@@ -508,12 +508,9 @@ Status: ⏳ Backlog
 
 # Próximas Evoluções Planejadas
 
-A próxima etapa do projeto consiste na ampliação progressiva da interface
-gráfica JavaFX, incorporando funcionalidades já existentes no domínio e na
-interface Console.
+A próxima etapa do projeto consiste na ampliação progressiva da interface gráfica JavaFX, incorporando funcionalidades já existentes no domínio e na interface Console.
 
-As próximas evoluções estão registradas e priorizadas no Product Backlog,
-a partir da US-023.
+As próximas evoluções estão registradas e priorizadas no Product Backlog, a partir da US-025.
 
 ---
 

@@ -1,6 +1,8 @@
+# CHANGELOG
+
 ## [Não publicado]
 
-Última atualização: 23/09/2026
+Última atualização: 14/10/2026
 
 ### Adicionado
 
@@ -13,7 +15,7 @@
 - Primeiro tabuleiro oficial.
 - Carregamento automático do tabuleiro.
 
-#### Interface
+#### Interface Console
 
 - Camada de interface (`ui`).
 - Classe `ConsolePrinter`.
@@ -23,7 +25,7 @@
 - Separação visual dos blocos 3×3.
 - Identificação das linhas (A–I).
 - Identificação das colunas (1–9).
-- Refinamento visual completo da impressão do tabuleiro.
+- Refinamento visual da impressão do tabuleiro.
 - Utilização de caracteres Unicode para delimitação dos blocos 3×3.
 - Identificação das colunas também no rodapé do tabuleiro.
 - Identificação das linhas no lado direito do tabuleiro.
@@ -64,14 +66,6 @@
 - Confirmação antes da limpeza.
 - Reimpressão automática do tabuleiro após a limpeza.
 - Mensagem de confirmação após a remoção das jogadas.
-
-#### Finalização da partida
-
-- Encerramento automático da partida quando o Sudoku é concluído corretamente.
-- Exibição de mensagem de conclusão ao jogador.
-- Retorno automático ao Menu Principal após o encerramento.
-- Bloqueio de novas jogadas após o término da partida.
-- Reutilização da verificação de `StatusPartida` para determinar o encerramento.
 
 #### Validação de entradas
 
@@ -115,56 +109,79 @@
 - Novo tipo de jogada para diferenciar números definitivos e candidatos.
 - Apresentação visual dos candidatos em uma grade interna 3×3.
 - Feedback ao jogador para inclusão e remoção de candidatos.
-- Integração do sistema de rascunhos ao fluxo da partida.
+- Integração do sistema de rascunhos ao fluxo da aplicação.
 - Validação das regras de consistência entre candidatos e números definitivos.
 
 #### Persistência e continuidade da partida
 
-* Persistência do estado da partida.
-* Restauração de uma partida previamente salva.
-* Continuação da partida a partir do estado persistido.
-* Integração da persistência ao fluxo da aplicação.
-* Preservação do estado do tabuleiro durante o salvamento e carregamento.
+- Persistência do estado da partida.
+- Restauração de uma partida previamente salva.
+- Continuação da partida a partir do estado persistido.
+- Integração da persistência ao fluxo da aplicação.
+- Preservação do estado do tabuleiro durante o salvamento e carregamento.
 
 #### Interface gráfica JavaFX
 
-* Configuração do Maven como sistema de build do projeto.
-* Configuração das dependências JavaFX.
-* Criação da aplicação JavaFX.
-* Primeira interface gráfica desktop do Sudoku.
-* Apresentação gráfica do tabuleiro.
-* Seleção de casas através da interface gráfica.
-* Inserção de números através da interface JavaFX.
-* Atualização visual do tabuleiro após uma jogada.
-* Primeiro vertical slice jogável da aplicação.
-* Integração da interface JavaFX com a orquestração existente em `JogoSudoku`.
-* Preservação das regras do Sudoku fora da camada de interface.
-* Preservação da interface Console após a introdução da interface gráfica.
-* Remoção de jogadas específicas realizadas pelo jogador através da interface JavaFX.
-* Botão Remover integrado à interface gráfica.
-* Encaminhamento da operação de remoção através do `JavaFXController` e `JogoSudoku`.
-* Atualização visual do tabuleiro após a remoção de uma jogada.
-* Tratamento de tentativas de remoção de casas fixas.
-* Tratamento de tentativas de remoção de casas sem jogada do jogador.
-* Modo de candidatos integrado à interface JavaFX.
-* Inclusão e remoção de candidatos através da interface gráfica.
-* Representação visual dos candidatos em grade 3×3.
-* Atualização visual dos candidatos a partir do estado atual do domínio.
-* Tratamento de tentativas de utilização de candidatos em casas fixas ou preenchidas.
-* Tratamento de candidatos inválidos pela interface JavaFX.
-* Tratamento de operações de candidato sem casa selecionada.
-* Preservação da funcionalidade de candidatos na interface Console.
-* Limpeza de jogadas integrada à interface JavaFX.
-* Botão `Limpar Jogadas` adicionado à interface gráfica.
-* Confirmação antes da limpeza das jogadas.
-* Mensagem informativa quando não existem jogadas definitivas para limpar.
-* Remoção das jogadas realizadas pelo jogador através da interface JavaFX.
-* Preservação dos números fixos durante a limpeza.
-* Preservação dos candidatos durante a limpeza.
-* Atualização visual do tabuleiro após a limpeza.
-* Preservação do funcionamento da interface Console.
+**Estrutura e integração arquitetural**
+
+- Configuração do Maven como sistema de build do projeto.
+- Configuração das dependências JavaFX.
+- Criação da aplicação JavaFX.
+- Primeira interface gráfica desktop do Sudoku.
+- Apresentação gráfica do tabuleiro.
+- Seleção de casas através da interface gráfica.
+- Integração da interface JavaFX com a orquestração existente em `JogoSudoku`.
+- Primeiro vertical slice jogável da aplicação.
+- Preservação das regras do Sudoku fora da camada de interface.
+- Preservação da interface Console após a introdução da interface gráfica.
+
+**Inserção e remoção de jogadas — US-020 e US-021**
+
+- Inserção de números através da interface JavaFX.
+- Atualização visual do tabuleiro após uma jogada.
+- Remoção de jogadas específicas realizadas pelo jogador através da interface JavaFX.
+- Botão `Remover` integrado à interface gráfica.
+- Encaminhamento da operação de remoção através do `JavaFXController` e `JogoSudoku`.
+- Atualização visual do tabuleiro após a remoção de uma jogada.
+- Tratamento de tentativas de remoção de casas fixas.
+- Tratamento de tentativas de remoção de casas sem jogada do jogador.
+
+**Sistema de candidatos — US-022**
+
+- Modo de candidatos integrado à interface JavaFX.
+- Inclusão e remoção de candidatos através da interface gráfica.
+- Representação visual dos candidatos em grade 3×3.
+- Atualização visual dos candidatos a partir do estado atual do domínio.
+- Tratamento de tentativas de utilização de candidatos em casas fixas ou preenchidas.
+- Tratamento de candidatos inválidos pela interface JavaFX.
+- Tratamento de operações de candidato sem casa selecionada.
+- Preservação da funcionalidade de candidatos na interface Console.
+
+**Limpeza das jogadas — US-023**
+
+- Limpeza de jogadas integrada à interface JavaFX.
+- Botão `Limpar Jogadas` adicionado à interface gráfica.
+- Confirmação antes da limpeza das jogadas.
+- Mensagem informativa quando não existem jogadas definitivas para limpar.
+- Remoção das jogadas realizadas pelo jogador através da interface JavaFX.
+- Preservação dos números fixos durante a limpeza.
+- Preservação dos candidatos durante a limpeza.
+- Atualização visual do tabuleiro após a limpeza.
+- Preservação do funcionamento da interface Console.
+
+**Finalização da partida — US-024**
+
+- Consulta manual do status da partida pela interface JavaFX.
+- Verificação automática do status após uma jogada definitiva.
+- Apresentação de mensagens para partidas incompletas e completas com erros.
+- Exibição de diálogo de conclusão quando o Sudoku é resolvido corretamente.
+- Opção para encerrar a aplicação pelo diálogo de conclusão.
+- Opção `Nova partida` apresentada, mas desabilitada; a criação de uma nova partida permanece fora do escopo.
+- Reutilização da consulta de `StatusPartida` disponibilizada por `JogoSudoku`.
+- Preservação da separação entre apresentação JavaFX, orquestração da aplicação e regras do domínio.
 
 ### Corrigido
 
 - Correção do método `obterTabuleiroInicial()`, que retornava `null`.
-- Correção da apresentação indevida da mensagem` Jogada removida` no Console após tentativas inválidas de remoção.
+- Correção da apresentação indevida da mensagem `Jogada removida` no Console após tentativas inválidas de remoção.
+- Correção do fluxo de verificação automática do status da partida na interface JavaFX, evitando a consulta após uma jogada definitiva rejeitada.

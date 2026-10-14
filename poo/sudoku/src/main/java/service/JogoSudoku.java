@@ -265,9 +265,10 @@ public class JogoSudoku {
         }
     }
 
-    public void executarJogada (int linha,
-                                 int coluna,
-                                 Jogada jogada) {
+
+    public boolean executarJogada(int linha,
+                                  int coluna,
+                                  Jogada jogada) {
 
         try {
 
@@ -294,12 +295,16 @@ public class JogoSudoku {
 
             interfaceApresentacao.exibirTabuleiro(tabuleiro);
 
+            return true;
+
         } catch (IllegalArgumentException e) {
 
             interfaceApresentacao.exibirErro(e.getMessage());
-        }
 
+            return false;
+        }
     }
+
 
     public boolean removerJogada(int linha,
                                int coluna) {
@@ -347,6 +352,12 @@ public class JogoSudoku {
         }
 
         return StatusPartida.COMPLETA_VALIDA;
+
+    }
+
+    public StatusPartida consultarStatusPartida() {
+
+        return verificarStatusPartida();
 
     }
 

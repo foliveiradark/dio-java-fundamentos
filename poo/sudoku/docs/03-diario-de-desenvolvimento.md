@@ -1282,3 +1282,79 @@ Limpeza de jogadas
 ```
 
 A introdução dos primeiros testes automatizados também estabelece uma nova etapa na evolução do processo de desenvolvimento, que poderá ser ampliada progressivamente nas próximas User Stories.
+
+---
+
+### 📅 14/10/2026
+
+## 🔄 Encerramento da Sprint 24
+
+### Entrega: US-024 — Finalizar partida pela interface JavaFX
+
+A Sprint 24 concluiu a integração da funcionalidade de finalização da partida à interface JavaFX.
+
+A implementação passou a permitir a consulta manual do status do Sudoku e a verificação automática após uma jogada definitiva. Quando o tabuleiro está completo e válido, a interface apresenta um diálogo de conclusão, oferecendo a opção de encerrar a aplicação.
+
+A opção `Nova partida` permanece desabilitada, pois a criação de uma nova partida a partir do diálogo não faz parte do escopo desta User Story.
+
+A implementação reutilizou a verificação de status disponibilizada por `JogoSudoku`, preservando a separação entre a interface JavaFX, a orquestração da aplicação e as regras do domínio.
+
+### Aprendizados e constatações
+
+A Sprint reforçou a importância de distinguir a verificação do estado do domínio da apresentação desse estado ao jogador.
+
+A identificação de uma partida incompleta, completa com erros ou completa e válida permanece sob responsabilidade de `JogoSudoku`. A interface JavaFX consulta esse resultado e decide como apresentá-lo, sem duplicar as regras de validação do Sudoku.
+
+Outro aprendizado foi a importância de testar os diferentes estados da partida de forma independente. Os testes automatizados de `JogoSudokuTest` passaram a contemplar os cenários de partida incompleta, completa válida e completa inválida.
+
+A Sprint também evidenciou a necessidade de diferenciar a consulta manual do status da verificação automática após uma jogada definitiva, garantindo que os dois fluxos utilizem a mesma regra de domínio.
+
+### Validações realizadas
+
+A US-024 foi validada por meio de testes automatizados, verificações manuais e revisão do código, contemplando:
+
+- identificação de uma partida incompleta;
+- identificação de uma partida completa com erros;
+- identificação de uma partida completa e válida por meio dos testes automatizados;
+- consulta manual do status pela interface JavaFX;
+- verificação automática após uma jogada definitiva;
+- apresentação do diálogo de conclusão quando o Sudoku é resolvido corretamente;
+- encerramento da aplicação pela opção `Sair`;
+- apresentação da opção `Nova partida` desabilitada;
+- preservação do comportamento das operações de candidatos, inserção, remoção e limpeza nos cenários executados;
+- preservação do fluxo da interface Console nos cenários verificados.
+- verificação de que uma jogada definitiva rejeitada não dispara a consulta automática do status da partida;
+
+A execução de `mvn clean test` foi concluída com sucesso, totalizando 8 testes aprovados, sem falhas ou erros.
+
+### Code Review
+
+O Code Review confirmou a integração da funcionalidade à arquitetura existente, mantendo `JogoSudoku` como responsável pela orquestração e pela consulta do status da partida.
+
+A interface JavaFX reutiliza o resultado da verificação realizada pela aplicação, preservando a separação de responsabilidades e evitando a duplicação das regras do domínio.
+
+Não foi identificada necessidade de criação de uma nova ADR para a entrega.
+
+Durante a revisão técnica, foi identificado que uma jogada definitiva rejeitada poderia provocar uma consulta automática desnecessária do status da partida. O método `JogoSudoku.executarJogada()` passou a retornar um valor booleano para indicar o resultado da operação, permitindo que `JavaFXController` condicione a consulta automática ao sucesso da jogada e ao tipo `DEFINITIVA`. A alteração foi validada com a suíte automatizada e por verificação manual, sem falhas identificadas nos cenários executados.
+
+### Resultado
+
+A Sprint 24 atingiu seu objetivo: a interface JavaFX passou a oferecer consulta manual do status e reconhecimento automático da conclusão válida do Sudoku após uma jogada definitiva.
+
+A evolução da interface gráfica passa a contemplar:
+
+```text
+Primeiro vertical slice JavaFX
+        ↓
+Inserção de jogadas
+        ↓
+Remoção de jogadas
+        ↓
+Utilização de candidatos
+        ↓
+Limpeza de jogadas
+        ↓
+Finalização da partida
+```
+
+A entrega também ampliou a cobertura de testes automatizados e reforçou a reutilização das regras de domínio pela interface gráfica.

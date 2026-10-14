@@ -72,7 +72,7 @@ public class SudokuApplication extends Application {
 
         printer.exibirTabuleiro(jogo.getTabuleiro());
 
-        JavaFXController controller = new JavaFXController(jogo, printer);
+        JavaFXController controller = new JavaFXController(jogo, printer, stage);
 
         printer.configurarClique(controller::selecionarCasa);
 
@@ -97,6 +97,10 @@ public class SudokuApplication extends Application {
 
         limparJogadasButton.setOnAction(event -> controller.limparJogadas());
 
+        Button statusJogadasButton = new Button("Status");
+
+        statusJogadasButton.setOnAction(event -> controller.verificarStatusPartida());
+
         ToggleButton alternarCandidato = new ToggleButton("✏️");
 
         alternarCandidato.setOnAction(event -> controller.alternarModoCandidato());
@@ -114,7 +118,8 @@ public class SudokuApplication extends Application {
         //HBOX RECEBE OS BOTÕES HORIZONTALMENTE
         acoesPartida.getChildren().addAll(
                 limparJogadasButton,
-                removeButton
+                removeButton,
+                statusJogadasButton
         );
 
         //CONFIGURAÇÃO DA JANELA
